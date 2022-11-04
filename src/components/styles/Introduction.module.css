@@ -1,0 +1,14 @@
+.title {
+    font-size: 40px !important;
+    font-family: Noto Serif !important;
+    color: #244150;
+    font-weight: 800 !important;
+    text-shadow: 0px 4px 3px #c0c0c0;
+}
+
+.subtitle2 {
+    font-family: Noto Serif !important;
+    color: #244150;
+    font-weight: 900 !important;
+    font-size: 24px !important;
+}

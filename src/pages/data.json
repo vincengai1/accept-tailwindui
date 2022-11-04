@@ -1,0 +1,110 @@
+{
+    "data" : [
+        {
+            "id": "1",
+            "title": "Introduction",
+            "description": "What can I expect from the informed consent process?",
+            "timeFrame": "10 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Introduction page"
+        },
+        {
+            "id": "2",
+            "title": "Purpose of Trial",
+            "description": "What is being tested in this trial, and why?",
+            "timeFrame": "8 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Purpose page"
+
+        },
+        {
+            "id": "3",
+            "title": "Trial Logistics",
+            "description": "What will I experience if I choose to join the trial?",
+            "timeFrame": "20 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Logistics page"
+
+        },
+        {
+            "id": "4",
+            "title": "Risks",
+            "description": "What are the potential side effects and risks?",
+            "timeFrame": "30 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Risks page"
+
+        },
+        {
+            "id": "5",
+            "title": "Benefits",
+            "description": "What could I get out of participating?",
+            "timeFrame": "5 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Benefits page"
+            
+        },
+        {
+            "id": "6",
+            "title": "Data + Privacy",
+            "description": "How will my personal information be used and protected?",
+            "timeFrame": "15 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Data + Privacy page"
+
+        },
+        {
+            "id": "7",
+            "title": "Changes",
+            "description": "What happens if something changes during the trial?",
+            "timeFrame": "5 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Changes page"
+
+        },
+        {
+            "id": "8",
+            "title": "Withdrawal",
+            "description": "What happens if I want to quit the trial?",
+            "timeFrame": "5 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Withdrawal page"
+        },
+        {
+            "id": "9",
+            "title": "Learn More",
+            "description": "How do I find out more about the trial?",
+            "timeFrame": "8 minute read",
+            "audio": {
+                "src":"https://their-side-feed.vercel.app/episode-005.mp3",
+                "type": "audio/mpeg"
+            },
+            "content": "This is the Learn More page"
+
+        }
+    ]
+}
