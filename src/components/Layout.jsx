@@ -1,15 +1,15 @@
 import { Fragment, useEffect, useId, useState } from 'react'
 import Image from 'next/future/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import { AudioPlayer } from '@/components/player/AudioPlayer'
 import posterImage from '@/images/poster.png'
 import AcceptImage from '@/images/header.png'
 
-import { useRouter } from 'next/router'
+import {useSelector, useDispatch} from 'react-redux';
 
 import LanguageDropDown from './LanguageDropDown'
+import { useRouter } from 'next/router';
 
 function randomBetween(min, max, seed = 1) {
   return () => {
@@ -18,9 +18,6 @@ function randomBetween(min, max, seed = 1) {
     return Math.floor(rand * (max - min + 1) + min)
   }
 }
-
-//  Right side of the menu 
-//  
 
 function Waveform(props) {
   let id = useId()
@@ -95,7 +92,6 @@ function TinyWaveFormIcon({ colors = [], ...props }) {
   )
 }
 
-
 function PersonIcon(props) {
   return (
     <svg aria-hidden="true" viewBox="0 0 11 12" {...props}>
@@ -104,140 +100,66 @@ function PersonIcon(props) {
   )
 }
 
-function AboutSection(props) {
-  let [isExpanded, setIsExpanded] = useState(false)
-
-  return (
-    <section {...props}>
-      <h2 className="flex items-center font-mono text-sm font-medium leading-7 text-slate-900">
-        <TinyWaveFormIcon
-          colors={['fill-violet-300', 'fill-pink-300']}
-          className="h-2.5 w-2.5"
-        />
-        <span className="ml-2.5 font-bold">Key Things to Know About This Trial</span>
-      </h2>
-      <p
-        className={clsx(
-          'mt-2 text-base leading-7 text-slate-700',
-          !isExpanded && 'lg:line-clamp-4'
-        )}
-      >
-        <b>Purpose:</b> DESTINY-Breast07 will investigate the safety, tolerability, and anti-tumour activity of trastuzumab deruxtecan (T-DXd) in combination with other anti-cancer agents in patients with HER2-positive Metastatic Breast Cancer.
-        <br/><br/><b>Potential benefit:</b> Improve outcomes for future patients
-      </p>
-      {!isExpanded && (
-        <button
-          type="button"
-          className="mt-2 hidden text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900 lg:inline-block"
-          onClick={() => setIsExpanded(true)}
-        >
-          Show more
-        </button>
-      )}
-    </section>
-  )
-}
-
 export function Layout({ children }) {
-  let hosts = ['AstraZeneca', 'Accept App']
-  let [isExpanded, setIsExpanded] = useState(false)
-  let [language, setLanguage] = useState('');
+  let hosts = ['AstraZeneca', 'Accept App'];
+  let [lang, setLang] = useState("");
+  let [aboutContent, setAboutContent] = useState("");
   let router = useRouter();
-  let currentLanguage = router.asPath;
 
-  const [aboutSection, setAboutSection] = useState("")
+  const targetLanguage = useSelector((state) => state.language.language);
 
 
-  async function dataToTranslate(sourceLanguage, targetLanguage) {
-    setLanguage(targetLanguage)
-
-    const response = await fetch('https://api2.binance.com/api/v3/ticker/24hr', {
-        method: 'GET',
-        // method: 'POST,
-        mode: 'cors',
-        // body: {
-        //   text: {renderAboutSection},
-        //   SourceLanguageCode: {sourceLanguage},
-        //   TargetLanguageCode: {targetLanguage}
-        // }
-    });
+ useEffect( () => {
+  if (targetLanguage !== "" ) {
+    translateSection('en', targetLanguage);
   
-    const json = await response.json();
-    return json; 
-    // return and convert back to HTML to render? 
+  } else if (router.asPath.slice(12)) {
+    translateSection('en', router.asPath.slice(12));
+  } else if (targetLanguage == "") {
+    setAboutContent(aboutSection);
+  }
+ }, [targetLanguage])
+
+ const targetLanguageChange = (lang) => {
+    setLang(lang)
+    console.log(lang, 'the langauge being passed up and state updating')
+ };
+
+  async function translateSection(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=en\&targetLanguageCode=${targetLanguage}`;
+
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: aboutSection
+  });
+
+  const res = await response;
+      res.text().then(body => setAboutContent(body))  
   }
 
-  // console.log(typeof aboutSection === 'string', 'true or false')
-  // const aboutSection = 
-  //   <section>
-  //         <h2 className="flex items-center font-mono text-sm font-medium leading-7 text-slate-900">
-  //           <TinyWaveFormIcon
-  //             colors={['fill-violet-300', 'fill-pink-300']}
-  //             className="h-2.5 w-2.5"
-  //           />
-  //           <span className="ml-2.5 font-bold">Key Things to Know About This Trial</span>
-  //         </h2>
-  //         <p
-  //           className={clsx(
-  //             'mt-2 text-base leading-7 text-slate-700',
-  //             !isExpanded && 'lg:line-clamp-4'
-  //           )}
-  //         >
-  //           <b>Purpose:</b> DESTINY-Breast07 will investigate the safety, tolerability, and anti-tumour activity of trastuzumab deruxtecan (T-DXd) in combination with other anti-cancer agents in patients with HER2-positive Metastatic Breast Cancer.
-  //           <br/><br/><b>Potential benefit:</b> Improve outcomes for future patients
-  //         </p>
-  //         {!isExpanded && (
-  //           <button
-  //             type="button"
-  //             className="mt-2 hidden text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900 lg:inline-block"
-  //             onClick={() => setIsExpanded(true)}
-  //           >
-  //             Show more
-  //           </button>
-  //         )}
-  //     </section>
-
-  let str = "<h2 class=\"floof\">SHalooom my friends</h2>"
-  // console.log(typeof str === 'string')
-
-    // var wrapper = document.createElement('div');
-    // wrapper.innerHTML= '<div><a href="#"></a><span></span></div>';
-    // var div= wrapper.firstChild;
-    // console.log(div, '?')
-
-  const renderAboutSection = () => {
-      return (
+  const aboutSection = 
+`
         <section>
           <h2 className="flex items-center font-mono text-sm font-medium leading-7 text-slate-900">
-            <TinyWaveFormIcon
-              colors={['fill-violet-300', 'fill-pink-300']}
-              className="h-2.5 w-2.5"
-            />
-            <span className="ml-2.5 font-bold">Key Things to Know About This Trial</span>
+            <span className="ml-2.5 font-bold" style="font-weight:800; margin-bottom: 15px;">Key Things to Know About This Trial</span>
           </h2>
-
           
           <p
             className={clsx(
               'mt-2 text-base leading-7 text-slate-700',
-              !isExpanded && 'lg:line-clamp-4'
             )}
           >
             <b>Purpose:</b> DESTINY-Breast07 will investigate the safety, tolerability, and anti-tumour activity of trastuzumab deruxtecan (T-DXd) in combination with other anti-cancer agents in patients with HER2-positive Metastatic Breast Cancer.
             <br/><br/><b>Potential benefit:</b> Improve outcomes for future patients
           </p>
-          {!isExpanded && (
-            <button
-              type="button"
-              className="mt-2 hidden text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900 lg:inline-block"
-              onClick={() => setIsExpanded(true)}
-            >
-              Show more
-            </button>
-          )}
+
         </section>
-      )
-  }
+`
 
   return (
     <>
@@ -266,7 +188,7 @@ export function Layout({ children }) {
             <Image
               className="w-full"
               src={posterImage}
-              alt=""
+              alt="posterimage"
               sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
               priority
             />
@@ -293,7 +215,7 @@ export function Layout({ children }) {
           </div>
 
           <div className="mt-12 hidden lg:block" id="AboutSectiones">
-              {renderAboutSection()}
+            <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: aboutContent} } />
           </div>
 
           <section className="mt-10 lg:mt-12">
@@ -320,7 +242,8 @@ export function Layout({ children }) {
                     aria-label={'Language'}
                   >
                     <Icon className="h-8 w-8 fill-slate-400 group-hover:fill-slate-600" />
-                    <span className="hidden sm:ml-3 sm:block"><LanguageDropDown dataToTranslate={dataToTranslate}/></span>
+                    
+                    <span className="hidden sm:ml-3 sm:block"><LanguageDropDown targetLanguageChange={targetLanguageChange}/></span>
                   </Link>
                 </li>
               ))}
@@ -334,7 +257,7 @@ export function Layout({ children }) {
       </main>
       <footer className="border-t border-slate-200 bg-slate-50 py-10 pb-40 sm:py-16 sm:pb-32 lg:hidden">
         <div className="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4">
-              {renderAboutSection()}
+            <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: aboutContent} } />
           <h2 className="mt-8 flex items-center font-mono text-sm font-medium leading-7 text-slate-900">
             <PersonIcon className="h-3 w-auto fill-slate-300" />
             <span className="ml-2.5">Hosted by</span>
@@ -356,6 +279,7 @@ export function Layout({ children }) {
       <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
         <AudioPlayer />
       </div>
+      
     </>
   )
 }

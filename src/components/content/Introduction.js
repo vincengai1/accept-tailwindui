@@ -1,17 +1,44 @@
-import React, {useEffect, useState} from 'react'
-
+import { useState, useEffect, useMemo } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
+import { useAudioPlayer } from '@/components/AudioProvider'
+import { Container } from '@/components/Container'
+ import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
-export default function Introduction() {
+import Footer from '../footer/footer';
+
+export default function Introduction({data}) {
   let [introContent, setIntroContent] = useState("");
-  let [language, setLanguage] = useState("");
+  let [title, setTitle] = useState(data.title);
+  let [description, setDescription] = useState(data.description);
+
   let router = useRouter();
+  let lango = router.asPath.slice(12);
+
+  
+  let audioPlayerData = useMemo(
+    () => ({
+      title: data.title,
+      audio: {
+        src: data.audio.src,
+        type: data.audio.type,
+      },
+      link: `/${data.id}`,
+    }),
+    [data]
+    )
+
+  let player = useAudioPlayer(audioPlayerData)
+
   const introductionContentSection =
         `
-          <div class="font-serif text-md font-bold" id="Purpose of Consent">
+        <img src="http://localhost:8080/img/video.png"/>
+          <div class="font-serif text-md font-bold">
             What is the purpose of this consent?        
           </div>
-    
+
           <p class="text-sm font-san">
             You are invited to take part in this study because you have <span style="color: #008764"> human epidermal growth factor
             receptor 2 positive (HER2-positive) metastatic breast cancer (MBC).</span> HER2-positive MBC
@@ -26,11 +53,10 @@ export default function Introduction() {
             4) How you may withdraw from the study and what happens to your information after you withdraw.<br/><br/>
           </p>
     
-    
           <div class="font-serif text-md font-bold"  id="Voluntary Decision">
               Your decision to participate is voluntary    
           </div>
-    
+
           <p class="text-sm font-san">
             You have a choice whether or not you would like to participate.
             Your cancer may or may not improve if you join
@@ -52,43 +78,93 @@ export default function Introduction() {
     let targetLanguage = router.asPath.slice(12)
 
     if (!targetLanguage) {
-      setLanguage('en');
       setIntroContent(introductionContentSection);
+      
     }
 
     if (targetLanguage) {
-      setLanguage(targetLanguage);
-      setIntroContent(translateSection('en', targetLanguage))
-    }
+      translateHeader('en', targetLanguage)
+      translateSection('en', targetLanguage)
 
+    }
   }, [])
 
-  console.log(language, 'current language')
-  
-  async function translateSection(sourceLanguage, targetLanguage) {
-    setLanguage(targetLanguage)
+  async function translateHeader(sourceLanguage, targetLanguage) {
+    let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+    let consolidatedData = title + ' **** ' + description;
 
-    const response = await fetch('https://api2.binance.com/api/v3/ticker/24hr', {
-        method: 'GET',
-        // method: 'POST,
+    console.log(title, description, 'is it good')
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept" : "text/plain"
+      },
+        method: 'POST',
         mode: 'cors',
-        // body: {
-        //   text: {introductionContentSection},
-        //   SourceLanguageCode: {sourceLanguage},
-        //   TargetLanguageCode: {targetLanguage}
-        // }
+        body: consolidatedData
     });
-  
-    const json = await response.json();
-    return json; 
-    // return and convert back to HTML to render? 
-    // setIntroContent(response.json());
+        // const res = await response;
+        const res = await response;
+        res.text().then(body => {
+          let splitArray =  body.split('****');
+          let translatedTitle = splitArray[0];
+          let translatedDescription = splitArray[1];
 
-    // Then you'd return dangerouslySetInnerHTML={{__html: {introContent}}}
+          setTitle(translatedTitle);
+          setDescription(translatedDescription);
+        }) 
+  }
+
+  async function translateSection(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: introductionContentSection
+  });
+      // const res = await response;
+      const res = await response;
+      res.text().then(body => setIntroContent(body))  
   }
 
   return (
-    <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: introContent} } />
+    <div>
+      <Head>
+        <title>{`${title} - Their Side`}</title>
+        <meta name="description" content={description} />
+      </Head>
+      <article >
+        <Container>
+          <header className="flex flex-col">
+            <div className="flex items-center gap-6">
+              <PlayButton player={player} size="large" />
+              <div className="flex flex-col">
+                <h1 className="mt-2 text-4xl font-bold text-slate-900">
+                  {title} 
+                </h1>
+                <div
+                  className="order-first font-mono text-sm leading-7 text-slate-500"
+                >
+                </div>
+              </div>
+            </div>
+            <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
+              {description}
+            </p>
+          </header>
+          <hr className="my-12 border-gray-200" />
+        
+        </Container>
+      </article>
+      <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: introContent} } />
+
+      <Footer prev={"/"} next={"/2"}/>
+    </div>
   )
 }
 

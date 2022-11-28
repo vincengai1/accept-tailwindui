@@ -1,25 +1,44 @@
-import React, {useEffect, useState} from 'react'
-
+import { useState, useEffect, useMemo } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
+import { useAudioPlayer } from '@/components/AudioProvider'
+import { Container } from '@/components/Container'
+ import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
+import Footer from '../footer/footer';
 
-import audioCallout from '../../images/audioCallout.png';
 
-export default function Purpose() {
+export default function Purpose({data}) {
   let [purposeContent, setPurposeContent] = useState("");
-  let [language, setLanguage] = useState("");
+  let [title, setTitle] = useState(data.title);
+  let [description, setDescription] = useState(data.description);
+
   let router = useRouter();
+  let lango = router.asPath.slice(12);
+  let audioPlayerData = useMemo(
+    () => ({
+      title: data.title,
+      audio: {
+        src: data.audio.src,
+        type: data.audio.type,
+      },
+      link: `/${data.id}`,
+    }),
+    [data]
+  )
+  
+  let player = useAudioPlayer(audioPlayerData)
 
   const purposeContentSection =
-        `        
-
+        `      
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
-          <div container spacing={2} class="flex flex-row">
-            <div  class="basis-1/2">
-                <img src="https://brandmark.io/intro/info.png" class="h-80px mr-20" />
+          <div  class="flex flex-row">
+            <div  style="flex-basis:90%; margin-right:30px;">
+            <img src="http://localhost:8080/img/Risks.png" style="height:80px; width:100%"/>
             </div>
 
-            <div item xs={12} sm container>
-              <div item xs container  spacing={3}>
+            <div item xs="12" sm container>
+              <div >
                 <div item xs>
                   <p   className="boxText">
                    Most of the potential side effects are <b>common</b> with cancer treatment.  <br /><br />
@@ -37,7 +56,7 @@ export default function Purpose() {
           What are the risks of joining the study? 
         </div>
 
-        <p className="pageText" style={{marginBottom: '2rem'}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           There is a risk that your MBC will not get better, or even get worse during the study. It is
           possible that some patients could have side effects that we do not know about yet. If you
           have severe side effects from any of the study treatments, the study doctor may ask you
@@ -58,7 +77,7 @@ export default function Purpose() {
         </div>
 
 
-        <TabPanel value={value} index={0}>
+        <TabPanel value="value" index="0">
            May affect more than 1 in 10 people.
           <hr class="solid"  style="margin-bottom: 1rem; margin-top: 1rem;">
                 <div style="display:flex; align-items:flex-start;">
@@ -90,7 +109,7 @@ export default function Purpose() {
                     <div>
                         <li>difficulty breathing (dyspnea)</li>
                         <li>severe nose bleeds (epistaxis)</li>
-                        <li style={{fontWeight:'bold', color:'#008764'}}>lung problems (interstitial lung disease/pneumonitis)</li>
+                        <li style="font-weight:bold; color:#008764">lung problems (interstitial lung disease/pneumonitis)</li>
                         <li>low potassium in the blood (hypokalemia)</li>
                         <li>rash</li>
                         <li>general body weakness (malaise) </li>
@@ -104,62 +123,59 @@ export default function Purpose() {
         <hr class="solid"  style="margin-bottom: 5rem; margin-top: 2rem;">
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  id="Serious Side Effects" >
-            <img src={ExclamationImage} style="margin-right: 10px"/>  Serious side effect  
+            <img src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/>  Serious side effect  
         </div>
 
-        <p className="pageText" style={{marginBottom: 2rem}}>
-          <span style={{color:#008764}}><b>Lung problems (pneumonitis/interstitial lung disease) </b></span>are a common and serious side effect of trastuzumab deruxtecan. These lung problems may be life-threatening or fatal. 
+        <p className="pageText" style="margin-bottom: 2rem;">
+          <span style="color:#008764"><b>Lung problems (pneumonitis/interstitial lung disease) </b></span>are a common and serious side effect of trastuzumab deruxtecan. These lung problems may be life-threatening or fatal. 
         </p>
 
-        <img src={ILDImage} style={{marginBottom:2rem, width: 100%}}/>
+         <img src="http://localhost:8080/img/ILD-graphic.png" style="margin-bottom:2rem; width: 100%"/>
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  id="Serious Side Effects" >
-            <img src={SyringeImage} style="margin-right: 10px"/> Symptoms 
+          <img src="http://localhost:8080/img/syringe.png" style="margin-right: 10px"/> Symptoms 
         </div>
 
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           Symptoms may be similar to
           other lung or heart diseases. Tell your doctor right away while receiving treatment with trastuzumab deruxtecan if you
           notice any of the following signs and symptoms:
-            <br /><br />
+            <br />
           <li>New or worsening cough</li>
           <li>Trouble breathing</li>
           <li>New or worsening shortness of breath or other breathing issues</li>
           <li>Fever</li>
         </p>
 
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           Getting medical treatment right away may keep
           these problems from becoming more serious.
         </p>
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
-            <img src={MedicalHistory} style="margin-right: 10px"/> Medical history  
+            <img src="http://localhost:8080/img/medicalHistory.png" style="margin-right: 10px"/> Medical history  
         </div>
         
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           Tell your doctor about any lung problems you have or have had in the past, in particular if you have a history of lung problems including inflammation of the lung known as
           interstitial lung disease (ILD) or pneumonitis.
         </p>
 
-                <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
-
-            <img src={MonitorImage} style="margin-right: 10px"/> Monitoring  
+        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+             <img src="http://localhost:8080/img/Monitor.png" style="margin-right: 10px"/> Monitoring  
         </div>
         
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
             Your doctor will check for signs and symptoms of lung problems while you receive
             treatment with trastuzumab deruxtecan and may treat you with corticosteroid medications.
             Your study treatment may also need to be delayed or completely stopped if you develop
             serious lung problems while on the study.
         </p>
-
-                <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
-
-            <img src={ExclamationImage} style="margin-right: 10px"/> Serious reactions to look out for   
+        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+             <img src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/> Serious reactions to look out for   
         </div>
         
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
             The risks described below could possibly be observed with trastuzumab deruxtecan administration. Tell your doctor about any heart problems you have or have had in the past. Tell your study doctor/study staff immediately if you develop any of the following symptoms:
             <br /><br />
 
@@ -176,21 +192,20 @@ export default function Purpose() {
             </li>
         </p>
 
-                <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
-
-            <img src={YellowAlert} style="margin-right: 10px"/> Share with your doctor  
+        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+            <img src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Share with your doctor  
         </div>
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           <li> <b> Tell your doctor about any other medical problems</b> you have or have had in the past.</li>
           <li> <b>Tell your doctor about all the medicines you take, </b>including prescription and over-the-counter medicines, vitamins, and herbal supplements. Know the medicines you take. Keep a list of them to show your doctor and pharmacist when you get a new medicine. </li>
           <li> <b>Use of chloroquine or hydroxychloroquine is not allowed during the study treatment. </b>Please inform your doctor right away if you plan take these medications before starting or while taking trastuzumab deruxtecan treatment.</li>
           <li>Risks associated with the of use of tobacco products, e-cigarettes or vaping while on treatment with trastuzumab deruxtecan are not known.<b> Use of tobacco products, e-cigarettes and vaping is strongly discouraged. </b> Tell your doctor about any prior or current use of these products.</li>
         </p>
-                <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+          <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
 
-            <img src={YellowAlert} style="margin-right: 10px"/> Unexpected risks 
+       <img src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Unexpected risks 
         </div>
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
         The study medication might have other adverse effects that are not known at this time. It
         is possible that your condition might worsen during your participation in this study. You will
         be told about any relevant or new information that might change your decision to continue
@@ -199,11 +214,11 @@ export default function Purpose() {
 
           <hr class="solid"  style="margin-bottom: 1rem; margin-top: 1rem;">
       
-                <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+          <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
 
           Risks associated with the use of T-DXd combined with other cancer treatments
         </div>
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           There could be potential for overlapping side effects when T-DXd is used in combination
           with the other cancer treatments in this study. This means it is possible that the combination
           of drugs in each module may cause some side effects that are more severe or take longer
@@ -213,16 +228,16 @@ export default function Purpose() {
           The following possible risks are associated with the use of the drugs administered
           in combination with T-DXd.
         </p>
-        <span className="pageText" style={{color:#596B75, fontWeight:bold}}>
+        <div style="color:#596B75; font-weight:bold; margin-top:40px; ">
           MODULE 1 & 4
-        </span>
-        <div class="mb-6 font-serif text-md font-bold "  id="Module 1 &  4" style={{display: flex, alignItems: center, marginBottom:2rem}}>
+        </div>
+        <div class="mb-5 mt-2 font-serif text-md font-bold "   >
           Possible risks associated with durvalumab 
         </div>
 
-        <TabPanel value={value} index={0}>
-           Common
-          <hr class="solid"  style="margin-bottom: 1rem; margin-top: 1rem;">
+        <TabPanel value="value" index="0" >
+           <div style="font-weight: 800;">Common</div>
+          <hr class="solid"  style="margin-bottom: 1rem; margin-top: 0;">
                 <div style="display:flex; align-items:flex-start;">
                     <div>
                         <li>fatigue / tiredness</li>
@@ -245,15 +260,15 @@ export default function Purpose() {
                 </div>
             </TabPanel>
 
-        <hr class="solid"  style="margin-bottom: 5rem; margin-top: 2rem;">
+        <hr class="solid"  style="margin-bottom: 3rem; margin-top: 2rem;">
 
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           The study drug durvalumab works by increasing the immune system’s ability to recognize
           the cancer. This may cause side effects, which can occur when the drug is given or after
           the drug is given (within hours, days or weeks after).
         </p>
 
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           <span style="font-weight: 800;"> Most of the possible side effects listed above are mild to moderate.</span> However, some side
           effects can be very serious and life-threatening and may even result in death. Some side
           effects do not need treatment while others generally get better with treatment. You may
@@ -262,21 +277,21 @@ export default function Purpose() {
           agents that can affect your immune system and reduce inflammation.
         </p>
 
-        <p className="pageText" style={{marginBottom: 2rem}}>
+        <p className="pageText" style="margin-bottom: 2rem">
           In addition to the possible risks identified in patients treated with durvalumab, other
           immune-mediated side effects are possible that have not been observed, and can result in
           inflammatory side effects in any organ or tissue.
         </p>
 
-        <span className="pageText" style={{color:#596B75, fontWeight:bold}}>
+        <div style="color:#596B75; font-weight:bold; margin-top:40px; ">
           MODULE 2
-        </span>
-        <div class="mb-6 font-serif text-md font-bold "  id="Module 2" style={{display: flex, alignItems: center, marginBottom:2rem}}>
+        </div>
+        <div class="mb-6 font-serif text-md font-bold "  id="Module 2" style="display: flex; align-items: center; margin-bottom:2rem;">
           Possible risks associated with pertuzumab
         </div>
 
-        <TabPanel value={value} index={0}>
-           Very common
+        <TabPanel value="value" index="0">
+           <div style="font-weight: 800;">Very common</div>
           <hr class="solid"  style="margin-bottom: 1rem; margin-top: 1rem;">
           May affect more than 1 in 10 people.                
                 <div style="display:flex; align-items:flex-start;">    
@@ -315,7 +330,7 @@ export default function Purpose() {
                     <div>
                         <li>difficulty breathing (dyspnea)</li>
                         <li>severe nose bleeds (epistaxis)</li>
-                        <li style={{fontWeight:'bold', color:'#008764'}}>lung problems (interstitial lung disease/pneumonitis)</li>
+                        <li style="font-weight:bold; color:#008764;">lung problems (interstitial lung disease/pneumonitis)</li>
                         <li>low potassium in the blood (hypokalemia)</li>
                         <li>rash</li>
                         <li>general body weakness (malaise) </li>
@@ -326,17 +341,17 @@ export default function Purpose() {
                 </div>
             </TabPanel>
 
-        <hr class="solid"  style="margin-bottom: 5rem; margin-top: 2rem;">
+        <hr class="solid"  style="margin-bottom: 3rem; margin-top: 2rem;">
 
-        <span className="pageText" style={{color:#596B75, fontWeight:bold}}>
+        <div style="color:#596B75; font-weight:bold; margin-top:40px; ">
           MODULE 3 & 4
-        </span>
-        <div class="mb-14 font-serif text-md font-bold "  id="Module 3 & 4" style={{display: flex, alignItems: center, marginBottom:2rem}}>
+        </div>
+        <div class="mb-14 font-serif text-md font-bold "  id="Module 3 & 4" style="display: flex; align-items: center; margin-bottom:2rem;">
           Possible risks associated with paclitaxel
         </div>
 
-        <TabPanel value={value} index={0}>
-           Very common
+        <TabPanel value="value" index="0">
+           <div style="font-weight: 800;"> Very common</div>
           <hr class="solid"  style="margin-bottom: 1rem; margin-top: 1rem;">
           May affect more than 1 in 10 people.                
                 <div style="display:flex; align-items:flex-start;">    
@@ -363,7 +378,6 @@ export default function Purpose() {
                         <li>
                           <span style="font-weight:800">pain in the muscle or joints</span>
                         </li>
-
                     </div>
                     <div>
                       <li>
@@ -393,15 +407,15 @@ export default function Purpose() {
                 </div>
             </TabPanel>
 
-        <hr class="solid"  style="margin-bottom: 1rem; margin-top: 2rem;">
+        <hr class="solid"  style="margin-bottom: 3rem; margin-top: 2rem;">
 
-        <p className="pageText" style={{marginBottom: 4rem}}>
+        <p className="pageText" style="margin-bottom: 4rem">
           Like many other anti-cancer medicines, paclitaxel may cause sterility, which could be
           permanent. Paclitaxel may cause inflammation of the lungs when used in combination with,
           or after, radiotherapy.
         </p>
 
-        <div class="mb-4 mt-10 font-serif text-md font-bold "  id="Risks of Procedures" style="display: flex; align-items: center; margin-bottom:2rem">
+        <div class="mb-4 mt-10 font-serif text-md font-bold "  style="display: flex; align-items: center; margin-bottom:2rem">
           Risk associated with study procedures
         </div>
 
@@ -409,15 +423,15 @@ export default function Purpose() {
           There are also risks associated with some of the study procedures. The most common risks include pain or discomfort, allergic reaction, and infection. They are typically mild to moderate but could be serious or life-threatening. 
         </p>
 
-        <img src={Frame} style={{marginBottom:3rem}}/>
+        <img src="http://localhost:8080/img/Frame176.png" style="margin-bottom:3rem"/>
 
-        <div class="mb-14 font-serif text-md font-bold "  id="Other Considerations" style={{display: flex, alignItems: center, marginBottom:2rem}}>
+        <div class="mb-14 font-serif text-md font-bold "  style="display: flex; align-items: center; margin-bottom:2rem;">
           Are there any other considerations or risks I need to know about?
         </div>
 
         <p className="pageText" >
           <div style="display:flex; align-content:center; margin-bottom:10px; align-items: center;">
-            <img src={Pregnant} style="margin-right: 10px" /><b>Pregnancy, contraception and breast-feeding</b> <br/>
+            <img src="http://localhost:8080/img/Pregnant.png" style="margin-right: 10px" /><b>Pregnancy, contraception and breast-feeding</b> <br/>
           </div>
           Because the effects of the study treatments on an unborn child or infant are not known, you
           (or your female partner if you are a man) must not get pregnant or breastfeed a child during
@@ -434,7 +448,7 @@ export default function Purpose() {
 
         <p className="pageText" >
           <div style="display:flex; align-content:center; margin-bottom:10px;align-items: center;">
-            <img src={Medicine} style="margin-right: 10px" /><b>Other medications/ vaccinations</b> <br/>
+           <img src="http://localhost:8080/img/Medicine.png" style="margin-right: 10px" /><b>Other medications/ vaccinations</b> <br/>
           </div>
            Because the effects of the study treatments on an unborn child or infant are not known, you
           (or your female partner if you are a man) must not get pregnant or breastfeed a child during
@@ -453,43 +467,94 @@ export default function Purpose() {
     let targetLanguage = router.asPath.slice(12)
 
     if (!targetLanguage) {
-      setLanguage('en');
       setPurposeContent(purposeContentSection);
     }
 
     if (targetLanguage) {
-      setLanguage(targetLanguage);
-      setPurposeContent(translateSection('en', targetLanguage))
+      translateSection('en', targetLanguage)
+      translateHeader('en', targetLanguage)
+
     }
 
   }, [])
 
-  console.log(language, 'current language')
-  
   async function translateSection(sourceLanguage, targetLanguage) {
-    setLanguage(targetLanguage)
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
 
-    const response = await fetch('https://api2.binance.com/api/v3/ticker/24hr', {
-        method: 'GET',
-        // method: POST,
-        mode: 'cors',
-        // body: {
-        //   text: {purposeContentSection},
-        //   SourceLanguageCode: {sourceLanguage},
-        //   TargetLanguageCode: {targetLanguage}
-        // }
-    });
-  
-    const json = await response.json();
-    return json; 
-    // return and convert back to HTML to render? 
-    // setPurposeContent(response.json());
-
-    // Then youd return dangerouslySetInnerHTML={{__html: {purposeContent}}}
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: purposeContentSection
+  });
+      // const res = await response;
+      const res = await response;
+      res.text().then(body => setPurposeContent(body))  
   }
 
+
+  async function translateHeader(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+  let consolidatedData = title + ' **** ' + description;
+
+  console.log(title, description, 'is it good')
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: consolidatedData
+  });
+      // const res = await response;
+      const res = await response;
+      res.text().then(body => {
+        let splitArray =  body.split('****');
+        let translatedTitle = splitArray[0];
+        let translatedDescription = splitArray[1];
+
+        setTitle(translatedTitle);
+        setDescription(translatedDescription);
+      }) 
+  }
   return (
-    <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: purposeContent} } />
+    <div>
+      <Head>
+        <title>{`${title} - Their Side`}</title>
+        <meta name="description" content={description} />
+      </Head>
+      <article >
+        <Container>
+          <header className="flex flex-col">
+            <div className="flex items-center gap-6">
+              <PlayButton player={player} size="large" />
+              <div className="flex flex-col">
+                <h1 className="mt-2 text-4xl font-bold text-slate-900">
+                  {title} 
+                </h1>
+                <div
+                  className="order-first font-mono text-sm leading-7 text-slate-500"
+                >
+                </div>
+              </div>
+            </div>
+            <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
+              {description}
+            </p>
+          </header>
+          <hr className="my-12 border-gray-200" />
+        
+        </Container>
+      </article>
+
+      <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: purposeContent} } />
+      
+      <Footer prev={"/3"} next={'/5'} />
+    </div>
   )
 }
 

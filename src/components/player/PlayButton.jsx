@@ -24,6 +24,7 @@ export function PlayButton({ player, size = 'large' }) {
   return (
     <button
       type="button"
+      style={{backgroundColor: '#29D9A5'}}
       className={clsx(
         'bg-astraGreen-100 group relative flex flex-shrink-0 items-center justify-center rounded-full bg-slate-700 hover:bg-astraGreen-200 focus:outline-none active:bg-astraGreen-300',
         {

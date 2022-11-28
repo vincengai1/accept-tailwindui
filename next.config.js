@@ -7,5 +7,16 @@ const nextConfig = {
     scrollRestoration: true,
   },
 }
-
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'http://localhost:8080',
+        port: '',
+        pathname: '/img/**',
+      },
+    ],
+  },
+}
 module.exports = nextConfig

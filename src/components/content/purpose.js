@@ -1,24 +1,44 @@
-import React, {useEffect, useState} from 'react'
-
+import { useState, useEffect, useMemo } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
+import { useAudioPlayer } from '@/components/AudioProvider'
+import { Container } from '@/components/Container'
+ import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
+import Footer from '../footer/footer';
 
-import audioCallout from '../../images/audioCallout.png';
-
-export default function Purpose() {
+export default function Purpose({data}) {
   let [purposeContent, setPurposeContent] = useState("");
-  let [language, setLanguage] = useState("");
+  let [title, setTitle] = useState(data.title);
+  let [description, setDescription] = useState(data.description);
+
+
   let router = useRouter();
+  let lango = router.asPath.slice(12);
+  let audioPlayerData = useMemo(
+    () => ({
+      title: data.title,
+      audio: {
+        src: data.audio.src,
+        type: data.audio.type,
+      },
+      link: `/${data.id}`,
+    }),
+    [data]
+  )
+  
+  let player = useAudioPlayer(audioPlayerData)
 
   const purposeContentSection =
-        `        
-        <div class="mb-14 font-serif text-md font-bold "  id="What is this study about?">
+        `         
+        <div class="font-serif text-md font-bold mb-14" id="Purpose of Consent">
           What is this study about?
         </div>
 
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
-          <div container spacing={2} class="flex flex-row">
-            <div  class="basis-1/2">
-                <img src="https://brandmark.io/intro/info.png" class="h-80px mr-20" />
+          <div  class="flex flex-row">
+            <div style="flex-basis: 60%; margin-right:30px;">
+                <img src="http://localhost:8080/img/AboutStudy.png" class="h-80px mr-20" />
             </div>
 
             <div >
@@ -31,7 +51,7 @@ export default function Purpose() {
           </div>
         </div>
 
-        <div class="font-serif text-md font-bold"  id="Description of Study">
+        <div class="font-serif text-md font-bold" >
             Description of the research study     
         </div>
 
@@ -40,21 +60,18 @@ export default function Purpose() {
           released into the cancer cell, damaging or killing it. 
         </p>
 
-        <img src={Group151} style={{marginBottom:'2rem', width:'100%'}}/>
-
+        <img src="http://localhost:8080/img/Group151.png" style="margin-bottom:2rem; width:100%"/>
 
         <p className="pageText">
-          <span style={{backgroundColor:'#ffff99'}}>While T-DXd has shown promising
+          <span style="background-color:#ffff99">While T-DXd has shown promising
           results in patients who have received two or more prior therapies for their cancer, there is much interest in exploring its effectiveness when alone and combined with other treatment regimens that have the potential to further slow-down cancer cell activity.</span> If you are enrolled and pass the initial screening parameters in this study, you will be randomly assigned to one treatment module to evaluate any side effects and see how well
           the study treatments work. Table 1 lists the treatment regimens for each module.
         </p>
         
-
         <p class="mb-2">
           <b>Table 1 - Treatments regimens </b> <br/>
           Participants will be randomly asssigned to one module. 
         </p>
-
         <table class="mt-1">
           <tr>
             <th class="bg-darkGray-100 text-white pl-4">Module</th>
@@ -94,56 +111,105 @@ export default function Purpose() {
         <div class="font-serif text-md font-bold mt-14"  id="Review of Trial">
             Review of this trial 
         </div>
-
         <p class="text-sm font-san">
           The overall description of this study (including the collection, storage and use of your data
           and samples of your biological material, known as biosamples) as well as this document
           has been reviewed in your country by an <span style="color: #008764"> Independent Ethics Committee (IEC) or Institutional Review Board (IRB)</span> to ensure that the rights, safety and well-being of study
           patients are protected.
-
         </p>
         `
+        
   useEffect( () => {
     let targetLanguage = router.asPath.slice(12)
 
     if (!targetLanguage) {
-      setLanguage('en');
       setPurposeContent(purposeContentSection);
+       
     }
 
     if (targetLanguage) {
-      setLanguage(targetLanguage);
-      setPurposeContent(translateSection('en', targetLanguage))
+      translateSection('en', targetLanguage)
+      translateHeader('en', targetLanguage)
     }
-
   }, [])
-
-  console.log(language, 'current language')
   
   async function translateSection(sourceLanguage, targetLanguage) {
-    setLanguage(targetLanguage)
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
 
-    const response = await fetch('https://api2.binance.com/api/v3/ticker/24hr', {
-        method: 'GET',
-        // method: 'POST,
-        mode: 'cors',
-        // body: {
-        //   text: {purposeContentSection},
-        //   SourceLanguageCode: {sourceLanguage},
-        //   TargetLanguageCode: {targetLanguage}
-        // }
-    });
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: purposeContentSection
+  });
+      // const res = await response;
+      const res = await response;
+      res.text().then(body => setPurposeContent(body)) 
+  }
   
-    const json = await response.json();
-    return json; 
-    // return and convert back to HTML to render? 
-    // setPurposeContent(response.json());
+  async function translateHeader(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+  let consolidatedData = title + ' **** ' + description;
 
-    // Then you'd return dangerouslySetInnerHTML={{__html: {purposeContent}}}
+  console.log(title, description, 'is it good')
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: consolidatedData
+  });
+      // const res = await response;
+      const res = await response;
+      res.text().then(body => {
+        let splitArray =  body.split('****');
+        let translatedTitle = splitArray[0];
+        let translatedDescription = splitArray[1];
+
+        setTitle(translatedTitle);
+        setDescription(translatedDescription);
+      }) 
   }
 
   return (
-    <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: purposeContent} } />
+    <div>
+      <Head>
+        <title>{`${title} - Their Side`}</title>
+        <meta name="description" content={description} />
+      </Head>
+      <article >
+        <Container>
+          <header className="flex flex-col">
+            <div className="flex items-center gap-6">
+              <PlayButton player={player} size="large" />
+              <div className="flex flex-col">
+                <h1 className="mt-2 text-4xl font-bold text-slate-900">
+                  {title} 
+                </h1>
+                <div
+                  className="order-first font-mono text-sm leading-7 text-slate-500"
+                >
+                </div>
+              </div>
+            </div>
+            <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
+              {description}
+            </p>
+          </header>
+          <hr className="my-12 border-gray-200" />
+        
+        </Container>
+      </article>
+
+      <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: purposeContent} } />
+
+      <Footer prev={"/1"} next={"/3"} />
+    </div>
   )
 }
 

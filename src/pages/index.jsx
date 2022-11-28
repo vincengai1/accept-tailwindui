@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { parse } from 'rss-to-json'
 
 import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
@@ -9,6 +8,8 @@ import { Container } from '@/components/Container'
 import { useRouter } from 'next/router'
 
 import Data from './data.json';
+
+import {useSelector} from 'react-redux';
 
 function PlayPauseIcon({ playing, ...props }) {
   return (
@@ -29,6 +30,27 @@ function PlayPauseIcon({ playing, ...props }) {
 // EpisodeEntry is the index of all the Pages 
 
 function EpisodeEntry({ page, language }) {
+  let [title, setTitle] = useState(page.title);
+  let [description, setDescription] = useState(page.description);
+  let [timeFrame, setTimeFrame] = useState(page.timeFrame);
+
+  let [newTitle, setNewTitle] = useState("");
+  let [newDescription, setNewDescription] = useState("");
+  let [newTimeFrame, setNewTimeFrame] = useState("");
+
+  const targetLanguage = useSelector( (state) => state.language.language);
+
+  useEffect( () => {
+    if (targetLanguage) {
+      translateData('en', targetLanguage);
+    }
+
+    if (!targetLanguage) {
+      setNewTitle(title);
+      setNewDescription(description);
+      setNewTimeFrame(timeFrame);
+    }
+  }, [targetLanguage])
 
   let audioPlayerData = useMemo(
     () => ({
@@ -44,26 +66,33 @@ function EpisodeEntry({ page, language }) {
 
   let player = useAudioPlayer(audioPlayerData)
 
+  async function translateData(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+  let consolidatedData = title + ' **** ' + description + ' **** ' + timeFrame;
+  
 
-  async function dataToTranslate(url = 'https://api2.binance.com/api/v3/ticker/24hr') {
-      // if (!language) setLanguage('en');
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: consolidatedData
+  });
 
-      const response = await fetch(url, {
-          method: 'GET',
-          // method: 'POST,
-          mode: 'cors',
-          // body: {
-          //   text: {data},
-          //   SourceLanguageCode: {language},
-          //   TargetLanguageCode: {newLanguage}
-          // }
-      });
-      
-      const json = await response.json();
+    const res = await response;
+      res.text().then(body => {
+        let splitArray = body.split(' **** ')
+        let translatedTitle = splitArray[0];
+        let translatedDescription = splitArray[1];
+        let translatedTimeFrame = splitArray[2];
 
-     return json;
+        setNewTitle(translatedTitle);
+        setNewDescription(translatedDescription);
+        setNewTimeFrame(translatedTimeFrame);
+      })  
   }
-        
 
   return (
     <article
@@ -76,13 +105,19 @@ function EpisodeEntry({ page, language }) {
             id={`episode-${page.id}-title`}
             className="mt-2 text-lg font-bold text-slate-900"
           >
-            <Link href={`/${page.id}`}>{page.title}</Link>
+            <Link     
+              href={{
+                pathname: `/${page.id}`,
+                query: {
+                  language: `${language}`,
+                }
+              }}>{newTitle}</Link>
           </h2>
           <div className="order-first font-mono text-sm leading-7 text-slate-500">
-            {page.timeFrame}
+            {newTimeFrame}
           </div>
           <p className="mt-1 text-base leading-7 text-slate-700">
-            {page.description}
+            {newDescription}
           </p>
           <div className="mt-4 flex items-center gap-4">
             <button
@@ -129,11 +164,11 @@ function EpisodeEntry({ page, language }) {
 
 export default function Home({ pages }) {
   const [translatedData, setTranslatedData] = useState(pages);
+  let [header, setHeader] = useState("Read Informed Consent Document ")
+
 
   let router = useRouter()
   let language = router.asPath.slice(11)
-
-  // console.log(translatedData, 'translatedData')
 
   useEffect( () => {
     //  Check the language and
@@ -141,18 +176,15 @@ export default function Home({ pages }) {
   }, [])
 
   const translateText = () => {
-    // console.log('Here is where youd make the API call', language);
 
     if (!language) return;
 
     if (language) {
-      //  setTranslatedData to the results of the API call, if no lang just return data as is
-      // console.log('input API call')
+      // console.log(language, 'we have language')
     }
   }
- 
-  console.log(pages)
-  return (
+
+   return (
     <>
       <Head>
         <title>
@@ -167,7 +199,7 @@ export default function Home({ pages }) {
       <div className="pt-16 pb-12 sm:pb-4 lg:pt-12">
         <Container>
           <h1 className="text-2xl font-bold leading-7 text-slate-900">
-            Read Informed Consent Document -- {language.toUpperCase()}
+            {/* {header}  */}
           </h1>
         </Container>
         <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
