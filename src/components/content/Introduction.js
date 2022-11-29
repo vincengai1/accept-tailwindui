@@ -13,28 +13,17 @@ export default function Introduction({data}) {
   let [introContent, setIntroContent] = useState("");
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
-
+  let [audio, setAudio] = useState("");
+  let [blob, setBlob] = useState("");
+  let [error, setError] = useState('generic error')
   let router = useRouter();
-  let lango = router.asPath.slice(12);
 
   
-  let audioPlayerData = useMemo(
-    () => ({
-      title: data.title,
-      audio: {
-        src: data.audio.src,
-        type: data.audio.type,
-      },
-      link: `/${data.id}`,
-    }),
-    [data]
-    )
 
-  let player = useAudioPlayer(audioPlayerData)
 
   const introductionContentSection =
         `
-        <img src="http://localhost:8080/img/video.png"/>
+        <img alt="video" src="http://localhost:8080/img/video.png"/>
           <div class="font-serif text-md font-bold">
             What is the purpose of this consent?        
           </div>
@@ -74,21 +63,79 @@ export default function Introduction({data}) {
             their risks and benefits.        
           </p>
         `
+
   useEffect( () => {
     let targetLanguage = router.asPath.slice(12)
 
     if (!targetLanguage) {
       setIntroContent(introductionContentSection);
-      
     }
 
     if (targetLanguage) {
       translateHeader('en', targetLanguage)
       translateSection('en', targetLanguage)
-
     }
-  }, [])
 
+    fetchAudio();
+   }, [])
+
+  let textBox = "hello there sir ";
+
+
+
+  async function fetchAudio() {
+    let url= "http://localhost:8080/speech/synthesize?languageCode=en&voiceId=Joanna";
+
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+      },
+        responseType: 'blob',
+        method: 'POST',
+        mode: 'cors',
+        body: textBox
+    });
+
+    const res = await response.blob();
+
+    let blob = new Blob([res], {type: 'audio/mpeg', responseType: 'blob'})
+
+    // console.log(typeof blob === "object", 'blob')
+    setBlob(await blob)
+    
+  }
+
+
+  function useObjectUrl (blob) {
+
+    if (typeof blob !== "object") return;
+    const url = useMemo(() => URL.createObjectURL(blob), [blob]);
+
+    useEffect(() => () => URL.revokeObjectURL(url), [blob]);
+
+    // setAudio(url)
+    return url;
+  }
+
+  function AudioPlayer ({blob}) {
+    const src = useObjectUrl(blob);
+     return <audio controls {...{src}} />;
+  }
+
+  let audioPlayerData = useMemo(
+    () => ({
+      title: data.title,
+      audio: {
+        src: data.audio.src,
+        type: data.audio.type,
+      },
+      link: `/${data.id}`,
+    }),
+    [data]
+    )
+
+  let player = useAudioPlayer(audioPlayerData)
+  
   async function translateHeader(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
     let consolidatedData = title + ' **** ' + description;
@@ -134,6 +181,9 @@ export default function Introduction({data}) {
 
   return (
     <div>
+      
+        <AudioPlayer {...{blob}} />
+    
       <Head>
         <title>{`${title} - Their Side`}</title>
         <meta name="description" content={description} />

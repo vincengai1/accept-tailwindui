@@ -102,10 +102,9 @@ export default function Logistics({data}) {
   Participants will be randomly assigned to one module.
 </p>
 
-<table style="border-right: 1px solid #c7c7c7">
+<table style="border-right: 1px solid #c7c7c7" style="margin-bottom: 3rem;">
   <tr style="border-top: 1px solid #c7c7c7">
-    <td
-      style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800; ">
+    <td style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800; ">
       <span>Module 0</span> <br />
       <span style="font-weight: 400">Only for Part 2</span>
     </td>
@@ -117,8 +116,7 @@ export default function Logistics({data}) {
     </td>
   </tr>
   <tr>
-    <td
-      style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
+    <td style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
       Module 1
     </td>
     <td>
@@ -128,8 +126,7 @@ export default function Logistics({data}) {
     </td>
   </tr>
   <tr>
-    <td
-      style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
+    <td style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
       Module 2</td>
     <td>
       <span><b>Study Treatment:</b> T-DXd + pertuzumab<br /></span>
@@ -138,8 +135,7 @@ export default function Logistics({data}) {
     </td>
   </tr>
   <tr>
-    <td
-      style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
+    <td style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
       Module 3</td>
     <td>
       <span><b>Study Treatment:</b> T-DXd + paclitaxel<br /></span>
@@ -148,9 +144,9 @@ export default function Logistics({data}) {
     </td>
   </tr>
   <tr style="border-bottom: 1px solid #c7c7c7">
-    <td
-      style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
-      Module 4</td>
+    <td style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800;">
+      Module 4
+    </td>
     <td>
       <span><b>Study Treatment:</b> T-DXd + durvalumab + paclitaxel<br /></span>
       <span><b>Route:</b> Intravenous infusion<br /></span>
@@ -159,7 +155,7 @@ export default function Logistics({data}) {
   </tr>
 </table>
 
-<div class="mb-14 font-serif text-md font-bold " id="Follow Up" style="margin-bottom:1rem">
+<div class="mb-14 font-serif text-md font-bold " style="margin-bottom:1rem">
   Follow-up
 </div>
 
@@ -180,7 +176,7 @@ export default function Logistics({data}) {
     details</span>).
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " id="Follow Up" style="margin-top: 3rem; margin-bottom:1rem">
+<div class="mb-14 font-serif text-md font-bold " style="margin-top: 3rem; margin-bottom:1rem">
   Significant regional disruptions, evolving global pandemics or similar natural disasters
 </div>
 
@@ -193,22 +189,21 @@ export default function Logistics({data}) {
   professional body guidance that may be available at that time.
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " id="Required Tests & Procedures"
-  style="margin-bottom:1rem; margin-top:3rem;">
+<div class="mb-14 font-serif text-md font-bold " style="margin-bottom:2rem; margin-top:3rem;">
   What are the required tests and procedures?
 </div>
 
 
-<div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+<div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-7">
   <div class="flex flex-row">
     <div class="basis-1/5">
-      <img src="http://localhost:8080/img/requiredProcedures.png" alt="requiredprocedures" class="h-80px mr-20" />
+      <img src="http://localhost:8080/img/requiredProcedures.png" alt="requiredprocedures" class="h-80px mr-20" style="padding-right: 10px;"/>
     </div>
 
 
-    <div item xs="12" sm container>
+    <div>
       <div>
-        <div item xs>
+        <div>
           <p class="text-sm font-san">
             On-site, you will regularly experience wellness checks, laboratory work, tumour and biomarker assessments,
             and your study treatment. At home, you’ll take
@@ -228,7 +223,7 @@ export default function Logistics({data}) {
   To conduct the study, some tests and procedures will have to be performed on you.
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " id="On Site" style="margin-bottom:1rem; font-size:20px !important;">
+<div class=" font-serif text-md font-bold " style=" margin-top:3rem;">
   What you’ll experience regularly on-site
 </div>
 
@@ -244,7 +239,7 @@ export default function Logistics({data}) {
 </p>
 
 <div style="display:grid; grid-template-columns: 50% 50%">
-  <div className="column1" style="padding:10px">
+  <div className="column1" style="padding:10px; display: flex; flex-direction: column; justify-content: space-between;">
     <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Full physical examination
     </p>
@@ -397,7 +392,7 @@ export default function Logistics({data}) {
   treatment period.
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " id="On Site" style="margin-bottom: 1rem; font-size:20px !important">
+<div class="mb-14 font-serif text-md font-bold " style="margin-bottom: 1rem; font-size:20px !important;">
   What you’ll experience occasionally on-site
 </div>
 
@@ -448,8 +443,7 @@ export default function Logistics({data}) {
 
 <hr class="solid" style="margin-bottom: 4rem; margin-top: 4rem;">
 
-<div class="mb-14 font-serif text-md font-bold " id="Optional Procedures"
-  style="margin-bottom:1rem; font-size:20px !important, margin-top:2rem">
+<div class="mb-14 font-serif text-md font-bold " style="margin-bottom: 1rem; font-size: 20px !important; margin-top:2rem">
   What are the optional tests and procedures?
 </div>
 

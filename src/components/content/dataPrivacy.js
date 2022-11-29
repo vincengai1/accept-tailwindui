@@ -40,7 +40,7 @@ export default function DataPrivacy({data}) {
     <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="flex-basis: 60%; margin-right:20px;">
-          <img src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
+          <img alt="now" src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
         </div>
 
         <div>
@@ -79,10 +79,12 @@ export default function DataPrivacy({data}) {
             IDENTITY
           </div>
           <div className='tableSectionContent'>
-            <li>Name</li>
-            <li>Address</li>
-            <li>Telephone number</li>
-            <li>Health insurance number</li>
+            <ul>
+              <li>Name</li>
+              <li>Address</li>
+              <li>Telephone number</li>
+              <li>Health insurance number</li>
+            </ul>
           </div>
         </div>
         <div style="border-right: 1px solid #E0DEDE; padding:10px;">
@@ -90,14 +92,15 @@ export default function DataPrivacy({data}) {
             HEALTH CONDITION
           </div>
           <div className='tableSectionContent'>
-            <li>Medical condition</li>
-            <li>Medical history</li>
-            <li>Lifestyle</li>
-            <li>Demographics (age, gender, ethnic and racial background)</li>
-            <li>Clinical images</li>
-            <li>Biosamples</li>
-            <li>Data generated from tumour samples, clinical images, and biosamples (including genetic data) if available
-            </li>
+            <ul>
+              <li>Medical condition</li>
+              <li>Medical history</li>
+              <li>Lifestyle</li>
+              <li>Demographics (age, gender, ethnic and racial background)</li>
+              <li>Clinical images</li>
+              <li>Biosamples</li>
+              <li>Data generated from tumour samples, clinical images, and biosamples (including genetic data) if available</li>
+            </ul>
           </div>
         </div>
         <div style="border-right: 1px solid #E0DEDE; padding:10px;">
@@ -105,13 +108,15 @@ export default function DataPrivacy({data}) {
             FROM TECH
           </div>
           <div className='tableSectionContent'>
-            <li>IP address</li>
-            <li>Location data</li>
-            <li>Device ID</li>
-            <li>E-mail addres</li>
-            <li>App account information </li>
-            <li>Audio recordings/diaries</li>
-            <li>Interactive patient communications</li>
+            <ul>
+              <li>IP address</li>
+              <li>Location data</li>
+              <li>Device ID</li>
+              <li>E-mail addres</li>
+              <li>App account information </li>
+              <li>Audio recordings/diaries</li>
+              <li>Interactive patient communications</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -128,7 +133,6 @@ export default function DataPrivacy({data}) {
       used as planned in this study as well as within related research activities necessary for this
       drug development program in order to:
     </p>
-
 
 <div style="display: grid; grid-template-columns: auto auto; gap: 10px; min-height: 280px; margin-bottom: 2rem;">
   <div style="background-color: #E0DEDE; text-align: center; padding: 15px 10px 10px 15px; grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 3;">
@@ -263,18 +267,17 @@ export default function DataPrivacy({data}) {
     To exercise these <span style="color:#008764">restricted rights</span>, please contact preferably the study doctor.
   </p>
 
-  <div class="font-serif text-md font-bold" style="margin-bottom: 5px; margin-top: 30px; font-size: 20px !important;"
-  >
+  <div class="font-serif text-md font-bold" style="margin-bottom: 2rem; margin-top: 30px; font-size: 20px !important;" >
     What does anonymized data mean?
   </div>
-  <div style="width: fit-content; display: flex; justify-content: space-between; border: 3px solid #E0DEDE; padding: 20px; padding-top: 25px;">
+  <div style="width: fit-content; display: flex; justify-content: space-between; border: 3px solid #E0DEDE; padding: 20px; padding-top: 25px; margin-bottom: 2rem;">
     <img alt="avatar2" src="http://localhost:8080/img/Avatar2.png" />
     <img alt="avatar3" src="http://localhost:8080/img/avatar2.png" />
     <img alt="avatar4" src="http://localhost:8080/img/avatar2.png" />
     <img alt="avatar5" src="http://localhost:8080/img/avatar2.png" />
   </div>
 
-  <p style="margin-top: 0px;">
+  <p style="margin-top: 0px; margin-bottom: 3rem">
     Health authorities as well as pharmaceutical companies believe that access to clinical
     studies data advances clinical science and medical knowledge and is in the best interest
     of patients and public health, provided that patient privacy is protected. Therefore, the
@@ -292,7 +295,7 @@ export default function DataPrivacy({data}) {
   <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
     <div class="flex flex-row">
       <div class="basis-1/2">
-        <img src="http://localhost:8080/img/Future.png" style="height:80px" />
+        <img alt="future" src="http://localhost:8080/img/Future.png" style="height:80px" />
       </div>
 
       <div>
@@ -310,7 +313,7 @@ export default function DataPrivacy({data}) {
       </div>
     </div>
   </div>
-  <p>
+  <p style="margin-bottom: 3rem;">
     Future research is important to advance science and public health. At present, however, it
     is not possible to foresee all details of future scientific research projects. These future
     scientific research projects are beyond the scope of the clinical study and use of sample

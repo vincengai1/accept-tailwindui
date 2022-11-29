@@ -19,6 +19,8 @@ import DataPrivacy from '../components/content/dataPrivacy';
 import Changes from '../components/content/changes';
 import Withdrawal from '@/components/content/withdrawal'
 import LearnMore from '@/components/content/learnMore';
+import Summary from '@/components/content/summary';
+
 
 import {useSelector} from 'react-redux';
 
@@ -29,9 +31,11 @@ export default function Episode({ episode }) {
 
     const router = useRouter()
     let id = router.asPath.slice(1,2)
+
+    if (router.asPath.slice(1,3) == "10") id = "10"
     let [data, setData] = useState('');
 
-  const targetLanguage = useSelector( (state) => state.language.language);
+    const targetLanguage = useSelector( (state) => state.language.language);
 
     useEffect( () => {
       Data.data.map( (obj) => {
@@ -89,7 +93,6 @@ export default function Episode({ episode }) {
     let player = useAudioPlayer(audioPlayerData)
   
     const renderPage = () => {
-      // console.log(episode, 'hi')
       if (id == '1') return <Introduction data={episode}/>    
       if (id == '2') return <Purpose data={episode}/>    
       if (id == '3') return <Logistics data={episode}/>    
@@ -99,15 +102,15 @@ export default function Episode({ episode }) {
       if (id == '7') return <Changes data={episode}/>    
       if (id == '8') return <Withdrawal data={episode}/>    
       if (id == '9') return <LearnMore data={episode}/>    
-      
+      if (id == '10') return <Summary data={episode}/>
     }
   
+
     return (
     <>
       <article className="py-16 lg:">
         <Container>
-          <div
-            className="prose prose-slate mt-14 [&>h2]:mt-12 [&>h2]:flex [&>h2]:items-center [&>h2]:font-mono [&>h2]:text-sm [&>h2]:font-medium [&>h2]:leading-7 [&>h2]:text-slate-900 [&>h2]:before:mr-3 [&>h2]:before:h-3 [&>h2]:before:w-1.5 [&>h2]:before:rounded-r-full [&>h2]:before:bg-cyan-200 [&>ul]:mt-6 [&>ul]:list-['\2013\20'] [&>ul]:pl-5 [&>h2:nth-of-type(3n+2)]:before:bg-indigo-200 [&>h2:nth-of-type(3n)]:before:bg-violet-200"
+          <div className="prose prose-slate mt-14 [&>h2]:mt-12 [&>h2]:flex [&>h2]:items-center [&>h2]:font-mono [&>h2]:text-sm [&>h2]:font-medium [&>h2]:leading-7 [&>h2]:text-slate-900 [&>h2]:before:mr-3 [&>h2]:before:h-3 [&>h2]:before:w-1.5 [&>h2]:before:rounded-r-full [&>h2]:before:bg-cyan-200 [&>ul]:mt-6 [&>ul]:list-['\2013\20'] [&>ul]:pl-5 [&>h2:nth-of-type(3n+2)]:before:bg-indigo-200 [&>h2:nth-of-type(3n)]:before:bg-violet-200"
             // dangerouslySetInnerHTML={{ __html: episode.content }}
           >
             {renderPage()}
@@ -150,9 +153,8 @@ export async function getStaticProps({params}, context) {
 }
 
 export async function getStaticPaths() {
-  let feed = await parse('https://their-side-feed.vercel.app/api/feed')
-  let data = Data.data; 
-
+   let data = Data.data; 
+    console.log(data, 'work ? ')
   return {
     paths: data.map(({ id }) => ({
       params: {

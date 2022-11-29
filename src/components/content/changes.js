@@ -16,6 +16,7 @@ export default function Changes({data}) {
 
   let router = useRouter();
   let lango = router.asPath.slice(12);
+  
   let audioPlayerData = useMemo(
     () => ({
       title: data.title,
@@ -36,12 +37,12 @@ export default function Changes({data}) {
 <div class=" bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
   <div class="flex flex-row">
     <div style="flex-basis: 60%; margin-right:20px;">
-      <img src="http://localhost:8080/img/Changes.png" style="height:80px;" />
+      <img alt="changes" src="http://localhost:8080/img/Changes.png" style="height:80px;" />
     </div>
 
     <div>
       <div>
-        <div item xs>
+        <div>
           <p className="boxText">
             The trial team will keep you informed of any changes to the trial, or if new information is found during the
             trial.

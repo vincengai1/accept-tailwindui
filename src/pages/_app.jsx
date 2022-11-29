@@ -14,6 +14,7 @@ import 'focus-visible'
  
 import "@/styles/globals.css"
 
+ 
 function Loading() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -44,30 +45,6 @@ function Loading() {
 }
 
 
-// function renderApp() {
-//   const [loading, setLoading] = useState(false);
-
-//   const app = () => {
-//     return (
-//       <Provider store={store}>
-//         <AudioProvider>
-//           <Layout>
-//             <Component {...pageProps} />
-//           </Layout>
-//         </AudioProvider>
-//       </Provider>
-//     )
-//   }
-  
-//   const renderApp = () => setTimeout( () => {
-
-//   })
-//   // setTimeout( () => {renderApp()}, 3000
-
-//   return (
-//     {function}
-//   )
-// }
 
 export default function App({ Component, pageProps }) {
   return (

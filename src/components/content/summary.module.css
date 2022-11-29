@@ -1,0 +1,83 @@
+.root {
+    width: 80%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: 640px): {
+        justify-content: center;
+    }
+}
+
+.intro {
+    color: red;
+    background-color: yellow;
+}
+
+.page {
+    margin-top: 3rem;
+    margin-bottom:2rem;
+    width:100%;
+}
+
+.title {
+    font-size: 40px !important;
+    font-family: "Noto Serif !important";
+    color: "#244150";
+    font-weight: 800 !important;
+
+}
+
+
+.subtitle {
+    font-family:" Noto Sans; sans-serif !important";
+    color: "#949D9F";
+    font-weight: 900 !important;
+    font-size: "20px !important"
+}
+
+
+.subtitle2 {
+    font-family: "Noto Serif !important";
+    color: "#244150";
+    font-weight: 900 !important;
+    font-size: "24px !important";
+    line-height:28.8px
+}
+
+
+.description {
+    font-family:" Noto Sans; sans-serif !important";
+    font-size: "16px !important";
+    line-height:24px
+}
+
+
+.time {
+    color: "#949D9F";
+    font-family:" Noto Sans; sans-serif !important";
+    font-size: "14px !important";
+    line-height:24px
+}
+
+
+.row {
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    width: 100%;
+}
+
+
+.leftSection {}
+
+
+.rightSection {}
+
+
+.revisitButton {
+    border-radius: 25px;
+
+} 

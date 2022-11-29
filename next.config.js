@@ -18,5 +18,15 @@ module.exports = {
       },
     ],
   },
+  audio: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'http://localhost:8080',
+        port: '',
+        pathname: '/audio/**',
+      },
+    ],
+  },
 }
 module.exports = nextConfig

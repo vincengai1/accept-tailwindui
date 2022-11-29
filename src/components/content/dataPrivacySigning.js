@@ -112,7 +112,7 @@ function DataPrivacySigning() {
     style={{backgroundColor: "#E6F7F2"}}>
     <div class="flex flex-row">
         <div class="basis-1/2">
-        <img src="http://localhost:8080/img/consent.png" alt="Consent" class="h-80px mr-20" />
+            <img src="http://localhost:8080/img/consent.png" alt="Consent" class="h-80px mr-20" />
         </div>
     </div>
 

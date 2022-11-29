@@ -11,9 +11,9 @@ export default function Benefits({data}) {
   let [benefitsContent, setBenefitsContent] = useState("");
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
+  let [audio, setAudio] = useState("");
 
   let router = useRouter();
-  let lango = router.asPath.slice(12);
   let audioPlayerData = useMemo(
     () => ({
       title: data.title,
@@ -37,7 +37,7 @@ export default function Benefits({data}) {
       <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
         <div class="flex flex-row">
           <div class="basis-1/2">
-            <img src="http://localhost:8080/img/Benefits.png" class="h-80px mr-20" />
+            <img alt="benefits" src="http://localhost:8080/img/Benefits.png" class="h-80px mr-20" />
           </div>
         </div>
       
@@ -75,9 +75,11 @@ export default function Benefits({data}) {
         elit orci eget urna. Pellentesque porta sit amet lorem at ullamcorper. Donec ultricies accumsan urna vulputate
         commodo.
         <br /><br />
-        <li> Aliquam non malesuada metus, fermentum tristique magna. </li>
-        <li> Aliquam non malesuada metus, fermentum tristique magna. </li>
-        <li> Aliquam non malesuada metus, fermentum tristique magna. </li>
+        <ul>
+          <li> Aliquam non malesuada metus, fermentum tristique magna. </li>
+          <li> Aliquam non malesuada metus, fermentum tristique magna. </li>
+          <li> Aliquam non malesuada metus, fermentum tristique magna. </li>
+        </ul>
         <br />
       
         Donec consectetur iaculis sollicitudin. Mauris tincidunt nunc ac dolor condimentum, vitae hendrerit turpis semper.
@@ -105,7 +107,6 @@ export default function Benefits({data}) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
   let consolidatedData = title + ' **** ' + description;
 
-  console.log(title, description, 'is it good')
   const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -115,8 +116,8 @@ export default function Benefits({data}) {
       mode: 'cors',
       body: consolidatedData
   });
-      // const res = await response;
-      const res = await response;
+
+    const res = await response;
       res.text().then(body => {
         let splitArray =  body.split('****');
         let translatedTitle = splitArray[0];
