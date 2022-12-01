@@ -141,7 +141,7 @@ export default function Introduction({data}) {
           <header className="flex flex-col">
             <div className="flex items-center gap-6">
                 <PlayButton  player={player} size="large" />
-                <h1 className="mt-2 text-4xl font-bold text-slate-900">
+                <h1 className="mt-2 text-4xl font-bold text-slate-900" style={{textAlign: "start"}}>
                   {title} 
                 </h1>
 

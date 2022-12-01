@@ -113,7 +113,7 @@ export default function Footer({prev, next}) {
     <div style={{marginTop:'5rem'}}>
         <div style={{height: "200px", width:'100%', backgroundColor: "#F5F5F5", display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center'
 }}>
-            <input type="checkbox" checked={isChecked} style={{width:'30px', height:'30px', marginRight:'15px'}} onChange={() => handleQuestionClick()}/>
+            <input type="checkbox" checked={isChecked} style={{width:'30px', height:'30px', marginRight:'15px', marginLeft: '15px'}} onChange={() => handleQuestionClick()}/>
             <div>
                 <div style={{fontFamily: "Noto Serif !important", fontWeight: '900', fontSize: '20px', lineHeight:'120%', color: '#244150'}}>
                     {sent1}
