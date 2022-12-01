@@ -24,13 +24,12 @@ export default function LanguageDropDown({targetLanguageChange}) {
     async function grabLanguageList() {
       let serverURL = 'http://localhost:8080'
 
-      const response = await fetch(`${serverURL}/translate/language-list`, {
+      const response = await fetch(`${serverURL}/translate/speakable-language-list`, {
         method: 'GET',
         mode: 'cors',
     });
-  
-    const json = await response.json();
-    setLanguageList(json);
+     const json = await response.json();
+     setLanguageList(json);
   }
 
   return (

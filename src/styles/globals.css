@@ -65,3 +65,12 @@
         transform: rotate(359deg);
     }
 }
+
+audio::-webkit-media-controls-panel {
+    background-color:rgb(70, 253, 198);
+}
+
+audio::-webkit-media-controls-play-button {
+    background-color: rgb(194, 246, 230);
+    border-radius: 50%;
+}

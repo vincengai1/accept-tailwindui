@@ -84,7 +84,6 @@ export default function Footer({prev, next}) {
     const handleQuestionClick = () => {
 
         if (isChecked == false) {
-
             setIsChecked(true);
             dispatch(addQuestion(location.pathname.slice(1,2)))
         } else if (isChecked == true) {

@@ -122,7 +122,6 @@ export function Layout({ children }) {
 
  const targetLanguageChange = (lang) => {
     setLang(lang)
-    console.log(lang, 'the langauge being passed up and state updating')
  };
 
   async function translateSection(sourceLanguage, targetLanguage) {
@@ -224,7 +223,7 @@ export function Layout({ children }) {
                 colors={['fill-indigo-300', 'fill-blue-300']}
                 className="h-2.5 w-2.5"
               />
-              <span className="ml-2.5">Translate</span>
+              <span className="ml-2.5">Translate Language</span>
             </h2>
             <div className="h-px bg-gradient-to-r from-slate-200/0 via-slate-200 to-slate-200/0 lg:hidden" />
             <ul
