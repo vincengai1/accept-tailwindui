@@ -40,6 +40,7 @@ export function AudioProvider({ children }) {
   let actions = useMemo(() => {
     return {
       play(data) {
+        // console.log(data, 'data inside play')
         if (data) {
           dispatch({ type: 'SET_META', payload: data })
 
@@ -110,8 +111,10 @@ export function AudioProvider({ children }) {
   )
 }
 
-export function useAudioPlayer(data) {
+export function useAudioPlayer(data, blob) {
   let player = useContext(AudioPlayerContext)
+  
+  if (blob) data["audio"]["src"] = URL.createObjectURL(blob);
 
   return useMemo(
     () => ({

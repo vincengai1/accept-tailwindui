@@ -53,24 +53,30 @@ export default function Introduction({data}) {
     
   } 
 
+  function AudioPlayer ({blob}) {
+    const src = useObjectUrl(blob);
+
+    return <audio controls {...{src}} className="audio-1"/>;
+  }
+
+
   function useObjectUrl (blob) {
 
     if (typeof blob !== "object") return;
     const url = useMemo(() => URL.createObjectURL(blob), [blob]);
-  
+    
+    
     return url;
   }
 
-  function AudioPlayer ({blob}) {
-    const src = useObjectUrl(blob);
-     return <audio controls {...{src}} class="audio-1"/>;
-  }
 
+  // AUDIO DATA THAT AUDIOPLAYER RECIEVES 
   let audioPlayerData = useMemo(
     () => ({
       title: data.title,
       audio: {
-        src: data.audio.src,
+        // Formatted Blob would go here 
+        src: "",
         type: data.audio.type,
       },
       link: `/${data.id}`,
@@ -78,13 +84,12 @@ export default function Introduction({data}) {
     [data]
     )
 
-  let player = useAudioPlayer(audioPlayerData)
+  let player =  useAudioPlayer(audioPlayerData, blob)
   
   async function translateHeader(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-    let consolidatedData = title + ' **** ' + description;
+    let consolidatedData = title + ' |||| ' + description;
 
-    console.log(title, description, 'is it good')
     const response = await fetch(url, {
         headers: {
           "Content-Type": "application/json",
@@ -97,7 +102,7 @@ export default function Introduction({data}) {
  
         const res = await response;
         res.text().then(body => {
-          let splitArray =  body.split('****');
+          let splitArray =  body.split(' |||| ');
           let translatedTitle = splitArray[0];
           let translatedDescription = splitArray[1];
 
@@ -135,12 +140,12 @@ export default function Introduction({data}) {
         <Container>
           <header className="flex flex-col">
             <div className="flex items-center gap-6">
+                <PlayButton  player={player} size="large" />
                 <h1 className="mt-2 text-4xl font-bold text-slate-900">
                   {title} 
                 </h1>
 
               <div className="flex flex-col">
-                {/* <PlayButton player={player} size="large" /> */}
                 <div
                   className="order-first font-mono text-sm leading-7 text-slate-500"
                 >
@@ -152,14 +157,13 @@ export default function Introduction({data}) {
               {description}
             </p>
             <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
-              <AudioPlayer {...{blob}} />
             </p>
           </header>
           <hr className="my-12 border-gray-200" />
         
         </Container>
       </article>
-      
+
       <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: introContent} } />
 
       <Footer prev={"/"} next={"/2"}/>

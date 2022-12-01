@@ -105,7 +105,7 @@ export default function Benefits({data}) {
   
   async function translateHeader(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = title + ' **** ' + description;
+  let consolidatedData = title + ' |||| ' + description;
 
   const response = await fetch(url, {
       headers: {
@@ -119,7 +119,7 @@ export default function Benefits({data}) {
 
     const res = await response;
       res.text().then(body => {
-        let splitArray =  body.split('****');
+        let splitArray =  body.split(' |||| ');
         let translatedTitle = splitArray[0];
         let translatedDescription = splitArray[1];
 

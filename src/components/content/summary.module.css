@@ -73,7 +73,9 @@
 .leftSection {}
 
 
-.rightSection {}
+.rightSection {
+    align-items: center;
+}
 
 
 .revisitButton {

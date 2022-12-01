@@ -33,22 +33,29 @@ function EpisodeEntry({ page, language }) {
   let [title, setTitle] = useState(page.title);
   let [description, setDescription] = useState(page.description);
   let [timeFrame, setTimeFrame] = useState(page.timeFrame);
+  let [listen, setListen] = useState("Listen");
+  let [reading, setReading] = useState("Start Reading");
 
   let [newTitle, setNewTitle] = useState("");
   let [newDescription, setNewDescription] = useState("");
   let [newTimeFrame, setNewTimeFrame] = useState("");
+  let [newListen, setNewListen] = useState("");
+  let [newReading, setNewReading] = useState("");
 
   const targetLanguage = useSelector( (state) => state.language.language);
 
   useEffect( () => {
     if (targetLanguage) {
       translateData('en', targetLanguage);
+      translateText('en', targetLanguage);
     }
 
     if (!targetLanguage) {
       setNewTitle(title);
       setNewDescription(description);
       setNewTimeFrame(timeFrame);
+      setNewReading(reading);
+      setNewListen(listen);
     }
   }, [targetLanguage])
 
@@ -68,7 +75,7 @@ function EpisodeEntry({ page, language }) {
 
   async function translateData(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = title + ' **** ' + description + ' **** ' + timeFrame;
+  let consolidatedData = title + ' |||| ' + description + ' |||| ' + timeFrame;
   
 
   const response = await fetch(url, {
@@ -83,7 +90,7 @@ function EpisodeEntry({ page, language }) {
 
     const res = await response;
       res.text().then(body => {
-        let splitArray = body.split(' **** ')
+        let splitArray = body.split(' |||| ')
         let translatedTitle = splitArray[0];
         let translatedDescription = splitArray[1];
         let translatedTimeFrame = splitArray[2];
@@ -91,6 +98,34 @@ function EpisodeEntry({ page, language }) {
         setNewTitle(translatedTitle);
         setNewDescription(translatedDescription);
         setNewTimeFrame(translatedTimeFrame);
+      })  
+  }
+
+  async function translateText(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+  let consolidatedData = listen + ' |||| ' + reading ;
+  
+
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: consolidatedData
+  });
+
+    const res = await response;
+    // console.log(res.text(), 'res')
+      res.text().then(body => {
+        let splitArray = body.split(' |||| ')
+        let translatedListen = splitArray[0];
+        let translatedReading = splitArray[1];
+
+        setNewListen(translatedListen);
+        setNewReading(translatedReading);
+ 
       })  
   }
 
@@ -133,7 +168,7 @@ function EpisodeEntry({ page, language }) {
                 className="h-2.5 w-2.5 fill-current"
               />
               <span className="ml-3" aria-hidden="true">
-                Listen 
+                {newListen} 
               </span>
             </button>
             <span
@@ -146,14 +181,13 @@ function EpisodeEntry({ page, language }) {
               href={{
                 pathname: `/${page.id}`,
                 query: {
-                  // id: `${episode.id}`,
                   language: `${language}`,
                 }
               }}
               className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
               aria-label={`Show notes for episode ${page.title}`}
             >
-              Start Reading
+              {newReading}
             </Link>
           </div>
         </div>
@@ -169,20 +203,6 @@ export default function Home({ pages }) {
 
   let router = useRouter()
   let language = router.asPath.slice(11)
-
-  useEffect( () => {
-    //  Check the language and
-    translateText();
-  }, [])
-
-  const translateText = () => {
-
-    if (!language) return;
-
-    if (language) {
-      // console.log(language, 'we have language')
-    }
-  }
 
    return (
     <>

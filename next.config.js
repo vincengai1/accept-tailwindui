@@ -26,6 +26,12 @@ module.exports = {
         port: '',
         pathname: '/audio/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'blob:http://localhost:8080',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 }

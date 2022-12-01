@@ -10,6 +10,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import LanguageDropDown from './LanguageDropDown'
 import { useRouter } from 'next/router';
+import { aboutSection } from '../components/content/text/layoutText';
 
 function randomBetween(min, max, seed = 1) {
   return () => {
@@ -103,21 +104,27 @@ function PersonIcon(props) {
 export function Layout({ children }) {
   let hosts = ['AstraZeneca', 'Accept App'];
   let [lang, setLang] = useState("");
-  let [aboutContent, setAboutContent] = useState("");
+  let [aboutContent, setAboutContent] = useState(aboutSection);
+  let [newContent, setNewContent] = useState("");
+  let [newTranslatedHeader, setNewTranslatedHeader] = useState("");
+  let [translateHeader, setTranslateHeader] = useState("Translate Language");
+
   let router = useRouter();
 
   const targetLanguage = useSelector((state) => state.language.language);
 
 
  useEffect( () => {
-  if (targetLanguage !== "" ) {
+  if (targetLanguage) {
     translateSection('en', targetLanguage);
-  
-  } else if (router.asPath.slice(12)) {
-    translateSection('en', router.asPath.slice(12));
-  } else if (targetLanguage == "") {
-    setAboutContent(aboutSection);
   }
+
+  if (!targetLanguage) {
+    setNewTranslatedHeader(translateHeader);
+    setNewContent(aboutContent);
+  }
+
+  
  }, [targetLanguage])
 
  const targetLanguageChange = (lang) => {
@@ -126,6 +133,7 @@ export function Layout({ children }) {
 
   async function translateSection(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=en\&targetLanguageCode=${targetLanguage}`;
+  let consolidatedData = aboutSection + ' |||| ' + translateHeader;
 
   const response = await fetch(url, {
       headers: {
@@ -134,31 +142,19 @@ export function Layout({ children }) {
     },
       method: 'POST',
       mode: 'cors',
-      body: aboutSection
+      body: consolidatedData
   });
 
   const res = await response;
-      res.text().then(body => setAboutContent(body))  
+      res.text().then(body => {
+        let translatedArr = body.split(' |||| ')
+        let translatedAbout = translatedArr[0];
+        let translatedLang = translatedArr[1];
+        setNewContent(translatedAbout);
+        setNewTranslatedHeader(translatedLang);
+
+      })  
   }
-
-  const aboutSection = 
-`
-        <section>
-          <h2 className="flex items-center font-mono text-sm font-medium leading-7 text-slate-900">
-            <span className="ml-2.5 font-bold" style="font-weight:800; margin-bottom: 15px;">Key Things to Know About This Trial</span>
-          </h2>
-          
-          <p
-            className={clsx(
-              'mt-2 text-base leading-7 text-slate-700',
-            )}
-          >
-            <b>Purpose:</b> DESTINY-Breast07 will investigate the safety, tolerability, and anti-tumour activity of trastuzumab deruxtecan (T-DXd) in combination with other anti-cancer agents in patients with HER2-positive Metastatic Breast Cancer.
-            <br/><br/><b>Potential benefit:</b> Improve outcomes for future patients
-          </p>
-
-        </section>
-`
 
   return (
     <>
@@ -214,7 +210,7 @@ export function Layout({ children }) {
           </div>
 
           <div className="mt-12 hidden lg:block" id="AboutSectiones">
-            <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: aboutContent} } />
+            <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: newContent} } />
           </div>
 
           <section className="mt-10 lg:mt-12">
@@ -223,7 +219,7 @@ export function Layout({ children }) {
                 colors={['fill-indigo-300', 'fill-blue-300']}
                 className="h-2.5 w-2.5"
               />
-              <span className="ml-2.5">Translate Language</span>
+              <span className="ml-2.5">{newTranslatedHeader}</span>
             </h2>
             <div className="h-px bg-gradient-to-r from-slate-200/0 via-slate-200 to-slate-200/0 lg:hidden" />
             <ul

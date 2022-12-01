@@ -7,7 +7,7 @@ import RightArrow from './rightArrow.png';
 
 import { useRouter } from 'next/router';
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addQuestion, removeQuestion } from '../../slices/formSlice';
 
 
@@ -17,6 +17,7 @@ export default function Footer({prev, next}) {
     const [sent2, setSent2] = useState("We'll make a note of this, so you can review with the trial team later.");
     const [before, setBefore] = useState("Before");
     const [nextPage, setNextPage] = useState("Next");
+    const questionsList = useSelector((state) => state.form.questions)
 
     let router = useRouter();
     let lango = router.asPath.slice(12);
@@ -31,9 +32,24 @@ export default function Footer({prev, next}) {
     }     
     }, [])
 
+    useEffect( () => {
+        if (questionsList.includes(location.pathname.slice(1))) {
+            setIsChecked(true);
+        }
+        toggleChange();
+    }, [])
+
+    const toggleChange = () => {
+        if (!questionsList) return;
+
+        if (questionsList.includes(location.pathname.slice(1))) {
+            setIsChecked(true);
+        }
+    };
+
   async function translateBottom(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-    let consolidatedData = before + " **** " + nextPage;
+    let consolidatedData = before + " |||| " + nextPage;
 
     const response = await fetch(url, {
         headers: {
@@ -47,7 +63,7 @@ export default function Footer({prev, next}) {
         // const res = await response;
         const res = await response;
         res.text().then(body => {
-            let splitArray = body.split("****");
+            let splitArray = body.split(" |||| ");
             let translatedSent1 = splitArray[0];
             let translatedSent2 = splitArray[1];
 
@@ -58,7 +74,7 @@ export default function Footer({prev, next}) {
 
   async function translateSection(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-    let consolidatedData = sent1 + " **** " + sent2;
+    let consolidatedData = sent1 + " |||| " + sent2;
 
     const response = await fetch(url, {
         headers: {
@@ -72,7 +88,7 @@ export default function Footer({prev, next}) {
         // const res = await response;
         const res = await response;
         res.text().then(body => {
-            let splitArray = body.split("****");
+            let splitArray = body.split(" |||| ");
             let translatedSent1 = splitArray[0];
             let translatedSent2 = splitArray[1];
 

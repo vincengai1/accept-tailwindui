@@ -109,7 +109,7 @@ export default function Withdrawal({data}) {
 
   async function translateHeader(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = title + ' **** ' + description;
+  let consolidatedData = title + ' |||| ' + description;
 
   console.log(title, description, 'is it good')
   const response = await fetch(url, {
@@ -124,7 +124,7 @@ export default function Withdrawal({data}) {
       // const res = await response;
       const res = await response;
       res.text().then(body => {
-        let splitArray =  body.split('****');
+        let splitArray =  body.split(' |||| ');
         let translatedTitle = splitArray[0];
         let translatedDescription = splitArray[1];
 
@@ -145,7 +145,6 @@ export default function Withdrawal({data}) {
       mode: 'cors',
       body: introductionContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setIntroContent(body))  
   }
@@ -185,17 +184,6 @@ export default function Withdrawal({data}) {
 
       <Footer prev={"/7"} next={"/9"} />
 
-      {/* <div className="SigningComponent">
-          <div{>Sentence 1}</div>
-          <div>Sentence 2</div>
-
-          <div>
-            <>Checkbox</>
-            <>Yes</>
-            <>Checkbox</>
-            <>No</>
-          </div>
-      </div> */}
     </div>
   )
 }
