@@ -109,6 +109,8 @@ export default function Introduction({data}) {
         }) 
   }
 
+// debugger
+
   async function translateSection(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
 
