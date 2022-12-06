@@ -196,7 +196,6 @@ export function Layout({ children }) {
                 className="flex justify-center"
                 src={AcceptImage}
                 alt=""
-                // sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
                 priority
               />
             </Link>

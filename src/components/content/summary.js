@@ -1,15 +1,9 @@
 import React from 'react'
-// import { makeStyles } from '@mui/styles';
-// import Divider from '@mui/material/Divider';
-// import {Link, Button} from '@mui/material';
-// import Question from '../../assets/Questions.png';
+
 import { useSelector, useDispatch } from 'react-redux'
-// import { useHistory } from "react-router-dom";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 
-// import Highlight from '../../assets/icon.png';
-// import Notes from '../../assets/Notes.png';
 
 import styles from './summary.module.css';
 
@@ -19,19 +13,6 @@ function Summary() {
   let lango = router.asPath.slice(13);
   const questionsList = useSelector((state) => state.form.questions)
  
-//   const buttons = () => {
-//     if ('checking redux store for session') {
-//       return (
-//         <div className={classes.rightSection} style={{display:'flex'}}>
-//           <img src={Question}  />
-//           <img src={Highlight} />
-//           <img src={Notes} />
-
-//           <button className={classes.revisitButton}>Revisit</button>
-//         </div>
-//       )
-//     }
-//   }
 
 
   const renderQuestionImg = (page) => {

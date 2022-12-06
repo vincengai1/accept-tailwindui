@@ -27,7 +27,6 @@ function PlayPauseIcon({ playing, ...props }) {
   )
 }
 
-// EpisodeEntry is the index of all the Pages 
 
 function EpisodeEntry({ page, language }) {
   let [title, setTitle] = useState(page.title);
@@ -117,7 +116,6 @@ function EpisodeEntry({ page, language }) {
   });
 
     const res = await response;
-    // console.log(res.text(), 'res')
       res.text().then(body => {
         let splitArray = body.split(' |||| ')
         let translatedListen = splitArray[0];

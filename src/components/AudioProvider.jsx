@@ -40,7 +40,6 @@ export function AudioProvider({ children }) {
   let actions = useMemo(() => {
     return {
       play(data) {
-        // console.log(data, 'data inside play')
         if (data) {
           dispatch({ type: 'SET_META', payload: data })
 

@@ -138,7 +138,6 @@ export default function LearnMore({data}) {
       mode: 'cors',
       body: consolidatedData
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => {
         let splitArray =  body.split(' |||| ');
@@ -161,8 +160,8 @@ export default function LearnMore({data}) {
       mode: 'cors',
       body: introductionContentSection
   });
-      // const res = await response;
-      const res = await response;
+
+  const res = await response;
       res.text().then(body => setIntroContent(body))  
   }
 

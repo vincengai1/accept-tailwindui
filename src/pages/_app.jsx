@@ -36,7 +36,6 @@ function Loading() {
       }
     })
 
-    // debugger
     return loading && (
       <div className="spinner-wrapper">
         <div className="spinner" />

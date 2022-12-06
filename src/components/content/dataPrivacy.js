@@ -360,7 +360,6 @@ export default function DataPrivacy({data}) {
       mode: 'cors',
       body: consolidatedData
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => {
         let splitArray =  body.split(' |||| ');
@@ -384,7 +383,6 @@ export default function DataPrivacy({data}) {
       mode: 'cors',
       body: dataPrivacyContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setDataPrivacyContent(body))  
   }

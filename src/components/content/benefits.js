@@ -139,7 +139,6 @@ export default function Benefits({data}) {
       mode: 'cors',
       body: benefitsContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setBenefitsContent(body))  
   }

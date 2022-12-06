@@ -559,7 +559,6 @@ export default function Logistics({data}) {
       mode: 'cors',
       body: logisticsContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setLogisticsContent(body))  
   }
@@ -578,7 +577,6 @@ export default function Logistics({data}) {
       mode: 'cors',
       body: consolidatedData
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => {
         let splitArray =  body.split(' |||| ');

@@ -502,7 +502,6 @@ export default function Purpose({data}) {
       mode: 'cors',
       body: purposeContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setPurposeContent(body))  
   }
@@ -522,7 +521,6 @@ export default function Purpose({data}) {
       mode: 'cors',
       body: consolidatedData
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => {
         let splitArray =  body.split(' |||| ' );

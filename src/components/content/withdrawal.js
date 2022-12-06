@@ -121,7 +121,6 @@ export default function Withdrawal({data}) {
       mode: 'cors',
       body: consolidatedData
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => {
         let splitArray =  body.split(' |||| ');

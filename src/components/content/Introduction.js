@@ -70,12 +70,10 @@ export default function Introduction({data}) {
   }
 
 
-  // AUDIO DATA THAT AUDIOPLAYER RECIEVES 
   let audioPlayerData = useMemo(
     () => ({
       title: data.title,
       audio: {
-        // Formatted Blob would go here 
         src: "",
         type: data.audio.type,
       },
@@ -123,7 +121,6 @@ export default function Introduction({data}) {
       mode: 'cors',
       body: introductionContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setIntroContent(body))  
   }

@@ -96,11 +96,7 @@ export default function Introduction({data}) {
         body: textBox
     });
 
-    // const res = await response.blob();
-
     let blob = new Blob([await response.blob()], {type: 'audio/mpeg', responseType: 'blob'})
-
-    // console.log(typeof blob === "object", 'blob')
     setBlob(blob)
     
   }
@@ -111,9 +107,6 @@ export default function Introduction({data}) {
     if (typeof blob !== "object") return;
     const url = useMemo(() => URL.createObjectURL(blob), [blob]);
 
-    // useEffect(() => () => URL.revokeObjectURL(url), [blob]);
-
-    // setAudio(url)
     return url;
   }
 
@@ -150,7 +143,6 @@ export default function Introduction({data}) {
         mode: 'cors',
         body: consolidatedData
     });
-        // const res = await response;
         const res = await response;
         res.text().then(body => {
           let splitArray =  body.split('****');
@@ -174,7 +166,6 @@ export default function Introduction({data}) {
       mode: 'cors',
       body: introductionContentSection
   });
-      // const res = await response;
       const res = await response;
       res.text().then(body => setIntroContent(body))  
   }
