@@ -109,8 +109,7 @@ export default function Footer({prev, next}) {
     
   return (
     <div style={{marginTop:'5rem'}}>
-        <div style={{height: "200px", width:'100%', backgroundColor: "#F5F5F5", display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center'
-}}>
+        <div style={{height: "200px", width:'100%', backgroundColor: "#F5F5F5", display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', padding: '5px'}}>
             <input type="checkbox" checked={isChecked} style={{width:'30px', height:'30px', marginRight:'15px', marginLeft: '15px'}} onChange={() => handleQuestionClick()}/>
             <div>
                 <div style={{fontFamily: "Noto Serif !important", fontWeight: '900', fontSize: '20px', lineHeight:'120%', color: '#244150'}}>
@@ -132,7 +131,7 @@ export default function Footer({prev, next}) {
                         }
                         }}
                         className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
-                        style={{textDecoration:'none'}}        
+                        style={{textDecoration:'none',}}        
                     >
                         <Image alt="leftArrow" src={LeftArrow} style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
                         {before}
@@ -151,11 +150,11 @@ export default function Footer({prev, next}) {
                                 }
                                 }}
                                 className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
-                                style={{textDecoration:'none'}}        
+                                style={{textDecoration:'none', }}        
 
                             >
                                 {nextPage} 
-                                <Image alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px'}}/>
+                                <Image alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
                             </Link>
                         </div>
                     </div>
