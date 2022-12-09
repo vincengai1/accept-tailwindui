@@ -20,7 +20,7 @@ export default function LanguageDropDown({targetLanguageChange}) {
 
   useEffect( () => {
     grabLanguageList();
-
+    // grabVoiceList();
     
   }, [])
 
@@ -32,6 +32,7 @@ export default function LanguageDropDown({targetLanguageChange}) {
         mode: 'cors',
     });
      const json = await response.json();
+    //  console.log(json, 'language list')
      setLanguageList(json);
   }
 
@@ -40,6 +41,24 @@ export default function LanguageDropDown({targetLanguageChange}) {
 
     setCurrentLanguage(`${language.name}`)
   };
+
+  // async function grabVoiceList() {
+  //     let serverURL = 'http://localhost:8080'
+
+  //     const response = await fetch(`${serverURL}/speech/voice-list&langaugeCode=`, {
+  //       method: 'GET',
+  //       mode: 'cors',
+  //   });
+  //    const json = await response.json();
+  //    console.log(json, 'voice list')
+  //   //  setLanguageList(json);
+  // }
+
+  // function handleLanguageChange(language)  {
+  //   dispatch(changeLanguage(`${language.code}`))
+
+  //   setCurrentLanguage(`${language.name}`)
+  // };
 
   return (
     <Menu as="div" className="relative inline-block text-left">

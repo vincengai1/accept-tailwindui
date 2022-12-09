@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
 
 import { useAudioPlayer } from '@/components/AudioProvider'
@@ -13,17 +12,53 @@ import {purposeAudioSection} from './text/purposeText';
 
 export default function Purpose({data}) {
   let [purposeContent, setPurposeContent] = useState("");
+  let [audioContent, setAudioContent] = useState("");
+  let [blob, setBlob] = useState("");
+
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
-
-
   let router = useRouter();
-  let lango = router.asPath.slice(12);
+
+  useEffect( () => {
+    let targetLanguage = router.asPath.slice(12)
+
+    if (!targetLanguage) {
+      setPurposeContent(purposeContentSection);
+      setAudioContent(purposeAudioSection);
+    }
+
+    if (targetLanguage) {
+      translateSection('en', targetLanguage);
+      translateHeader('en', targetLanguage);
+      translateAudio('en', targetLanguage);
+    }
+
+    fetchAudio();
+  }, [])
+  
+  async function fetchAudio() {
+    let url= "http://localhost:8080/speech/synthesize?languageCode=en-US";
+
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+      },
+        responseType: 'blob',
+        method: 'POST',
+        mode: 'cors',
+        body: audioContent
+    });
+ 
+    let blob = new Blob([await response.blob()], {type: 'audio/mpeg', responseType: 'blob'})
+ 
+    setBlob(blob)
+  } 
+
   let audioPlayerData = useMemo(
     () => ({
       title: data.title,
       audio: {
-        src: data.audio.src,
+        src: "",
         type: data.audio.type,
       },
       link: `/${data.id}`,
@@ -31,43 +66,44 @@ export default function Purpose({data}) {
     [data]
   )
   
-  let player = useAudioPlayer(audioPlayerData)
+  let player =  useAudioPlayer(audioPlayerData, blob)
         
-  useEffect( () => {
-    let targetLanguage = router.asPath.slice(12)
-
-    if (!targetLanguage) {
-      setPurposeContent(purposeContentSection);
-       
-    }
-
-    if (targetLanguage) {
-      translateSection('en', targetLanguage)
-      translateHeader('en', targetLanguage)
-    }
-  }, [])
-  
   async function translateSection(sourceLanguage, targetLanguage) {
-  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+    let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
 
-  const response = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        "Accept" : "text/plain"
-    },
-      method: 'POST',
-      mode: 'cors',
-      body: purposeContentSection
-  });
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept" : "text/plain"
+      },
+        method: 'POST',
+        mode: 'cors',
+        body: purposeContentSection
+    });
       const res = await response;
       res.text().then(body => setPurposeContent(body)) 
+  }
+
+  async function translateAudio(sourceLanguage, targetLanguage) {
+    let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept" : "text/plain"
+      },
+        method: 'POST',
+        mode: 'cors',
+        body: audioContent
+    });
+      const res = await response;
+      res.text().then(body => setAudioContent(body)) 
   }
   
   async function translateHeader(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
   let consolidatedData = title + ' |||| ' + description;
 
-  console.log(title, description, 'is it good')
   const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",

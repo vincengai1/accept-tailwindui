@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import Link from 'next/link'
+
 import Head from 'next/head'
 import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
@@ -8,23 +8,25 @@ import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
 import LogisticsSigning from './logisticsSigning';
 
-import {useSelector} from 'react-redux';
-
 import { logisticsContentSection } from './text/logisticsText';
+import { logisticsAudioSection } from './text/logisticsText';
 
 export default function Logistics({data}) {
   let [logisticsContent, setLogisticsContent] = useState("");
+  let [audioContent, setAudioContent] = useState("");
+  let [blob, setBlob] = useState("");
+
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
 
   
   let router = useRouter();
-  let lango = router.asPath.slice(12);
+
   let audioPlayerData = useMemo(
     () => ({
       title: data.title,
       audio: {
-        src: data.audio.src,
+        src: "",
         type: data.audio.type,
       },
       link: `/${data.id}`,
@@ -32,22 +34,58 @@ export default function Logistics({data}) {
     [data]
   )
 
-  let player = useAudioPlayer(audioPlayerData)
+  let player = useAudioPlayer(audioPlayerData, blob)
 
   useEffect( () => {
     let targetLanguage = router.asPath.slice(12)
 
     if (!targetLanguage) {
       setLogisticsContent(logisticsContentSection);
+      setAudioContent(logisticsAudioSection);
     }
 
     if (targetLanguage) {
       translateSection('en', targetLanguage);
       translateHeader('en', targetLanguage)
-
+      translateAudio('en', targetLanguage);
     }
-
+    
+    fetchAudio();
   }, [])
+  
+  async function fetchAudio() {
+    let url= "http://localhost:8080/speech/synthesize?languageCode=en&voiceId=Joanna";
+
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+      },
+        responseType: 'blob',
+        method: 'POST',
+        mode: 'cors',
+        body: audioContent
+    });
+ 
+    let blob = new Blob([await response.blob()], {type: 'audio/mpeg', responseType: 'blob'})
+ 
+    setBlob(blob)
+  } 
+
+  async function translateAudio(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: audioContent
+  });
+      const res = await response;
+      res.text().then(body => setAudioContent(body))  
+  }
   
   async function translateSection(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
