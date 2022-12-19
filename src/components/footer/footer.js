@@ -18,6 +18,7 @@ export default function Footer({prev, next}) {
     const [before, setBefore] = useState("Before");
     const [nextPage, setNextPage] = useState("Next");
     const questionsList = useSelector((state) => state.form.questions)
+  const imageLoader = require("../content/loader");
 
     let router = useRouter();
     let lango = router.asPath.slice(12);
@@ -133,7 +134,7 @@ export default function Footer({prev, next}) {
                         className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
                         style={{textDecoration:'none',}}        
                     >
-                        <Image alt="leftArrow" src={LeftArrow} style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
+                        <Image loader={imageLoader}  unoptimized width={500} height={500} alt="leftArrow" src={LeftArrow} style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
                         {before}
                     </Link>
                 </button>
@@ -154,7 +155,7 @@ export default function Footer({prev, next}) {
 
                             >
                                 {nextPage} 
-                                <Image alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
+                                <Image loader={imageLoader}  unoptimized width={500} height={500} alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
                             </Link>
                         </div>
                     </div>

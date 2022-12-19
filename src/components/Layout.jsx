@@ -12,6 +12,8 @@ import LanguageDropDown from './LanguageDropDown'
 import { useRouter } from 'next/router';
 import { aboutSection } from '../components/content/text/layoutText';
 
+
+
 function randomBetween(min, max, seed = 1) {
   return () => {
     let rand = Math.sin(seed++) * 10000
@@ -110,7 +112,7 @@ export function Layout({ children }) {
   let [translateHeader, setTranslateHeader] = useState("Translate Language");
 
   const targetLanguage = useSelector((state) => state.language.language);
-
+  const imageLoader = require("./content/loader");
 
  useEffect( () => {
   if (targetLanguage) {
@@ -178,7 +180,9 @@ export function Layout({ children }) {
             className="relative mx-auto block w-48 overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
             aria-label="Homepage"
           >
-            <Image
+            <Image loader={imageLoader}  unoptimized
+              width={400}
+              height={400}
               className="w-full"
               src={posterImage}
               alt="posterimage"
@@ -190,7 +194,10 @@ export function Layout({ children }) {
           <div className="mt-10 text-center lg:mt-12 lg:text-left">
             <p className="text-xl font-bold text-slate-900 flex justify-center" >
             <Link href="/">
-              <Image
+              <Image loader={imageLoader}  unoptimized
+
+                width={400}
+                height={400}
                 className="flex justify-center"
                 src={AcceptImage}
                 alt=""

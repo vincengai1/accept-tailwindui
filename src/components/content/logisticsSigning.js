@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import Image from 'next/image'
 
 import { useRouter } from 'next/router';
 
@@ -81,7 +82,7 @@ function LogisticsSigning() {
   async function translateQ(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
     let consolidatedData = yes + " **** " + no;
-
+    
     const response = await fetch(url, {
         headers: {
             "Content-Type": "application/json",
@@ -91,26 +92,27 @@ function LogisticsSigning() {
         mode: 'cors',
         body: consolidatedData
     });
-        const res = await response;
-        res.text().then(body => {
-            let splitArray = body.split("****");
-            let translatedSent1 = splitArray[0];
-            let translatedSent2 = splitArray[1];
+    const res = await response;
+    res.text().then(body => {
+        let splitArray = body.split("****");
+        let translatedSent1 = splitArray[0];
+        let translatedSent2 = splitArray[1];
+        
+        setYes(translatedSent1);
+        setNo(translatedSent2);
+        
+    })  
+}
 
-            setYes(translatedSent1);
-            setNo(translatedSent2);
-
-        })  
-  }
-
+  const imageLoader = require("./loader");
 
   return (
     <>
-    <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14"
+    <div className="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14"
     style={{backgroundColor: "#E6F7F2"}}>
-    <div class="flex flex-row">
-        <div class="basis-1/2">
-        <img src="http://localhost:8080/img/consent.png" alt="Consent" class="h-80px mr-20" />
+    <div className="flex flex-row">
+        <div className="basis-1/2">
+        <Image loader={imageLoader}  width={500} height={500} unoptimized src="http://localhost:8080/img/consent.png" alt="Consent" className="h-80px mr-20" />
         </div>
     </div>
 

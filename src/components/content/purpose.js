@@ -6,6 +6,7 @@ import { Container } from '@/components/Container'
 import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
+import Image from 'next/image'
 
 import {purposeContentSection} from './text/purposeText';
 import {purposeAudioSection} from './text/purposeText';
@@ -14,6 +15,7 @@ export default function Purpose({data}) {
   let [purposeContent, setPurposeContent] = useState("");
   let [audioContent, setAudioContent] = useState("");
   let [blob, setBlob] = useState("");
+  const imageLoader = require("./loader")
 
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);

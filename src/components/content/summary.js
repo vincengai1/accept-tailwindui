@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import Image from 'next/image'
 
 
 import styles from './summary.module.css';
@@ -12,14 +13,15 @@ function Summary() {
   const router = useRouter();
   let lango = router.asPath.slice(13);
   const questionsList = useSelector((state) => state.form.questions)
- 
+  const imageLoader = require("./loader");
+
 
 
   const renderQuestionImg = (page) => {
 
     if (questionsList.includes(page)) {
       return (
-        <img  src="http://localhost:8080/img/Questions.png" style={{marginRight:'5px'}} />
+        <Image loader={imageLoader}  width={500} height={500} unoptimized  src="http://localhost:8080/img/Questions.png" style={{marginRight:'5px'}} />
       )
     }
   };

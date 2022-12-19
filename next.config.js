@@ -9,13 +9,14 @@ const nextConfig = {
 }
 module.exports = {
   images: {
+    loader: 'custom',
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'http://localhost:8080',
+        hostname: 'localhost:8080',
         port: '',
         pathname: '/img/**',
-      },
+      }
     ],
   },
   audio: {

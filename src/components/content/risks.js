@@ -6,6 +6,7 @@ import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
+import Image from 'next/image'
 
 import { risksContentSection } from './text/risksText';
 import { risksAudioSection } from './text/risksText';
@@ -18,6 +19,7 @@ export default function Risks({data}) {
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
   let router = useRouter();
+  const imageLoader = require("./loader")
   
  
   useEffect( () => {

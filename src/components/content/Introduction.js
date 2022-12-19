@@ -5,6 +5,7 @@ import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
+import Image from 'next/image'
 
 import Footer from '../footer/footer';
 
@@ -19,6 +20,7 @@ export default function Introduction({data}) {
   let [blob, setBlob] = useState("");
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
+  const imageLoader = require("./loader")
 
   let router = useRouter();
   

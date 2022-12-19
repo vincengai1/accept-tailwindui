@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
+import Image from 'next/image'
 
 import { useRouter } from 'next/router';
-
-import {useDispatch} from 'react-redux';
 
 function DataPrivacySigning() {
     const [q1, setQ1] = useState("")
@@ -16,11 +15,8 @@ function DataPrivacySigning() {
     const [yes, setYes] = useState("Yes");
     const [no, setNo] = useState("No");
 
-
     let router = useRouter();
-    const dispatch = useDispatch();
-
-
+    const imageLoader = require("./loader");
 
     const handleQuestion1Click = (value) => {
        if (q1 == "yes" || q1 == 'no') {
@@ -103,14 +99,13 @@ function DataPrivacySigning() {
         })  
   }
 
-
   return (
     <>
-    <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14"
+    <div className="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14"
     style={{backgroundColor: "#E6F7F2"}}>
-    <div class="flex flex-row">
-        <div class="basis-1/2">
-            <img src="http://localhost:8080/img/consent.png" alt="Consent" class="h-80px mr-20" />
+    <div className="flex flex-row">
+        <div className="basis-1/2">
+            <Image loader={imageLoader}  unoptimized src="http://localhost:8080/img/consent.png" alt="Consent" width={500} height={500} className="h-80px mr-20" />
         </div>
     </div>
 
