@@ -5,12 +5,20 @@ import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+
+import ExportedImage from "next-image-export-optimizer";
+// import VideoImage from '@/images/video.png';
+import images from "../../../public/AboutStudy.png"
 
 import Footer from '../footer/footer';
 
 import { introductionContentSection } from './text/introductionText'
 import { introductionAudioSection } from './text/introductionText'
+
+const customLoader = ({ src }) => {
+  console.log("shalom")
+  return src
+}
 
 export default function Introduction({data}) {
   let [introContent, setIntroContent] = useState("");
@@ -20,7 +28,6 @@ export default function Introduction({data}) {
   let [blob, setBlob] = useState("");
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
-  const imageLoader = require("./loader")
 
   let router = useRouter();
   
@@ -99,7 +106,6 @@ export default function Introduction({data}) {
       })  
   }
 
-
   async function translateHeader(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
     let consolidatedData = title + ' |||| ' + description;
@@ -172,10 +178,10 @@ export default function Introduction({data}) {
         
         </Container>
       </article>
+      {/* <ExportedImage unoptimized={true} width={500} height={500} loader={customLoader} alt="video" src="http://localhost:8080/img/video.png?"/> */}
       <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: introContent} } />
-
+      
       <Footer prev={"/"} next={"/2"}/>
     </div>
   )
 }
-

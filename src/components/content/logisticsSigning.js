@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import Image from 'next/image'
+import ExportedImage from "next-image-export-optimizer";
 
 import { useRouter } from 'next/router';
 
@@ -19,7 +19,6 @@ function LogisticsSigning() {
 
 
     let router = useRouter();
-    const dispatch = useDispatch();
 
 
 
@@ -112,7 +111,7 @@ function LogisticsSigning() {
     style={{backgroundColor: "#E6F7F2"}}>
     <div className="flex flex-row">
         <div className="basis-1/2">
-        <Image loader={imageLoader}  width={500} height={500} unoptimized src="http://localhost:8080/img/consent.png" alt="Consent" className="h-80px mr-20" />
+        {/* <ExportedImage unoptimized={true} width={500} height={500} src="http://localhost:8080/img/consent.png" alt="Consent" className="h-80px mr-20" /> */}
         </div>
     </div>
 

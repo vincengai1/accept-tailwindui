@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import Image from 'next/image'
+import ExportedImage from "next-image-export-optimizer";
 
 import Head from 'next/head'
 import { useAudioPlayer } from '@/components/AudioProvider'
@@ -19,7 +19,6 @@ export default function Logistics({data}) {
 
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
-  const imageLoader = require("./loader")
 
   
   let router = useRouter();

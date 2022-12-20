@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+import ExportedImage from "next-image-export-optimizer";
 
 
 import styles from './summary.module.css';
@@ -21,7 +21,8 @@ function Summary() {
 
     if (questionsList.includes(page)) {
       return (
-        <Image loader={imageLoader}  width={500} height={500} unoptimized  src="http://localhost:8080/img/Questions.png" style={{marginRight:'5px'}} />
+        <div>hi</div>
+        // <ExportedImage unoptimized={true} width={500} height={500} src="http://localhost:8080/img/Questions.png" style={{marginRight:'5px'}} />
       )
     }
   };

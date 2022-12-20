@@ -8,7 +8,6 @@ export const dataPrivacyContentSection =
     <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="flex-basis: 60%; margin-right:20px;">
-          <Image loader={imageLoader}  width={500} height={500} unoptimized  alt="now" src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
         </div>
 
         <div>
@@ -239,10 +238,6 @@ export const dataPrivacyContentSection =
     What does anonymized data mean?
   </div>
   <div style="width: fit-content; display: flex; justify-content: space-between; border: 3px solid #E0DEDE; padding: 20px; padding-top: 25px; margin-bottom: 2rem;">
-    <Image loader={imageLoader}  width={500} height={500} unoptimized alt="avatar2" src="http://localhost:8080/img/Avatar2.png" />
-    <Image loader={imageLoader}  width={500} height={500} unoptimized alt="avatar3" src="http://localhost:8080/img/avatar2.png" />
-    <Image loader={imageLoader}  width={500} height={500} unoptimized alt="avatar4" src="http://localhost:8080/img/avatar2.png" />
-    <Image loader={imageLoader}  width={500} height={500} unoptimized alt="avatar5" src="http://localhost:8080/img/avatar2.png" />
   </div>
 
   <p style="margin-top: 0px; margin-bottom: 3rem">
@@ -263,7 +258,6 @@ export const dataPrivacyContentSection =
   <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
     <div class="flex flex-row">
       <div class="basis-1/2">
-        <Image loader={imageLoader}  width={500} height={500} unoptimized alt="future" src="http://localhost:8080/img/Future.png" style="height:80px" />
       </div>
 
       <div>

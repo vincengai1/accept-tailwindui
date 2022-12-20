@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-import Image from 'next/image'
+import ExportedImage from "next-image-export-optimizer";
 
 import {purposeContentSection} from './text/purposeText';
 import {purposeAudioSection} from './text/purposeText';

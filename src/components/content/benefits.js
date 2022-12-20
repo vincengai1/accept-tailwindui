@@ -9,14 +9,13 @@ import Footer from '../footer/footer';
 
 import { benefitsContentSection } from './text/benefitsText';
 import { benefitsAudioSection } from './text/benefitsText'
-import Image from 'next/image'
+import ExportedImage from "next-image-export-optimizer";
 
 export default function Benefits({data}) {
   let [benefitsContent, setBenefitsContent] = useState("");
   let [title, setTitle] = useState(data.title);
   let [description, setDescription] = useState(data.description);
   let [audio, setAudio] = useState("");
-const imageLoader = require("./loader");
 
   let router = useRouter();
   let audioPlayerData = useMemo(

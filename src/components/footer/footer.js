@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/future/image'
+import ExportedImage from "next-image-export-optimizer";
 
  import LeftArrow from './leftArrow.png';
 import RightArrow from './rightArrow.png';
@@ -134,7 +134,7 @@ export default function Footer({prev, next}) {
                         className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
                         style={{textDecoration:'none',}}        
                     >
-                        <Image loader={imageLoader}  unoptimized width={500} height={500} alt="leftArrow" src={LeftArrow} style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
+                        {/* <ExportedImage    unoptimized={true} width={500} height={500} alt="leftArrow" src={LeftArrow} style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/> */}
                         {before}
                     </Link>
                 </button>
@@ -155,7 +155,7 @@ export default function Footer({prev, next}) {
 
                             >
                                 {nextPage} 
-                                <Image loader={imageLoader}  unoptimized width={500} height={500} alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
+                                {/* <ExportedImage unoptimized={true} width={500} height={500} alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/> */}
                             </Link>
                         </div>
                     </div>

@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useId, useState } from 'react'
-import Image from 'next/future/image'
+import ExportedImage from "next-image-export-optimizer";
 import Link from 'next/link'
 
 import { AudioPlayer } from '@/components/player/AudioPlayer'
-import posterImage from '@/images/poster.png'
-import AcceptImage from '@/images/header.png'
+import posterImage from '../../public/poster.png'
+import AcceptImage from '../../public/header.png'
 
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -112,7 +112,6 @@ export function Layout({ children }) {
   let [translateHeader, setTranslateHeader] = useState("Translate Language");
 
   const targetLanguage = useSelector((state) => state.language.language);
-  const imageLoader = require("./content/loader");
 
  useEffect( () => {
   if (targetLanguage) {
@@ -180,29 +179,29 @@ export function Layout({ children }) {
             className="relative mx-auto block w-48 overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
             aria-label="Homepage"
           >
-            <Image loader={imageLoader}  unoptimized
+            {/* <ExportedImage 
+              unoptimized={true}
               width={400}
               height={400}
               className="w-full"
               src={posterImage}
               alt="posterimage"
-              sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
-              priority
-            />
+              
+            /> */}
             <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl" />
           </Link>
           <div className="mt-10 text-center lg:mt-12 lg:text-left">
             <p className="text-xl font-bold text-slate-900 flex justify-center" >
             <Link href="/">
-              <Image loader={imageLoader}  unoptimized
+              {/* <ExportedImage 
+                unoptimized={true}
 
                 width={400}
                 height={400}
                 className="flex justify-center"
                 src={AcceptImage}
                 alt=""
-                priority
-              />
+              /> */}
             </Link>
             </p>
             <p className="text-xl font-bold text-slate-900 flex justify-center" >
