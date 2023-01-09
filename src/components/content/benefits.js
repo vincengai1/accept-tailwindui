@@ -9,7 +9,7 @@ import Footer from '../footer/footer';
 
 import { benefitsContentSection } from './text/benefitsText';
 import { benefitsAudioSection } from './text/benefitsText'
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 
 export default function Benefits({data}) {
   let [benefitsContent, setBenefitsContent] = useState("");

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 
 import Head from 'next/head'
 import { useAudioPlayer } from '@/components/AudioProvider'

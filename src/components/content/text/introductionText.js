@@ -1,8 +1,12 @@
+
 export const introductionContentSection = `
         <div class="font-serif text-md font-bold">
         What is the purpose of this consent?        
         </div>
-
+                  <img 
+            src="http://localhost:8080/img/Risks.png"
+            alt="posterimage"
+          />
         <p class="text-sm font-san">
         You are invited to take part in this study because you have <span style="color: #008764"> human epidermal growth factor
         receptor 2 positive (HER2-positive) metastatic breast cancer (MBC).</span> HER2-positive MBC

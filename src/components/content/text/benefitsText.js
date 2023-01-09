@@ -3,6 +3,7 @@ export const benefitsContentSection = `
       <div class="mb-14 font-serif text-md font-bold ">
         What are the possible benefits of taking part?
       </div>
+      
       <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
         <div class="flex flex-row">
           <div class="basis-1/2">

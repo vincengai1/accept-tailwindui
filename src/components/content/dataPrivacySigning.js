@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 
 import { useRouter } from 'next/router';
 

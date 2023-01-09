@@ -6,9 +6,9 @@ import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 // import VideoImage from '@/images/video.png';
-import images from "../../../public/AboutStudy.png"
+// import images from "../../../public/AboutStudy.png"
 
 import Footer from '../footer/footer';
 

@@ -1,10 +1,9 @@
 import { Fragment, useEffect, useId, useState } from 'react'
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 import Link from 'next/link'
 
 import { AudioPlayer } from '@/components/player/AudioPlayer'
-import posterImage from '../../public/poster.png'
-import AcceptImage from '../../public/header.png'
+
 
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -12,7 +11,7 @@ import LanguageDropDown from './LanguageDropDown'
 import { useRouter } from 'next/router';
 import { aboutSection } from '../components/content/text/layoutText';
 
-
+import poster from '../../static/video.png';
 
 function randomBetween(min, max, seed = 1) {
   return () => {
@@ -155,6 +154,10 @@ export function Layout({ children }) {
       })  
   }
 
+const customLoader = ({ src }) => {
+  return src
+}
+
   return (
     <>
       <header className="bg-slate-50 lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-112 lg:items-start lg:overflow-y-auto xl:w-120">
@@ -179,15 +182,11 @@ export function Layout({ children }) {
             className="relative mx-auto block w-48 overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
             aria-label="Homepage"
           >
-            {/* <ExportedImage 
-              unoptimized={true}
-              width={400}
-              height={400}
-              className="w-full"
-              src={posterImage}
-              alt="posterimage"
-              
-            /> */}
+          <img 
+            src="http://localhost:8080/img/Risks.png"
+            alt="posterimage"
+          />
+          {/* <img  src={require('../../static/video.png')} /> */}
             <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl" />
           </Link>
           <div className="mt-10 text-center lg:mt-12 lg:text-left">

@@ -1,5 +1,5 @@
 export const risksContentSection =
-        `      
+        `
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div  style="flex-basis:90%; margin-right:30px;">
