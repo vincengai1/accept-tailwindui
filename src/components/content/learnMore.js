@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
 import { introductionContentSection } from './text/introductionText'
 import { introductionAudioSection } from './text/introductionText'
@@ -14,7 +14,7 @@ import { introductionAudioSection } from './text/introductionText'
 
 export default function LearnMore({data}) {
   let [introContent, setIntroContent] = useState("");
-  let [title, setTitle] = useState(data.title);
+  let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
 
   let router = useRouter();

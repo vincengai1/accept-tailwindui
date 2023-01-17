@@ -1,8 +1,9 @@
 export const risksContentSection =
-        `
+        `      
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div  style="flex-basis:90%; margin-right:30px;">
+              <img    width={500} height={500} unoptimized alt="risks" src="http://localhost:8080/img/Risks.png" style="height:80px; width:100%"/>
             </div>
 
             <div>
@@ -11,7 +12,7 @@ export const risksContentSection =
                   <p className="boxText">
                    Most of the potential side effects are <b>common</b> with cancer treatment.  <br /><br />
                     
-                  <b>1 serious side effect has been reported with T-DXd:</b> <span style="color: #008764; font-weight:bold;">lung problems (pneumonitis/interstitial lung disease (ILD)</span>. These lung problems may be life-threatening or fatal. Symptoms may be similar to
+                  <b>1 serious side effect has been reported with T-DXd:</b> <span style="color: #DA5697; font-weight:bold;">lung problems (pneumonitis/interstitial lung disease (ILD)</span>. These lung problems may be life-threatening or fatal. Symptoms may be similar to
                       other lung or heart diseases. Your doctor will check for these signs and symptoms while you receive treatment with T-DXd and may treat you with corticosteroid medications. If you develop serious lung problems during the study, they may also delay or stop your treatment.             
                   </p>
                 </div>
@@ -20,7 +21,7 @@ export const risksContentSection =
           </div>
         </div>
 
-        <div class="mb-7 font-serif text-md font-bold "  id="New Information">
+        <div class="mb-7  text-md font-bold "  id="New Information">
           What are the risks of joining the study? 
         </div>
 
@@ -40,7 +41,7 @@ export const risksContentSection =
         </p>
 
 
-        <div class="mb-5 mt-14 font-serif text-md font-bold "  id="Risks of T-DXd">
+        <div class="mb-5 mt-14  text-md font-bold "  id="Risks of T-DXd">
             Possible risks associated with trastuzumab deruxtecan, T-DXd    
         </div>
 
@@ -81,7 +82,7 @@ export const risksContentSection =
                       <ul>
                         <li>difficulty breathing (dyspnea)</li>
                         <li>severe nose bleeds (epistaxis)</li>
-                        <li style="font-weight:bold; color:#008764">lung problems (interstitial lung disease/pneumonitis)</li>
+                        <li style="font-weight:bold; color:#DA5697">lung problems (interstitial lung disease/pneumonitis)</li>
                         <li>low potassium in the blood (hypokalemia)</li>
                         <li>rash</li>
                         <li>general body weakness (malaise) </li>
@@ -95,15 +96,18 @@ export const risksContentSection =
 
         <hr class="solid"  style="margin-bottom: 2rem; margin-top: 2rem;">
 
-        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+        <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
+            <img    width={500} height={500} unoptimized alt="exclamation" src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/>  Serious side effect  
         </div>
 
         <p className="pageText" style="margin-bottom: 2rem;">
-          <span style="color:#008764"><b>Lung problems (pneumonitis/interstitial lung disease) </b></span>are a common and serious side effect of trastuzumab deruxtecan. These lung problems may be life-threatening or fatal. 
+          <span style="color:#DA5697"><b>Lung problems (pneumonitis/interstitial lung disease) </b></span>are a common and serious side effect of trastuzumab deruxtecan. These lung problems may be life-threatening or fatal. 
         </p>
 
+         <img    width={500} height={500} unoptimized alt="graphic" src="http://localhost:8080/img/ILD-graphic.png" style="margin-bottom:2rem; width: 100%"/>
 
-        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+        <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
+          <img    width={500} height={500} unoptimized alt="syringe" src="http://localhost:8080/img/syringe.png" style="margin-right: 10px"/> Symptoms 
         </div>
 
         <p className="pageText" style="margin-bottom: 2rem">
@@ -124,7 +128,8 @@ export const risksContentSection =
           these problems from becoming more serious.
         </p>
 
-        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+        <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
+            <img    width={500} height={500} unoptimized alt="medicalHistory" src="http://localhost:8080/img/medicalHistory.png" style="margin-right: 10px"/> Medical history  
         </div>
         
         <p className="pageText" style="margin-bottom: 2rem">
@@ -132,7 +137,8 @@ export const risksContentSection =
           interstitial lung disease (ILD) or pneumonitis.
         </p>
 
-        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+        <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
+             <img    width={500} height={500} unoptimized alt="monitor" src="http://localhost:8080/img/Monitor.png" style="margin-right: 10px"/> Monitoring  
         </div>
         
         <p className="pageText" style="margin-bottom: 2rem">
@@ -141,7 +147,8 @@ export const risksContentSection =
             Your study treatment may also need to be delayed or completely stopped if you develop
             serious lung problems while on the study.
         </p>
-        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+        <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
+             <img    width={500} height={500} unoptimized alt="exclamationmark" src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/> Serious reactions to look out for   
         </div>
         
         <p className="pageText" style="margin-bottom: 2rem">
@@ -163,7 +170,8 @@ export const risksContentSection =
             </ul>
         </p>
 
-        <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+        <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
+            <img    width={500} height={500} unoptimized alt="yellowalert" src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Share with your doctor  
         </div>
         <p className="pageText" style="margin-bottom: 2rem">
           <ul>
@@ -173,8 +181,9 @@ export const risksContentSection =
             <li>Risks associated with the of use of tobacco products, e-cigarettes or vaping while on treatment with trastuzumab deruxtecan are not known.<b> Use of tobacco products, e-cigarettes and vaping is strongly discouraged. </b> Tell your doctor about any prior or current use of these products.</li>
           </ul>
         </p>
-          <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+          <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
 
+       <img    width={500} height={500} unoptimized alt="yelloAlert" src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Unexpected risks 
         </div>
         <p className="pageText" style="margin-bottom: 2rem">
         The study medication might have other adverse effects that are not known at this time. It
@@ -185,7 +194,7 @@ export const risksContentSection =
 
           <hr class="solid"  style="margin-bottom: 1rem; margin-top: 1rem;">
       
-          <div style="margin-bottom:10px; display: flex; align-items: center" class="font-serif text-md font-bold "  >
+          <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
 
           Risks associated with the use of T-DXd combined with other cancer treatments
         </div>
@@ -202,7 +211,7 @@ export const risksContentSection =
         <div style="color:#596B75; font-weight:bold; margin-top:40px; ">
           MODULE 1 & 4
         </div>
-        <div class="mb-5 mt-2 font-serif text-md font-bold ">
+        <div class="mb-5 mt-2  text-md font-bold ">
           Possible risks associated with durvalumab 
         </div>
 
@@ -258,7 +267,7 @@ export const risksContentSection =
           MODULE 2
         </div>
 
-        <div class="mb-5 mt-2 font-serif text-md font-bold ">
+        <div class="mb-5 mt-2  text-md font-bold ">
           Possible risks associated with pertuzumab
         </div>
 
@@ -302,7 +311,7 @@ export const risksContentSection =
                     <ul>
                         <li>difficulty breathing (dyspnea)</li>
                         <li>severe nose bleeds (epistaxis)</li>
-                        <li style="font-weight:bold; color:#008764;">lung problems (interstitial lung disease/pneumonitis)</li>
+                        <li style="font-weight:bold; color:#DA5697;">lung problems (interstitial lung disease/pneumonitis)</li>
                         <li>low potassium in the blood (hypokalemia)</li>
                         <li>rash</li>
                         <li>general body weakness (malaise) </li>
@@ -318,7 +327,7 @@ export const risksContentSection =
         <div style="color:#596B75; font-weight:bold; margin-top:40px; ">
           MODULE 3 & 4
         </div>
-        <div class="mb-5 mt-2 font-serif text-md font-bold ">
+        <div class="mb-5 mt-2  text-md font-bold ">
           Possible risks associated with paclitaxel
         </div>
 
@@ -387,7 +396,7 @@ export const risksContentSection =
           or after, radiotherapy.
         </p>
 
-        <div class="mb-4 mt-10 font-serif text-md font-bold "  style="display: flex; align-items: center; margin-bottom:2rem">
+        <div class="mb-4 mt-10  text-md font-bold "  style="display: flex; align-items: center; margin-bottom:2rem">
           Risk associated with study procedures
         </div>
 
@@ -395,13 +404,15 @@ export const risksContentSection =
           There are also risks associated with some of the study procedures. The most common risks include pain or discomfort, allergic reaction, and infection. They are typically mild to moderate but could be serious or life-threatening. 
         </p>
 
+        <img    width={500} height={500} unoptimized alt="frame176" src="http://localhost:8080/img/Frame176.png" style="margin-bottom:3rem"/>
 
-        <div class="mb-14 font-serif text-md font-bold "  style="display: flex; align-items: center; margin-bottom:1rem;">
+        <div class="mb-14  text-md font-bold "  style="display: flex; align-items: center; margin-bottom:1rem;">
           Are there any other considerations or risks I need to know about?
         </div>
 
         <p className="pageText" >
           <div style="display:flex; align-content:center; margin-bottom:10px; align-items: center;">
+            <img    width={500} height={500} unoptimized alt="pregnant" src="http://localhost:8080/img/Pregnant.png" style="margin-right: 10px" /><b>Pregnancy, contraception and breast-feeding</b> <br/>
           </div>
           Because the effects of the study treatments on an unborn child or infant are not known, you
           (or your female partner if you are a man) must not get pregnant or breastfeed a child during
@@ -418,6 +429,7 @@ export const risksContentSection =
 
         <p className="pageText" >
           <div style="display:flex; align-content:center; margin-bottom:10px;align-items: center;">
+           <img    width={500} height={500} unoptimized alt="medicine" src="http://localhost:8080/img/Medicine.png" style="margin-right: 10px" /><b>Other medications/ vaccinations</b> <br/>
           </div>
            Because the effects of the study treatments on an unborn child or infant are not known, you
           (or your female partner if you are a man) must not get pregnant or breastfeed a child during

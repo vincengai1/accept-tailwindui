@@ -1,20 +1,21 @@
 
 export const introductionContentSection =
         `       
-        <div class="font-serif text-md font-bold" style="margin-bottom:2rem;" >
+        <div class=" text-md font-bold" style="margin-bottom:2rem;" >
           How to find out more after the study?
         </div>
         <div class=" bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-8">
           <div  class="flex flex-row">
             <div  class="basis-1/2">
+                <img    width={500} height={500} unoptimized  alt="urls" src="http://localhost:8080/img/URLs.png" style="height:90px; margin-top: 1rem" />
             </div>
 
             <div>
               <div>
                 <div>
                   <p className="boxText">
-                   <span style="color: #008764;">Trial Result Summaries</span> are a short and easy to understand summary of the results of
-                      this study. These will be added to <span style="color: #008764;">trialsummaries.com</span> 1 year from the last study
+                   <span style="color: #DA5697;">Trial Result Summaries</span> are a short and easy to understand summary of the results of
+                      this study. These will be added to <span style="color: #DA5697;">trialsummaries.com</span> 1 year from the last study
                       participants last site visit. 
                 </div>
               </div>
@@ -32,7 +33,7 @@ export const introductionContentSection =
           </p>
 
           
-          <div class="font-serif text-md font-bold" style="margin-top:3rem;" >
+          <div class=" text-md font-bold" style="margin-top:3rem;" >
             How to find results from future research?
         </div>
 
@@ -48,13 +49,14 @@ export const introductionContentSection =
             RESEARCH. If you agree, you can indicate this in the CONSENT FORM.</b>
           </p>
 
-          <div class="font-serif text-md font-bold" style="margin-bottom:2rem; margin-top:3rem;" >
+          <div class=" text-md font-bold" style="margin-bottom:2rem; margin-top:3rem;" >
             Who can answer any questions I may have? 
           </div>
 
         <div class=" bg-astraGray-100 text-fontGray-100 py-8 flex flex-row rounded-xl mb-14">
           <div  class="flex flex-row" style="padding-left:2rem;">
             <div  class="basis-1/2" style="">
+                <img    width={500} height={500} unoptimized alt="contact" src="http://localhost:8080/img/Contact.png" style="height:80px;" />
 
             </div>
 

@@ -1,12 +1,12 @@
 export const benefitsContentSection = `
          
-      <div class="mb-14 font-serif text-md font-bold ">
+      <div class="mb-14  text-md font-bold ">
         What are the possible benefits of taking part?
       </div>
-      
       <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
         <div class="flex flex-row">
           <div class="basis-1/2">
+            <img    width={500} height={500} unoptimized alt="benefits" src="http://localhost:8080/img/Benefits.png" class="h-80px mr-20" />
           </div>
         </div>
       
@@ -31,7 +31,7 @@ export const benefitsContentSection = `
       </p>
       
       
-      <div class="mb-2 mt-7 font-serif text-md font-bold ">
+      <div class="mb-2 mt-7  text-md font-bold ">
         Early Results
       </div>
       

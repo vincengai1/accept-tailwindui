@@ -1,13 +1,14 @@
 
 export const purposeContentSection =
         `         
-        <div class="font-serif text-md font-bold mb-14" id="Purpose of Consent">
+        <div class="text-md font-bold mb-14" id="Purpose of Consent">
           What is this study about?
         </div>
 
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div style="flex-basis: 60%; margin-right:30px;">
+                <img    width={500} height={500} unoptimized  alt="aboutStudy" src="http://localhost:8080/img/AboutStudy.png" class="h-80px mr-20" />
             </div>
 
             <div>
@@ -20,7 +21,7 @@ export const purposeContentSection =
           </div>
         </div>
 
-        <div class="font-serif text-md font-bold" >
+        <div class="text-md font-bold" >
             Description of the research study     
         </div>
 
@@ -29,6 +30,7 @@ export const purposeContentSection =
           released into the cancer cell, damaging or killing it. 
         </p>
 
+        <img width={500} height={500} unoptimized  alt="group151" src="http://localhost:8080/img/Group151.png" style="margin-bottom:2rem; width:100%"/>
 
         <p className="pageText">
           <span style="background-color:#ffff99">While T-DXd has shown promising
@@ -76,13 +78,13 @@ export const purposeContentSection =
             with HER2-positive MBC enrolled globally at approximately 100 sites in 15 countries.
         </p>
 
-        <div class="font-serif text-md font-bold mt-14"  id="Review of Trial">
+        <div class="text-md font-bold mt-14"  id="Review of Trial">
             Review of this trial 
         </div>
         <p class="text-sm font-san">
           The overall description of this study (including the collection, storage and use of your data
           and samples of your biological material, known as biosamples) as well as this document
-          has been reviewed in your country by an <span style="color: #008764"> Independent Ethics Committee (IEC) or Institutional Review Board (IRB)</span> to ensure that the rights, safety and well-being of study
+          has been reviewed in your country by an <span style="color: #DA5697"> Independent Ethics Committee (IEC) or Institutional Review Board (IRB)</span> to ensure that the rights, safety and well-being of study
           patients are protected.
         </p>
 `
@@ -118,6 +120,6 @@ export const purposeAudioSection =
     Review of this trial 
     The overall description of this study (including the collection, storage and use of your data
     and samples of your biological material, known as biosamples) as well as this document
-    has been reviewed in your country by an <span style="color: #008764"> Independent Ethics Committee (IEC) or Institutional Review Board (IRB)</span> to ensure that the rights, safety and well-being of study
+    has been reviewed in your country by an <span style="color: #DA5697"> Independent Ethics Committee (IEC) or Institutional Review Board (IRB)</span> to ensure that the rights, safety and well-being of study
     patients are protected.
 `

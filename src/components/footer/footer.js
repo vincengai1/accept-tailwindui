@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
  import LeftArrow from './leftArrow.png';
 import RightArrow from './rightArrow.png';
@@ -110,10 +110,10 @@ export default function Footer({prev, next}) {
     
   return (
     <div style={{marginTop:'5rem'}}>
-        <div style={{height: "200px", width:'100%', backgroundColor: "#F5F5F5", display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', padding: '5px'}}>
+        <div style={{height: "200px", width:'100%', backgroundColor: "#FAECF3", display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', padding: '5px'}}>
             <input type="checkbox" checked={isChecked} style={{width:'30px', height:'30px', marginRight:'15px', marginLeft: '15px'}} onChange={() => handleQuestionClick()}/>
             <div>
-                <div style={{fontFamily: "Noto Serif !important", fontWeight: '900', fontSize: '20px', lineHeight:'120%', color: '#244150'}}>
+                <div style={{ fontWeight: '900', fontSize: '20px', lineHeight:'120%', color: '#244150'}}>
                     {sent1}
                 </div>
                 <div>
@@ -131,10 +131,10 @@ export default function Footer({prev, next}) {
                             language: `${lango}`,
                         }
                         }}
-                        className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
+                        className="flex items-center text-sm font-bold leading-6 text-white hover:text-astraPink-100 active:text-astraPink-200"
                         style={{textDecoration:'none',}}        
                     >
-                        {/* <ExportedImage    unoptimized={true} width={500} height={500} alt="leftArrow" src={LeftArrow} style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/> */}
+                        <img unoptimized={true} width={500} height={500} alt="leftArrow" src="http://localhost:8080/img/leftArrow.png" style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
                         {before}
                     </Link>
                 </button>
@@ -142,7 +142,7 @@ export default function Footer({prev, next}) {
                 <button  style={{background: 'none', border: 'none', display: 'flex', alignItems: 'center', border: 'none', background: 'none', color: 'white', cursor: 'pointer',}}>
                     <div style={{marginRight:'15px' }}>
  
-                        <div style={{ fontFamily: "Noto Sans, sans-serif !important", lineHeight: '27px', fontSize: '18px', weight: '700'}}>
+                        <div style={{ lineHeight: '27px', fontSize: '18px', weight: '700'}}>
                             <Link
                                 href={{
                                 pathname: `${next}`,
@@ -150,12 +150,12 @@ export default function Footer({prev, next}) {
                                     language: `${lango}`,
                                 }
                                 }}
-                                className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
+                                className="flex items-center text-sm font-bold leading-6 text-white hover:text-astraPink-100 active:text-astraPink-200"
                                 style={{textDecoration:'none', }}        
 
                             >
                                 {nextPage} 
-                                {/* <ExportedImage unoptimized={true} width={500} height={500} alt="rightArrow" src={RightArrow} style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/> */}
+                                <img unoptimized={true} width={500} height={500} alt="rightArrow" src="http://localhost:8080/img/rightArrow.png" style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
                             </Link>
                         </div>
                     </div>

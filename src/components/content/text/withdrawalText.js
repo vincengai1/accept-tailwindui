@@ -1,13 +1,14 @@
 
 export const introductionContentSection =
         `       
-        <div class="font-serif text-md font-bold" style="margin-bottom:2rem;">
+        <div class=" text-md font-bold" style="margin-bottom:2rem;">
           What will happen if I want to quit the study?      
         </div>
 
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div style="flex-basis:40%">
+                <img alt="withdraw" src="http://localhost:8080/img/withdraw.png" style="height:90px;" />
             </div>
 
             <div>
@@ -47,7 +48,7 @@ export const introductionContentSection =
             clinical regulations.
           </p>
 
-          <div class="font-serif text-md font-bold" style="margin-top: 3rem;" >
+          <div class=" text-md font-bold" style="margin-top: 3rem;" >
            What if I want to withdraw from future research?      
         </div>
 

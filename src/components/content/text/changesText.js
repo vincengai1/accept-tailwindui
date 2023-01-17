@@ -4,6 +4,7 @@ export const benefitsContentSection =
 <div class=" bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
   <div class="flex flex-row">
     <div style="flex-basis: 60%; margin-right:20px;">
+      <img alt="changes" src="http://localhost:8080/img/Changes.png" style="height:80px;" />
     </div>
 
     <div>
@@ -21,7 +22,7 @@ export const benefitsContentSection =
   </div>
 </div>
 
-<div class="font-serif text-md font-bold">
+<div class=" text-md font-bold">
   What happens if something changes while I am in the study, e.g., if
   new information is found?
 </div>
@@ -36,7 +37,7 @@ export const benefitsContentSection =
 </p>
 
 
-<div class="font-serif text-md font-bold">
+<div class=" text-md font-bold">
   What happens if something changes while I am in the study, e.g., if
   new information is found?
 </div>

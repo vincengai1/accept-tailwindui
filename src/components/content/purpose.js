@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
 import {purposeContentSection} from './text/purposeText';
 import {purposeAudioSection} from './text/purposeText';
@@ -17,7 +17,7 @@ export default function Purpose({data}) {
   let [blob, setBlob] = useState("");
   const imageLoader = require("./loader")
 
-  let [title, setTitle] = useState(data.title);
+  let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
   let router = useRouter();
 

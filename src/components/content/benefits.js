@@ -9,11 +9,11 @@ import Footer from '../footer/footer';
 
 import { benefitsContentSection } from './text/benefitsText';
 import { benefitsAudioSection } from './text/benefitsText'
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
 export default function Benefits({data}) {
   let [benefitsContent, setBenefitsContent] = useState("");
-  let [title, setTitle] = useState(data.title);
+  let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
   let [audio, setAudio] = useState("");
 

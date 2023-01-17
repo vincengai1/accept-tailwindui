@@ -1,13 +1,14 @@
 export const logisticsContentSection =
         `
   <div>
-    <div class="mb-14 font-serif text-md font-bold " id="What will happen?">
+    <div class="mb-14 text-md font-bold " id="What will happen?">
       What will happen if I join the study?
     </div>
 
     <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="margin-right:30px;">
+          <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Schedule.png" alt="Schedule" class="h-80px mr-20" />
         </div>
 
         <div>
@@ -24,10 +25,11 @@ export const logisticsContentSection =
     </div>
 </div>
 
-<div class="mb-14 font-serif text-md font-bold " id="Screening" style="margin-bottom:1rem">
+<div class="mb-14 text-md font-bold " id="Screening" style="margin-bottom:1rem">
   Screening (0-28 days prior to starting the study treatment)
 </div>
 
+<img    width={500} height={500} unoptimized  src="http://localhost:8080/img/graphic.png" alt="graphic" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 <p className="pageText" style="margin-bottom: 3rem;">
   You may be in the study for approximately 36 months, and may continue depending on the
@@ -47,10 +49,11 @@ export const logisticsContentSection =
 </p>
 
 
-<div class="mb-14 font-serif text-md font-bold " id="Treatment Period" style="margin-bottom:1rem">
+<div class="mb-14 text-md font-bold " id="Treatment Period" style="margin-bottom:1rem">
   Treatment period
 </div>
 
+<img    width={500} height={500} unoptimized  src="http://localhost:8080/img/graphic2.png" alt="graphic2" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 
 <p className="pageText">
@@ -118,10 +121,11 @@ export const logisticsContentSection =
   </tr>
 </table>
 
-<div class="mb-14 font-serif text-md font-bold " style="margin-bottom:1rem">
+<div class="mb-14 text-md font-bold " style="margin-bottom:1rem">
   Follow-up
 </div>
 
+<img    width={500} height={500} unoptimized  src="http://localhost:8080/img/graphic3.png" alt="graphic3" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 <p className="pageText">
   The follow-up period in modules 0, 2 and 3 occurs 40-47 days after the last dose of the
@@ -134,11 +138,11 @@ export const logisticsContentSection =
   this study. If you cannot come to a visit, you must tell your study doctor. You will only be
   given the study treatments while the study is going on but not after it has ended. Please
   note that the study, and your participation in the study, may be stopped earlier than
-  expected, for example for scientific or safety reasons (<span style="color: #008764;">see “Section 9” for more
+  expected, for example for scientific or safety reasons (<span style="color: #DA5697;">see “Section 9” for more
     details</span>).
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " style="margin-top: 3rem; margin-bottom:1rem">
+<div class="mb-14 text-md font-bold " style="margin-top: 3rem; margin-bottom:1rem">
   Significant regional disruptions, evolving global pandemics or similar natural disasters
 </div>
 
@@ -151,7 +155,7 @@ export const logisticsContentSection =
   professional body guidance that may be available at that time.
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " style="margin-bottom:2rem; margin-top:3rem;">
+<div class="mb-14 text-md font-bold " style="margin-bottom:2rem; margin-top:3rem;">
   What are the required tests and procedures?
 </div>
 
@@ -159,6 +163,7 @@ export const logisticsContentSection =
 <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-7">
   <div class="flex flex-row">
     <div class="basis-1/5">
+      <img width={500} height={500} unoptimized  src="http://localhost:8080/img/requiredProcedures.png" alt="requiredprocedures" class="h-80px mr-20" style="padding-right: 10px;"/>
     </div>
 
 
@@ -168,9 +173,9 @@ export const logisticsContentSection =
           <p class="text-sm font-san">
             On-site, you will regularly experience wellness checks, laboratory work, tumour and biomarker assessments,
             and your study treatment. At home, you’ll take
-            daily <span style="color:#008764;"> Pulse Oximetry readings.</span> <br /><br />
+            daily <span style="color:#DA5697;"> Pulse Oximetry readings.</span> <br /><br />
             These procedures will be minimally invasive. The most invasive/uncomfortable procedures will be<span
-              style="color:#008764;"> tumour tissue collection and Magnetic
+              style="color:#DA5697;"> tumour tissue collection and Magnetic
               Resonance Imaging (MRI) and Computed Tomography (CT). </span>
           </p>
         </div>
@@ -184,11 +189,12 @@ export const logisticsContentSection =
   To conduct the study, some tests and procedures will have to be performed on you.
 </p>
 
-<div class=" font-serif text-md font-bold " style=" margin-top:3rem;">
+<div class=" text-md font-bold " style=" margin-top:3rem;">
   What you’ll experience regularly on-site
 </div>
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Wellness.png" alt="Wellness" style="margin-right:10px;" />
   <p className="pageText">
     <b>Wellness checks</b>
   </p>
@@ -200,19 +206,19 @@ export const logisticsContentSection =
 
 <div style="display:grid; grid-template-columns: 50% 50%">
   <div className="column1" style="padding:10px; display: flex; flex-direction: column; justify-content: space-between;">
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Full physical examination
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       A check on your general health, status of your disease, measuring your weight and height.
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Performance status
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       A check on your general health, status of your disease, measuring your weight and height.
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Electrocardiogram (ECG), Echocardiogram (ECHO) or Multigated Acquisition (MUGA) Scans
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
@@ -222,20 +228,20 @@ export const logisticsContentSection =
   </div>
 
   <div className="column2" style="padding:10px">
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Pulse Oximetry (SpO2)
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       A test to show how your lungs are working, measurement of the amount of air you breathe in and out.
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Adverse Event / Serious Adverse Event assessment
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       Any event that occurs during study participation that is unfavourable and may cause pain or discomfort must be
       reported to your doctor at each study visit.
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Health-related questionnaires
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
@@ -246,6 +252,7 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Lab.png" alt="lab" style="margin-right:10px;" />
   <p className="pageText">
     <b>Laboratory assessments</b>
   </p>
@@ -257,14 +264,14 @@ export const logisticsContentSection =
 
 <div style="display:grid; grid-template-columns: 50% 50%">
   <div className="column1" style="padding:10px">
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Blood Collection
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       No greater than a total of 715 mL of blood will be taken during your participation in the study and no greater
       than 120 mL of blood will be taken per visit.
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Urine collection
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
@@ -273,13 +280,13 @@ export const logisticsContentSection =
   </div>
 
   <div className="column2" style="padding:10px">
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Eye exam
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px">
       Your eyes will be checked for any signs of disease and reading ability
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Serum pregnancy test
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px">
@@ -291,6 +298,7 @@ export const logisticsContentSection =
 
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/XRay.png" alt="xray" style="margin-right:10px;" />
   <p className="pageText">
     <b>Tumour and biomarker assessments</b>
   </p>
@@ -302,13 +310,13 @@ export const logisticsContentSection =
 
 <div style="display:grid; grid-template-columns: 50% 50%">
   <div className="column1" style="padding:10px;">
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Magnetic Resonance Imaging (MRI)
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       Uses magnetic fields to produce detailed images to measure and record the size of your tumour(s).
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Computed Tomography (CT)
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
@@ -318,13 +326,13 @@ export const logisticsContentSection =
   </div>
 
   <div className="column2" style="padding:10px;">
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Whole body bone scan
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
       A test to see if there are any signs of cancer that has spread to any bones in your body.
     </p>
-    <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+    <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
       Tumor tissue sample
     </p>
     <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
@@ -334,9 +342,12 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; flex-direction: column">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Group 204.png" alt="group204"/>
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Group205.png" alt="group205" />
 </div>
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/IV.png" style="margin-right:10px;" alt="iv"/>
   <p className="pageText">
     <b>Tumour and biomarker assessments</b>
   </p>
@@ -347,24 +358,25 @@ export const logisticsContentSection =
   treatment period.
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " style="margin-bottom: 1rem; font-size:20px !important;">
+<div class="mb-14 text-md font-bold " style="margin-bottom: 1rem; font-size:20px !important;">
   What you’ll experience occasionally on-site
 </div>
 
 <p className="pageText" style="margin:0px">
-  At your screening appointment only, the clinical team will conduct a <span style="color:#00A372"> Spirometry
+  At your screening appointment only, the clinical team will conduct a <span style="color:#DA5697"> Spirometry
     (DLCO) </span>test to check your lung function.
 </p>
 
-<div class="mb-14 font-serif text-md font-bold " id="At Home"
+<div class="mb-14 text-md font-bold " id="At Home"
   style="margin-bottom:1rem; margin-top: 2rem; font-size:20px !important; align-ttems:center">
   What you'll do at home
 </div>
 
 <div style="display:grid; grid-template-columns: 35% 65%; margin-top:2rem">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Index 1.png" alt="index1"/>
 
   <div>
-    <p className="pageText" style="font-weight:700; color:#00A372">
+    <p className="pageText" style="font-weight:700; color:#DA5697">
       At-Home Pulse Oximetry (SpO2)
     </p>
     <p className="pageText">
@@ -379,6 +391,7 @@ export const logisticsContentSection =
 <div class="font-san bg-astraGray-100 text-fontGray-100 flex flex-row rounded-xl">
   <div class="flex flex-row">
     <div style="flex-basis:20%">
+      <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/info.png" alt="info" style="height:40px; padding-left: 20px;" />
     </div>
 
     <div>
@@ -396,13 +409,14 @@ export const logisticsContentSection =
 
 <hr class="solid" style="margin-bottom: 4rem; margin-top: 4rem;">
 
-<div class="mb-14 font-serif text-md font-bold " style="margin-bottom: 1rem; font-size: 20px !important; margin-top:2rem">
+<div class="mb-14 text-md font-bold " style="margin-bottom: 1rem; font-size: 20px !important; margin-top:2rem">
   What are the optional tests and procedures?
 </div>
 
 <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
   <div class="flex flex-row">
     <div style="flex-basis:30%; margin-right: 30px;">
+      <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/optionalprocedures.png" alt="optinalprocedure" style="height:80px" />
     </div>
 
     <div item xs="12" sm container>
@@ -425,6 +439,7 @@ export const logisticsContentSection =
 </p>
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Syringe.png" alt="syringe" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional tumour tissue</b>
   </p>
@@ -435,19 +450,19 @@ export const logisticsContentSection =
 </p>
 
 <div className="column1" style="padding:10px;">
-  <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+  <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
     Baseline Biopsy
   </p>
   <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
     Sample taken at the start of the study before beginning treatment. Could be mandatory for some patients.
   </p>
-  <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+  <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
     Paired Biopsy
   </p>
   <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
     Sample taken during treatment. Could be mandatory for some patients.
   </p>
-  <p className="pageText" style="color:#008764; font-size: 16px; font-weight:700; margin-bottom:0px;">
+  <p className="pageText" style="color:#DA5697; font-size: 16px; font-weight:700; margin-bottom:0px;">
     Biopsy on progression
   </p>
   <p className="pageText" style="font-size: 14px; margin-left:10px; margin-top: 0px;">
@@ -456,6 +471,7 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/ExtraSamples.png" alt="extrasampels" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional unused samples</b>
   </p>
@@ -465,6 +481,7 @@ export const logisticsContentSection =
 </p>
 
 <div style="display: flex; align-items: center;">
+  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Lab.png" alt="lab2" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional blood samples</b>
   </p>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
 import Head from 'next/head'
 import { useAudioPlayer } from '@/components/AudioProvider'
@@ -17,7 +17,7 @@ export default function Logistics({data}) {
   let [audioContent, setAudioContent] = useState("");
   let [blob, setBlob] = useState("");
 
-  let [title, setTitle] = useState(data.title);
+  let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
 
   

@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
 import { risksContentSection } from './text/risksText';
 import { risksAudioSection } from './text/risksText';
@@ -16,7 +16,7 @@ export default function Risks({data}) {
   let [audioContent, setAudioContent] = useState("");
   let [blob, setBlob] = useState("");
 
-  let [title, setTitle] = useState(data.title);
+  let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
   let router = useRouter();
   const imageLoader = require("./loader")

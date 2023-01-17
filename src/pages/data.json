@@ -105,18 +105,7 @@
             },
             "content": "This is the Learn More page"
 
-        },
-        {
-            "id": "10",
-            "title": "Summary",
-            "description": "Summary",
-            "timeFrame": "5 minute read",
-            "audio": {
-                "src":"https://http://localhost:3000/a91ad4fe-e6cc-4381-96dd-b5f77436b797",
-                "type": "audio/mpeg"
-            },
-            "content": "This is the Summary page"
-
         }
+
     ]
 }

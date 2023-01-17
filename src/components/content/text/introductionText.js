@@ -1,14 +1,11 @@
-
 export const introductionContentSection = `
-        <div class="font-serif text-md font-bold">
+    <Image width={500} height={500} loader={customLoader} unoptimized  alt="video" src="http://localhost:8080/img/video.png"/>
+        <div class=" text-md font-bold">
         What is the purpose of this consent?        
         </div>
-                  <img 
-            src="http://localhost:8080/img/Risks.png"
-            alt="posterimage"
-          />
+
         <p class="text-sm font-san">
-        You are invited to take part in this study because you have <span style="color: #008764"> human epidermal growth factor
+        You are invited to take part in this study because you have <span style="color: #DA5697"> human epidermal growth factor
         receptor 2 positive (HER2-positive) metastatic breast cancer (MBC).</span> HER2-positive MBC
         means that your tumour has tested positive for a protein called HER2 that promotes the
         growth of cancer cells and has caused the cancer to spread from your breast to the other
@@ -21,7 +18,7 @@ export const introductionContentSection = `
         4) How you may withdraw from the study and what happens to your information after you withdraw.<br/><br/>
         </p>
 
-        <div class="font-serif text-md font-bold"  id="Voluntary Decision">
+        <div class=" text-md font-bold"  id="Voluntary Decision">
             Your decision to participate is voluntary    
         </div>
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-// import ExportedImage from "next-image-export-optimizer";
+// import img from "next-image-export-optimizer";
 
 import { useRouter } from 'next/router';
 
@@ -101,10 +101,10 @@ function DataPrivacySigning() {
   return (
     <>
     <div className="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14"
-    style={{backgroundColor: "#E6F7F2"}}>
+    style={{backgroundColor: "#FAECF3"}}>
     <div className="flex flex-row">
         <div className="basis-1/2">
-            {/* <ExportedImage unoptimized={true} src="http://localhost:8080/img/consent.png" alt="Consent" width={500} height={500} className="h-80px mr-20" /> */}
+            <img src="http://localhost:8080/img/consent.png" alt="Consent" className="h-80px mr-20" />
         </div>
     </div>
 

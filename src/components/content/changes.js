@@ -6,7 +6,6 @@ import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-// import ExportedImage from "next-image-export-optimizer";
 
 import { benefitsContentSection } from './text/benefitsText';
 import { benefitsAudioSection } from './text/benefitsText';
@@ -14,7 +13,7 @@ import { benefitsAudioSection } from './text/benefitsText';
 
 export default function Changes({data}) {
   let [benefitsContent, setBenefitsContent] = useState("");
-  let [title, setTitle] = useState(data.title);
+  let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
 
   let router = useRouter();

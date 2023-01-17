@@ -29,7 +29,7 @@ function PlayPauseIcon({ playing, ...props }) {
 
 
 function EpisodeEntry({ page, language }) {
-  let [title, setTitle] = useState(page.title);
+  let [title, setTitle] = useState(page.title.slice(2));
   let [description, setDescription] = useState(page.description);
   let [timeFrame, setTimeFrame] = useState(page.timeFrame);
   let [listen, setListen] = useState("Listen");
@@ -42,6 +42,7 @@ function EpisodeEntry({ page, language }) {
   let [newReading, setNewReading] = useState("");
 
   const targetLanguage = useSelector( (state) => state.language.language);
+
 
   useEffect( () => {
     if (targetLanguage) {
@@ -130,13 +131,14 @@ function EpisodeEntry({ page, language }) {
   return (
     <article
       aria-labelledby={`episode-${page.id}-title`}
-      className="py-10 sm:py-12"
+      style={{paddingTop: '2rem', paddingBottom: '2rem'}}
     >
-      <Container>
-        <div className="flex flex-col items-start">
-          <h2
+      <Container >
+        <div className="flex flex-col items-start" >
+          <div
             id={`episode-${page.id}-title`}
-            className="mt-2 text-lg font-bold text-slate-900"
+            className="text-lg font-bold text-slate-900"
+            style={{color: "#244150", fontWeight: '900', fontSize: '24px', lineHeight: '28.8px'}}
           >
             <Link     
               href={{
@@ -145,18 +147,18 @@ function EpisodeEntry({ page, language }) {
                   language: `${language}`,
                 }
               }}>{newTitle}</Link>
-          </h2>
-          <div className="order-first font-mono text-sm leading-7 text-slate-500">
+          </div>
+          <div className="order-first text-sm leading-7 text-slate-500" style={{color:"#949D9F"}}>
             {newTimeFrame}
           </div>
-          <p className="mt-1 text-base leading-7 text-slate-700">
+          <p className="text-base leading-7 text-slate-700">
             {newDescription}
           </p>
-          <div className="mt-4 flex items-center gap-4">
+          <div className="mt-1 flex items-center gap-4">
             <button
               type="button"
               onClick={() => player.toggle()}
-              className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
+              className="flex items-center text-sm font-thin leading-6 text-astraPink-200 hover:text-astraPink-100 active:text-astraPink-300"
               aria-label={`${player.playing ? 'Pause' : 'Play'} episode ${
                 page.title
               }`}
@@ -165,13 +167,13 @@ function EpisodeEntry({ page, language }) {
                 playing={player.playing}
                 className="h-2.5 w-2.5 fill-current"
               />
-              <span className="ml-3" aria-hidden="true">
+               <span className="ml-3" aria-hidden="true">                
                 {newListen} 
               </span>
             </button>
             <span
               aria-hidden="true"
-              className="text-sm font-bold text-slate-400"
+              className="text-sm font-thin text-slate-400"
             >
               /
             </span>
@@ -182,7 +184,7 @@ function EpisodeEntry({ page, language }) {
                   language: `${language}`,
                 }
               }}
-              className="flex items-center text-sm font-bold leading-6 text-astraGreen-100 hover:text-astraGreen-200 active:text-astraGreen-300"
+              className="flex items-center text-sm font-thin leading-6 text-astraPink-200 hover:text-astraPink-100 active:text-astraPink-300"
               aria-label={`Show notes for episode ${page.title}`}
             >
               {newReading}
@@ -196,7 +198,38 @@ function EpisodeEntry({ page, language }) {
 
 export default function Home({ pages }) {
   const [translatedData, setTranslatedData] = useState(pages);
-  let [header, setHeader] = useState("Read Informed Consent Document ")
+  let [header, setHeader] = useState(" Informed Consent Document ")
+  let [newHeader, setNewHeader] = useState("");
+  const targetLanguage = useSelector( (state) => state.language.language);
+
+  useEffect( () => {
+    if (targetLanguage) {
+      translateText('en', targetLanguage);
+    }
+
+    if (!targetLanguage) {
+      setNewHeader(header)
+    }
+  }, [targetLanguage])
+
+  async function translateText(sourceLanguage, targetLanguage) {
+  let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
+  
+  const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept" : "text/plain"
+    },
+      method: 'POST',
+      mode: 'cors',
+      body: header
+  });
+
+    const res = await response;
+      res.text().then(body => {
+        setNewHeader(body)
+      })  
+  }
 
 
   let router = useRouter()
@@ -216,10 +249,11 @@ export default function Home({ pages }) {
       </Head>
       <div className="pt-16 pb-12 sm:pb-4 lg:pt-12">
         <Container>
-          <h1 className="text-2xl font-bold leading-7 text-slate-900">
+          <h1 style={{fontSize: '40px', fontWeight: '900', lineHeight: '48px', color: "#244150",  }}>
+            {newHeader}
           </h1>
         </Container>
-        <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
+        <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100" >
           {translatedData.map((page) => (
             <EpisodeEntry key={page.id} page={page} language={language}/>
           ))}

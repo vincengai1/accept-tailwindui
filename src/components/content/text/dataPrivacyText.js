@@ -1,13 +1,14 @@
 
 export const dataPrivacyContentSection =
         `        
-    <div class="font-serif text-md font-bold mb-14">
+    <div class=" text-md font-bold mb-14">
       What will happen to my data and biosamples gathered in the study?
     </div>
 
     <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="flex-basis: 60%; margin-right:20px;">
+          <img    width={500} height={500} unoptimized  alt="now" src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
         </div>
 
         <div>
@@ -28,7 +29,7 @@ export const dataPrivacyContentSection =
 
     </div>
 
-    <div class="font-serif text-md font-bold mb-6">
+    <div class=" text-md font-bold mb-6">
       Which data and biosamples are collected?
     </div>
     <p className="pageText">
@@ -90,7 +91,7 @@ export const dataPrivacyContentSection =
 
     </div>
 
-    <div class="font-serif text-md font-bold mb-7">
+    <div class=" text-md font-bold mb-7">
       What are my data and biosamples needed for?
     </div>
     <p className="boxText">
@@ -204,7 +205,7 @@ export const dataPrivacyContentSection =
   </div>
 </div>
 
-  <div class="font-serif text-md font-bold" style="margin-bottom: 5px; margin-top: 30px; font-size: 20px !important;">
+  <div class=" text-md font-bold" style="margin-bottom: 5px; margin-top: 30px; font-size: 20px !important;">
     How long will my coded data and biosamples be kept?
   </div>
 
@@ -215,10 +216,10 @@ export const dataPrivacyContentSection =
     possible, unless you authorize the sponsor to use them for future research (a tick-box
     available in Part 3: “Consent Form” will allow you to make this choice). For more details
     about anonymization, see Part 1 Section 11f: “What does anonymized data mean?” or
-    internal Document Retention policy you may go to <a href="astrazenecapersonaldataretention.com" translate="no" style="color:#008764"> astrazenecapersonaldataretention.com</a>
+    internal Document Retention policy you may go to <a href="astrazenecapersonaldataretention.com" translate="no" style="color:#DA5697"> astrazenecapersonaldataretention.com</a>
   </p>
 
-  <div class="font-serif text-md font-bold" style="margin-bottom: 5px; margin-top: 30px; font-size: 20px !important;"
+  <div class=" text-md font-bold" style="margin-bottom: 5px; margin-top: 30px; font-size: 20px !important;"
   >
     What are my rights under data protection law?
   </div>
@@ -231,13 +232,14 @@ export const dataPrivacyContentSection =
     To ensure the scientific integrity of the study, you will not be able to review some of the
     data or receive a copy of it until the study ends; both you and the study doctor will know
     you are receiving the study treatment.<br /><br />
-    To exercise these <span style="color:#008764">restricted rights</span>, please contact preferably the study doctor.
+    To exercise these <span style="color:#DA5697">restricted rights</span>, please contact preferably the study doctor.
   </p>
 
-  <div class="font-serif text-md font-bold" style="margin-bottom: 2rem; margin-top: 30px; font-size: 20px !important;" >
+  <div class=" text-md font-bold" style="margin-bottom: 2rem; margin-top: 30px; font-size: 20px !important;" >
     What does anonymized data mean?
   </div>
   <div style="width: fit-content; display: flex; justify-content: space-between; border: 3px solid #E0DEDE; padding: 20px; padding-top: 25px; margin-bottom: 2rem;">
+    <img    width={500} height={500} unoptimized alt="avatar5" src="http://localhost:8080/img/avatar2.png" />
   </div>
 
   <p style="margin-top: 0px; margin-bottom: 3rem">
@@ -245,11 +247,11 @@ export const dataPrivacyContentSection =
     studies data advances clinical science and medical knowledge and is in the best interest
     of patients and public health, provided that patient privacy is protected. Therefore, the
     sponsor may generate and share internally or with other researchers an anonymized set
-    of your data collected in the study (e.g., on <a href="clinicalstudydatarequest.com" translate="no" style="color: #008764"> clinicalstudydatarequest.com</a>). 
+    of your data collected in the study (e.g., on <a href="clinicalstudydatarequest.com" translate="no" style="color: #DA5697"> clinicalstudydatarequest.com</a>). 
     This means your coded data will be stripped of your Patient code as well as of any other
     information that could reasonably be used to identify you such as your date of birth.
   </p>
-  <div class="font-serif text-md font-bold mb-14">
+  <div class=" text-md font-bold mb-14">
     Option to consent to future research
   </div>
 
@@ -258,6 +260,7 @@ export const dataPrivacyContentSection =
   <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
     <div class="flex flex-row">
       <div class="basis-1/2">
+        <img width={500} height={500} unoptimized alt="future" src="http://localhost:8080/img/Future.png" style="height:80px" />
       </div>
 
       <div>
