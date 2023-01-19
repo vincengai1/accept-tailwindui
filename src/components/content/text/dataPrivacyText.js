@@ -8,7 +8,7 @@ export const dataPrivacyContentSection =
     <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="flex-basis: 60%; margin-right:20px;">
-          <img    width={500} height={500} unoptimized  alt="now" src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
+          <img translate="no"       alt="now" src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
         </div>
 
         <div>
@@ -216,7 +216,7 @@ export const dataPrivacyContentSection =
     possible, unless you authorize the sponsor to use them for future research (a tick-box
     available in Part 3: “Consent Form” will allow you to make this choice). For more details
     about anonymization, see Part 1 Section 11f: “What does anonymized data mean?” or
-    internal Document Retention policy you may go to <a href="astrazenecapersonaldataretention.com" translate="no" style="color:#DA5697"> astrazenecapersonaldataretention.com</a>
+    internal Document Retention policy you may go to <a href="astrazenecapersonaldataretention.com" translate="no"  style="color:#DA5697"> astrazenecapersonaldataretention.com</a>
   </p>
 
   <div class=" text-md font-bold" style="margin-bottom: 5px; margin-top: 30px; font-size: 20px !important;"
@@ -239,7 +239,7 @@ export const dataPrivacyContentSection =
     What does anonymized data mean?
   </div>
   <div style="width: fit-content; display: flex; justify-content: space-between; border: 3px solid #E0DEDE; padding: 20px; padding-top: 25px; margin-bottom: 2rem;">
-    <img    width={500} height={500} unoptimized alt="avatar5" src="http://localhost:8080/img/avatar2.png" />
+    <img translate="no"      alt="avatar5" src="http://localhost:8080/img/avatar2.png" />
   </div>
 
   <p style="margin-top: 0px; margin-bottom: 3rem">
@@ -247,7 +247,7 @@ export const dataPrivacyContentSection =
     studies data advances clinical science and medical knowledge and is in the best interest
     of patients and public health, provided that patient privacy is protected. Therefore, the
     sponsor may generate and share internally or with other researchers an anonymized set
-    of your data collected in the study (e.g., on <a href="clinicalstudydatarequest.com" translate="no" style="color: #DA5697"> clinicalstudydatarequest.com</a>). 
+    of your data collected in the study (e.g., on <a href="clinicalstudydatarequest.com" translate="no"  style="color: #DA5697"> clinicalstudydatarequest.com</a>). 
     This means your coded data will be stripped of your Patient code as well as of any other
     information that could reasonably be used to identify you such as your date of birth.
   </p>
@@ -260,7 +260,7 @@ export const dataPrivacyContentSection =
   <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
     <div class="flex flex-row">
       <div class="basis-1/2">
-        <img width={500} height={500} unoptimized alt="future" src="http://localhost:8080/img/Future.png" style="height:80px" />
+        <img translate="no"   alt="future" src="http://localhost:8080/img/Future.png" style="height:80px" />
       </div>
 
       <div>

@@ -18,7 +18,6 @@ export default function Footer({prev, next}) {
     const [before, setBefore] = useState("Before");
     const [nextPage, setNextPage] = useState("Next");
     const questionsList = useSelector((state) => state.form.questions)
-  const imageLoader = require("../content/loader");
 
     let router = useRouter();
     let lango = router.asPath.slice(12);
@@ -50,7 +49,7 @@ export default function Footer({prev, next}) {
 
   async function translateBottom(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-    let consolidatedData = before + " |||| " + nextPage;
+    let consolidatedData = before + " ||||* " + nextPage;
 
     const response = await fetch(url, {
         headers: {
@@ -63,7 +62,7 @@ export default function Footer({prev, next}) {
     });
         const res = await response;
         res.text().then(body => {
-            let splitArray = body.split(" |||| ");
+            let splitArray = body.split(" ||||* ");
             let translatedSent1 = splitArray[0];
             let translatedSent2 = splitArray[1];
 
@@ -74,7 +73,7 @@ export default function Footer({prev, next}) {
 
   async function translateSection(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-    let consolidatedData = sent1 + " |||| " + sent2;
+    let consolidatedData = sent1 + " ||||* " + sent2;
 
     const response = await fetch(url, {
         headers: {
@@ -87,7 +86,7 @@ export default function Footer({prev, next}) {
     });
         const res = await response;
         res.text().then(body => {
-            let splitArray = body.split(" |||| ");
+            let splitArray = body.split(" ||||* ");
             let translatedSent1 = splitArray[0];
             let translatedSent2 = splitArray[1];
 
@@ -134,7 +133,7 @@ export default function Footer({prev, next}) {
                         className="flex items-center text-sm font-bold leading-6 text-white hover:text-astraPink-100 active:text-astraPink-200"
                         style={{textDecoration:'none',}}        
                     >
-                        <img unoptimized={true} width={500} height={500} alt="leftArrow" src="http://localhost:8080/img/leftArrow.png" style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
+                        <img translate="no" width={500} height={500} alt="leftArrow" src="http://localhost:8080/img/leftArrow.png" style={{marginRight:'15px', marginLeft: '5px',  height:'38px', width:'30px'}}/>
                         {before}
                     </Link>
                 </button>
@@ -155,7 +154,7 @@ export default function Footer({prev, next}) {
 
                             >
                                 {nextPage} 
-                                <img unoptimized={true} width={500} height={500} alt="rightArrow" src="http://localhost:8080/img/rightArrow.png" style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
+                                <img translate="no" width={500} height={500} alt="rightArrow" src="http://localhost:8080/img/rightArrow.png" style={{marginLeft:'15px', marginRight: '5px', height:'38px', width:'30px', color:'white'}}/>
                             </Link>
                         </div>
                     </div>

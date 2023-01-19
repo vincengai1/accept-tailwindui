@@ -6,7 +6,6 @@ import { Container } from '@/components/Container'
 import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-// import img from "next-image-export-optimizer";
 
 import {purposeContentSection} from './text/purposeText';
 import {purposeAudioSection} from './text/purposeText';
@@ -15,7 +14,6 @@ export default function Purpose({data}) {
   let [purposeContent, setPurposeContent] = useState("");
   let [audioContent, setAudioContent] = useState("");
   let [blob, setBlob] = useState("");
-  const imageLoader = require("./loader")
 
   let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
@@ -104,7 +102,7 @@ export default function Purpose({data}) {
   
   async function translateHeader(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = title + ' |||| ' + description;
+  let consolidatedData = title + ' ||||* ' + description;
 
   const response = await fetch(url, {
       headers: {
@@ -117,7 +115,7 @@ export default function Purpose({data}) {
   });
       const res = await response;
       res.text().then(body => {
-        let splitArray =  body.split(' |||| ');
+        let splitArray =  body.split(' ||||* ');
         let translatedTitle = splitArray[0];
         let translatedDescription = splitArray[1];
 

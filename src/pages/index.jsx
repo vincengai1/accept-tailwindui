@@ -75,7 +75,7 @@ function EpisodeEntry({ page, language }) {
 
   async function translateData(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = title + ' |||| ' + description + ' |||| ' + timeFrame;
+  let consolidatedData = title + ' ||||* ' + description + ' ||||* ' + timeFrame;
   
 
   const response = await fetch(url, {
@@ -90,7 +90,7 @@ function EpisodeEntry({ page, language }) {
 
     const res = await response;
       res.text().then(body => {
-        let splitArray = body.split(' |||| ')
+        let splitArray = body.split(' ||||* ')
         let translatedTitle = splitArray[0];
         let translatedDescription = splitArray[1];
         let translatedTimeFrame = splitArray[2];
@@ -103,7 +103,7 @@ function EpisodeEntry({ page, language }) {
 
   async function translateText(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = listen + ' |||| ' + reading ;
+  let consolidatedData = listen + ' ||||* ' + reading ;
   
 
   const response = await fetch(url, {
@@ -118,7 +118,7 @@ function EpisodeEntry({ page, language }) {
 
     const res = await response;
       res.text().then(body => {
-        let splitArray = body.split(' |||| ')
+        let splitArray = body.split(' ||||* ')
         let translatedListen = splitArray[0];
         let translatedReading = splitArray[1];
 
@@ -247,13 +247,13 @@ export default function Home({ pages }) {
           content="Conversations with the most tragically misunderstood people of our time."
         />
       </Head>
-      <div className="pt-16 pb-12 sm:pb-4 lg:pt-12">
+      <div className="pt-4 pb-12 sm:pb-4 lg:pt-8 lg:ml-4">
         <Container>
-          <h1 style={{fontSize: '40px', fontWeight: '900', lineHeight: '48px', color: "#244150",  }}>
+          <h1 style={{fontSize: '35px', fontWeight: '900', lineHeight: '38px', color: "#244150",  }}>
             {newHeader}
           </h1>
         </Container>
-        <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100" >
+        <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-6 lg:border-t lg:border-slate-100" >
           {translatedData.map((page) => (
             <EpisodeEntry key={page.id} page={page} language={language}/>
           ))}

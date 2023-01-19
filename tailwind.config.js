@@ -11,6 +11,11 @@ module.exports = {
         serif: ['Noto Serif !important']
       },
       colors: {
+        astraGray: {
+          100: "#c0ced1",
+          200: "#949D9F",
+          300: "#565d5e"
+        },
         astraPink: {
           100: "#db8ab2",
           200: "#DA5697",
@@ -20,9 +25,6 @@ module.exports = {
           100: '#29D9A5',
           200: '#22bd8f',
           300: '#167a5d',
-        },
-        astraGray: {
-          100: '#F5F5F5'
         },
         fontGray: {
           100: '#244150'

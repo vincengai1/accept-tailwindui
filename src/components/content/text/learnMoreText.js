@@ -7,7 +7,7 @@ export const introductionContentSection =
         <div class=" bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-8">
           <div  class="flex flex-row">
             <div  class="basis-1/2">
-                <img    width={500} height={500} unoptimized  alt="urls" src="http://localhost:8080/img/URLs.png" style="height:90px; margin-top: 1rem" />
+                <img translate="no"       alt="urls" src="http://localhost:8080/img/URLs.png" style="height:90px; margin-top: 1rem" />
             </div>
 
             <div>
@@ -56,7 +56,7 @@ export const introductionContentSection =
         <div class=" bg-astraGray-100 text-fontGray-100 py-8 flex flex-row rounded-xl mb-14">
           <div  class="flex flex-row" style="padding-left:2rem;">
             <div  class="basis-1/2" style="">
-                <img    width={500} height={500} unoptimized alt="contact" src="http://localhost:8080/img/Contact.png" style="height:80px;" />
+                <img translate="no"      alt="contact" src="http://localhost:8080/img/Contact.png" style="height:80px;" />
 
             </div>
 

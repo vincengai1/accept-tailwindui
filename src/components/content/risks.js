@@ -6,7 +6,6 @@ import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 import Footer from '../footer/footer';
-// import img from "next-image-export-optimizer";
 
 import { risksContentSection } from './text/risksText';
 import { risksAudioSection } from './text/risksText';
@@ -19,7 +18,6 @@ export default function Risks({data}) {
   let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
   let router = useRouter();
-  const imageLoader = require("./loader")
   
  
   useEffect( () => {
@@ -107,7 +105,7 @@ export default function Risks({data}) {
 
   async function translateHeader(sourceLanguage, targetLanguage) {
   let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-  let consolidatedData = title + ' |||| ' + description;
+  let consolidatedData = title + ' ||||* ' + description;
 
   const response = await fetch(url, {
       headers: {
@@ -120,7 +118,7 @@ export default function Risks({data}) {
   });
       const res = await response;
       res.text().then(body => {
-        let splitArray =  body.split(' |||| ' );
+        let splitArray =  body.split(' ||||* ' );
         let translatedTitle = splitArray[0];
         let translatedDescription = splitArray[1];
 

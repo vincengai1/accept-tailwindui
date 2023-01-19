@@ -3,7 +3,7 @@ export const risksContentSection =
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div  style="flex-basis:90%; margin-right:30px;">
-              <img    width={500} height={500} unoptimized alt="risks" src="http://localhost:8080/img/Risks.png" style="height:80px; width:100%"/>
+              <img translate="no"      alt="risks" src="http://localhost:8080/img/Risks.png" style="height:80px; width:100%"/>
             </div>
 
             <div>
@@ -97,17 +97,17 @@ export const risksContentSection =
         <hr class="solid"  style="margin-bottom: 2rem; margin-top: 2rem;">
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
-            <img    width={500} height={500} unoptimized alt="exclamation" src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/>  Serious side effect  
+            <img translate="no"      alt="exclamation" src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/>  Serious side effect  
         </div>
 
         <p className="pageText" style="margin-bottom: 2rem;">
           <span style="color:#DA5697"><b>Lung problems (pneumonitis/interstitial lung disease) </b></span>are a common and serious side effect of trastuzumab deruxtecan. These lung problems may be life-threatening or fatal. 
         </p>
 
-         <img    width={500} height={500} unoptimized alt="graphic" src="http://localhost:8080/img/ILD-graphic.png" style="margin-bottom:2rem; width: 100%"/>
+         <img translate="no"      alt="graphic" src="http://localhost:8080/img/ILD-graphic.png" style="margin-bottom:2rem; width: 100%"/>
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
-          <img    width={500} height={500} unoptimized alt="syringe" src="http://localhost:8080/img/syringe.png" style="margin-right: 10px"/> Symptoms 
+          <img translate="no"      alt="syringe" src="http://localhost:8080/img/syringe.png" style="margin-right: 10px"/> Symptoms 
         </div>
 
         <p className="pageText" style="margin-bottom: 2rem">
@@ -129,7 +129,7 @@ export const risksContentSection =
         </p>
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
-            <img    width={500} height={500} unoptimized alt="medicalHistory" src="http://localhost:8080/img/medicalHistory.png" style="margin-right: 10px"/> Medical history  
+            <img translate="no"      alt="medicalHistory" src="http://localhost:8080/img/medicalHistory.png" style="margin-right: 10px"/> Medical history  
         </div>
         
         <p className="pageText" style="margin-bottom: 2rem">
@@ -138,7 +138,7 @@ export const risksContentSection =
         </p>
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
-             <img    width={500} height={500} unoptimized alt="monitor" src="http://localhost:8080/img/Monitor.png" style="margin-right: 10px"/> Monitoring  
+             <img translate="no"      alt="monitor" src="http://localhost:8080/img/Monitor.png" style="margin-right: 10px"/> Monitoring  
         </div>
         
         <p className="pageText" style="margin-bottom: 2rem">
@@ -148,7 +148,7 @@ export const risksContentSection =
             serious lung problems while on the study.
         </p>
         <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
-             <img    width={500} height={500} unoptimized alt="exclamationmark" src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/> Serious reactions to look out for   
+             <img translate="no"      alt="exclamationmark" src="http://localhost:8080/img/exclamation.png" style="margin-right: 10px"/> Serious reactions to look out for   
         </div>
         
         <p className="pageText" style="margin-bottom: 2rem">
@@ -171,7 +171,7 @@ export const risksContentSection =
         </p>
 
         <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
-            <img    width={500} height={500} unoptimized alt="yellowalert" src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Share with your doctor  
+            <img translate="no"      alt="yellowalert" src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Share with your doctor  
         </div>
         <p className="pageText" style="margin-bottom: 2rem">
           <ul>
@@ -183,7 +183,7 @@ export const risksContentSection =
         </p>
           <div style="margin-bottom:10px; display: flex; align-items: center" class=" text-md font-bold "  >
 
-       <img    width={500} height={500} unoptimized alt="yelloAlert" src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Unexpected risks 
+       <img translate="no"      alt="yelloAlert" src="http://localhost:8080/img/YellowAlert.png" style="margin-right: 10px"/> Unexpected risks 
         </div>
         <p className="pageText" style="margin-bottom: 2rem">
         The study medication might have other adverse effects that are not known at this time. It
@@ -404,7 +404,7 @@ export const risksContentSection =
           There are also risks associated with some of the study procedures. The most common risks include pain or discomfort, allergic reaction, and infection. They are typically mild to moderate but could be serious or life-threatening. 
         </p>
 
-        <img    width={500} height={500} unoptimized alt="frame176" src="http://localhost:8080/img/Frame176.png" style="margin-bottom:3rem"/>
+        <img translate="no"      alt="frame176" src="http://localhost:8080/img/Frame176.png" style="margin-bottom:3rem"/>
 
         <div class="mb-14  text-md font-bold "  style="display: flex; align-items: center; margin-bottom:1rem;">
           Are there any other considerations or risks I need to know about?
@@ -412,7 +412,7 @@ export const risksContentSection =
 
         <p className="pageText" >
           <div style="display:flex; align-content:center; margin-bottom:10px; align-items: center;">
-            <img    width={500} height={500} unoptimized alt="pregnant" src="http://localhost:8080/img/Pregnant.png" style="margin-right: 10px" /><b>Pregnancy, contraception and breast-feeding</b> <br/>
+            <img translate="no"      alt="pregnant" src="http://localhost:8080/img/Pregnant.png" style="margin-right: 10px" /><b>Pregnancy, contraception and breast-feeding</b> <br/>
           </div>
           Because the effects of the study treatments on an unborn child or infant are not known, you
           (or your female partner if you are a man) must not get pregnant or breastfeed a child during
@@ -429,7 +429,7 @@ export const risksContentSection =
 
         <p className="pageText" >
           <div style="display:flex; align-content:center; margin-bottom:10px;align-items: center;">
-           <img    width={500} height={500} unoptimized alt="medicine" src="http://localhost:8080/img/Medicine.png" style="margin-right: 10px" /><b>Other medications/ vaccinations</b> <br/>
+           <img translate="no"      alt="medicine" src="http://localhost:8080/img/Medicine.png" style="margin-right: 10px" /><b>Other medications/ vaccinations</b> <br/>
           </div>
            Because the effects of the study treatments on an unborn child or infant are not known, you
           (or your female partner if you are a man) must not get pregnant or breastfeed a child during

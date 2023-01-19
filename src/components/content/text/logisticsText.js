@@ -8,7 +8,7 @@ export const logisticsContentSection =
     <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="margin-right:30px;">
-          <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Schedule.png" alt="Schedule" class="h-80px mr-20" />
+          <img translate="no"       src="http://localhost:8080/img/Schedule.png" alt="Schedule" class="h-80px mr-20" />
         </div>
 
         <div>
@@ -29,7 +29,7 @@ export const logisticsContentSection =
   Screening (0-28 days prior to starting the study treatment)
 </div>
 
-<img    width={500} height={500} unoptimized  src="http://localhost:8080/img/graphic.png" alt="graphic" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
+<img translate="no"       src="http://localhost:8080/img/graphic.png" alt="graphic" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 <p className="pageText" style="margin-bottom: 3rem;">
   You may be in the study for approximately 36 months, and may continue depending on the
@@ -53,7 +53,7 @@ export const logisticsContentSection =
   Treatment period
 </div>
 
-<img    width={500} height={500} unoptimized  src="http://localhost:8080/img/graphic2.png" alt="graphic2" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
+<img translate="no"       src="http://localhost:8080/img/graphic2.png" alt="graphic2" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 
 <p className="pageText">
@@ -125,7 +125,7 @@ export const logisticsContentSection =
   Follow-up
 </div>
 
-<img    width={500} height={500} unoptimized  src="http://localhost:8080/img/graphic3.png" alt="graphic3" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
+<img translate="no"       src="http://localhost:8080/img/graphic3.png" alt="graphic3" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 <p className="pageText">
   The follow-up period in modules 0, 2 and 3 occurs 40-47 days after the last dose of the
@@ -163,7 +163,7 @@ export const logisticsContentSection =
 <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-7">
   <div class="flex flex-row">
     <div class="basis-1/5">
-      <img width={500} height={500} unoptimized  src="http://localhost:8080/img/requiredProcedures.png" alt="requiredprocedures" class="h-80px mr-20" style="padding-right: 10px;"/>
+      <img translate="no"    src="http://localhost:8080/img/requiredProcedures.png" alt="requiredprocedures" class="h-80px mr-20" style="padding-right: 10px;"/>
     </div>
 
 
@@ -194,7 +194,7 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Wellness.png" alt="Wellness" style="margin-right:10px;" />
+  <img translate="no"       src="http://localhost:8080/img/Wellness.png" alt="Wellness" style="margin-right:10px;" />
   <p className="pageText">
     <b>Wellness checks</b>
   </p>
@@ -252,7 +252,7 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Lab.png" alt="lab" style="margin-right:10px;" />
+  <img translate="no"       src="http://localhost:8080/img/Lab.png" alt="lab" style="margin-right:10px;" />
   <p className="pageText">
     <b>Laboratory assessments</b>
   </p>
@@ -298,7 +298,7 @@ export const logisticsContentSection =
 
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/XRay.png" alt="xray" style="margin-right:10px;" />
+  <img translate="no"       src="http://localhost:8080/img/XRay.png" alt="xray" style="margin-right:10px;" />
   <p className="pageText">
     <b>Tumour and biomarker assessments</b>
   </p>
@@ -342,12 +342,12 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; flex-direction: column">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Group 204.png" alt="group204"/>
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Group205.png" alt="group205" />
+  <img translate="no"       src="http://localhost:8080/img/Group 204.png" alt="group204"/>
+  <img translate="no"       src="http://localhost:8080/img/Group205.png" alt="group205" />
 </div>
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/IV.png" style="margin-right:10px;" alt="iv"/>
+  <img translate="no"       src="http://localhost:8080/img/IV.png" style="margin-right:10px;" alt="iv"/>
   <p className="pageText">
     <b>Tumour and biomarker assessments</b>
   </p>
@@ -373,7 +373,7 @@ export const logisticsContentSection =
 </div>
 
 <div style="display:grid; grid-template-columns: 35% 65%; margin-top:2rem">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Index 1.png" alt="index1"/>
+  <img translate="no"       src="http://localhost:8080/img/Index 1.png" alt="index1"/>
 
   <div>
     <p className="pageText" style="font-weight:700; color:#DA5697">
@@ -391,7 +391,7 @@ export const logisticsContentSection =
 <div class="font-san bg-astraGray-100 text-fontGray-100 flex flex-row rounded-xl">
   <div class="flex flex-row">
     <div style="flex-basis:20%">
-      <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/info.png" alt="info" style="height:40px; padding-left: 20px;" />
+      <img translate="no"       src="http://localhost:8080/img/info.png" alt="info" style="height:40px; padding-left: 20px;" />
     </div>
 
     <div>
@@ -416,7 +416,7 @@ export const logisticsContentSection =
 <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
   <div class="flex flex-row">
     <div style="flex-basis:30%; margin-right: 30px;">
-      <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/optionalprocedures.png" alt="optinalprocedure" style="height:80px" />
+      <img translate="no"       src="http://localhost:8080/img/optionalprocedures.png" alt="optinalprocedure" style="height:80px" />
     </div>
 
     <div item xs="12" sm container>
@@ -439,7 +439,7 @@ export const logisticsContentSection =
 </p>
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Syringe.png" alt="syringe" style="margin-right:10px;" />
+  <img translate="no"       src="http://localhost:8080/img/Syringe.png" alt="syringe" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional tumour tissue</b>
   </p>
@@ -471,7 +471,7 @@ export const logisticsContentSection =
 </div>
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/ExtraSamples.png" alt="extrasampels" style="margin-right:10px;" />
+  <img translate="no"       src="http://localhost:8080/img/ExtraSamples.png" alt="extrasampels" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional unused samples</b>
   </p>
@@ -481,7 +481,7 @@ export const logisticsContentSection =
 </p>
 
 <div style="display: flex; align-items: center;">
-  <img    width={500} height={500} unoptimized  src="http://localhost:8080/img/Lab.png" alt="lab2" style="margin-right:10px;" />
+  <img translate="no"       src="http://localhost:8080/img/Lab.png" alt="lab2" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional blood samples</b>
   </p>

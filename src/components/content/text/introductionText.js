@@ -1,5 +1,5 @@
 export const introductionContentSection = `
-    <Image width={500} height={500} loader={customLoader} unoptimized  alt="video" src="http://localhost:8080/img/video.png"/>
+    <img translate="no" alt="video" src="http://localhost:8080/img/video.png"/>
         <div class=" text-md font-bold">
         What is the purpose of this consent?        
         </div>

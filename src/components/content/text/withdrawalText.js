@@ -8,7 +8,7 @@ export const introductionContentSection =
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div style="flex-basis:40%">
-                <img alt="withdraw" src="http://localhost:8080/img/withdraw.png" style="height:90px;" />
+                <img translate="no" alt="withdraw" src="http://localhost:8080/img/withdraw.png" style="height:90px;" />
             </div>
 
             <div>

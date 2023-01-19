@@ -6,19 +6,11 @@ import { Container } from '@/components/Container'
  import { PlayButton } from '@/components/player/PlayButton'
 import { useRouter } from 'next/router';
 
-// import img from "next-image-export-optimizer";
-// import VideoImage from '@/images/video.png';
-// import images from "../../../public/AboutStudy.png"
-
 import Footer from '../footer/footer';
 
 import { introductionContentSection } from './text/introductionText'
 import { introductionAudioSection } from './text/introductionText'
 
-const customLoader = ({ src }) => {
-  console.log("shalom")
-  return src
-}
 
 export default function Introduction({data}) {
   let [introContent, setIntroContent] = useState("");
@@ -28,9 +20,9 @@ export default function Introduction({data}) {
   let [blob, setBlob] = useState("");
   let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
-
+  let [timeFrame, setTimeFrame] = useState(data.timeFrame);
   let router = useRouter();
-  
+  console.log(data, 'data hoiya')
   
   useEffect( () => {
     let targetLanguage = router.asPath.slice(12)
@@ -108,7 +100,7 @@ export default function Introduction({data}) {
 
   async function translateHeader(sourceLanguage, targetLanguage) {
     let url= `http://localhost:8080/translate/text?sourceLanguageCode=${sourceLanguage}\&targetLanguageCode=${targetLanguage}`;
-    let consolidatedData = title + ' |||| ' + description;
+    let consolidatedData = title + ' ||||* ' + description;
 
     const response = await fetch(url, {
         headers: {
@@ -121,7 +113,7 @@ export default function Introduction({data}) {
     });
         const res = await response;
         res.text().then(body => {
-          let splitArray =  body.split(' |||| ');
+          let splitArray =  body.split(' ||||* ');
           let translatedTitle = splitArray[0];
           let translatedDescription = splitArray[1];
 
@@ -155,30 +147,34 @@ export default function Introduction({data}) {
         <title>{`${title} - Their Side`}</title>
         <meta name="description" content={description} />
       </Head>
-      <article >
+      <article style={{paddingTop: '0rem'}}>
         <Container>
-          <header className="flex flex-col">
-            <div className="flex items-center gap-6">
-                <PlayButton player={player} size="large" />
-              <div className="flex flex-col">
-                <h1 className="mt-2 text-4xl font-bold text-slate-900">
-                  {title} 
-                </h1>
-                <div
-                  className="order-first font-mono text-sm leading-7 text-slate-500"
-                >
+          <header className="flex flex-col mb-12">
+            <div style={{display:'flex', justifyContent: 'space-between'}}>
+              <div className="flex items-center gap-6">
+                <div className="flex flex-col">
+                  <h1 className="mt-2 text-4xl font-bold text-darkGray-100" style={{marginBottom:'0'}}>
+                    {title} 
+                  </h1>
+                  <div
+                    className="l:text-sm text-darkGray-100"
+                    style={{fontSize:'14px !important'}}
+                  >
+                    {timeFrame}
+                  </div>
                 </div>
               </div>
+              <div className="flex flex-row items-center" style={{gap:'7px'}}>
+                  <PlayButton player={player} size="medium" />
+                  <img translate="no" src="http://localhost:8080/img/text.png" alt="Consent" className="h-80px" />
+                  <img translate="no" src="http://localhost:8080/img/print.png" alt="Consent" className="h-80px" />
+
+              </div>
             </div>
-            <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
-              {description}
-            </p>
           </header>
-          <hr className="my-12 border-gray-200" />
-        
         </Container>
       </article>
-      {/* <img unoptimized={true} width={500} height={500} loader={customLoader} alt="video" src="http://localhost:8080/img/video.png?"/> */}
+
       <div className="root" id="new-element-1"  dangerouslySetInnerHTML={{ __html: introContent} } />
       
       <Footer prev={"/"} next={"/2"}/>

@@ -32,6 +32,8 @@ export default function Episode({ episode }) {
     const router = useRouter()
     let id = router.asPath.slice(1,2)
 
+    console.log(episode, 'episode ')
+
     if (router.asPath.slice(1,3) == "10") id = "10"
     let [data, setData] = useState('');
 
@@ -107,16 +109,14 @@ export default function Episode({ episode }) {
   
 
     return (
-    <>
-      <article className="py-16 lg:">
+      <article className="py-0 lg:">
         <Container>
-          <div className="prose prose-slate mt-14 [&>h2]:mt-12 [&>h2]:flex [&>h2]:items-center [&>h2]:font-mono [&>h2]:text-sm [&>h2]:font-medium [&>h2]:leading-7 [&>h2]:text-slate-900 [&>h2]:before:mr-3 [&>h2]:before:h-3 [&>h2]:before:w-1.5 [&>h2]:before:rounded-r-full [&>h2]:before:bg-cyan-200 [&>ul]:mt-6 [&>ul]:list-['\2013\20'] [&>ul]:pl-5 [&>h2:nth-of-type(3n+2)]:before:bg-indigo-200 [&>h2:nth-of-type(3n)]:before:bg-violet-200"
+          <div className="prose prose-slate mt-7 [&>h2]:mt-12 [&>h2]:flex [&>h2]:items-center [&>h2]:font-mono [&>h2]:text-sm [&>h2]:font-medium [&>h2]:leading-7 [&>h2]:text-slate-900 [&>h2]:before:mr-3 [&>h2]:before:h-3 [&>h2]:before:w-1.5 [&>h2]:before:rounded-r-full [&>h2]:before:bg-cyan-200 [&>ul]:mt-6 [&>ul]:list-['\2013\20'] [&>ul]:pl-5 [&>h2:nth-of-type(3n+2)]:before:bg-indigo-200 [&>h2:nth-of-type(3n)]:before:bg-violet-200"
           >
             {renderPage()}
           </div>
         </Container>
       </article>
-    </>
   )
 }
  
@@ -125,11 +125,12 @@ export async function getStaticProps({params}, context) {
   let data = Data.data;
 
   let episode = data
-    .map(({ id, title, description, content, audio,  }) => ({
+    .map(({ id, title, description, content, audio,  timeFrame}) => ({
       id: id.toString(),
       title: `${id}: ${title}`,
       description,
       content,
+      timeFrame,
       audio: {
         src: audio.src,
         type: audio.type,
@@ -153,8 +154,8 @@ export async function getStaticProps({params}, context) {
 
 export async function getStaticPaths() {
    let data = Data.data; 
-    console.log(data, 'work ? ')
-  return {
+
+   return {
     paths: data.map(({ id }) => ({
       params: {
         episode: id,

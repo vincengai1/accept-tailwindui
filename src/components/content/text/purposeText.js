@@ -8,7 +8,7 @@ export const purposeContentSection =
         <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div style="flex-basis: 60%; margin-right:30px;">
-                <img    width={500} height={500} unoptimized  alt="aboutStudy" src="http://localhost:8080/img/AboutStudy.png" class="h-80px mr-20" />
+                <img translate="no" alt="aboutStudy" src="http://localhost:8080/img/AboutStudy.png" class="h-80px mr-20" />
             </div>
 
             <div>
@@ -30,7 +30,7 @@ export const purposeContentSection =
           released into the cancer cell, damaging or killing it. 
         </p>
 
-        <img width={500} height={500} unoptimized  alt="group151" src="http://localhost:8080/img/Group151.png" style="margin-bottom:2rem; width:100%"/>
+        <img translate="no"    alt="group151" src="http://localhost:8080/img/Group151.png" style="margin-bottom:2rem; width:100%"/>
 
         <p className="pageText">
           <span style="background-color:#ffff99">While T-DXd has shown promising

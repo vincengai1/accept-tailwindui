@@ -61,9 +61,9 @@ export default function LanguageDropDown({targetLanguageChange}) {
   // };
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+    <Menu as="div" className="relative inline-block text-left" >
+      <div >
+        <Menu.Button style={{color: "#949D9F", fontSize: '18px', fontWeight: '400', cursor: 'pointer', width:'255px', display: 'flex', justifyContent: 'space-between'}} className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
           {currentLanguage}
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
@@ -81,7 +81,7 @@ export default function LanguageDropDown({targetLanguageChange}) {
         <Menu.Items className="inherit right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             {languageList.map((language, i) => {
               return (
-                <div className="py-1" key={i}>
+                <div className="py-1" key={i} >
                   <Menu.Item >
                     {({ active }) => (
                       <Link
@@ -96,6 +96,7 @@ export default function LanguageDropDown({targetLanguageChange}) {
                           'block px-4 py-2 text-sm'
                         )}
                         onClick={() => handleLanguageChange(language)}
+                        style={{color: "#949D9F", fontSize: '18px', fontWeight: '400', cursor: 'pointer', width:'200px'}}
                       >
                         {language.name}
                       </Link>
