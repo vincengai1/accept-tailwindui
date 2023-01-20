@@ -1,9 +1,9 @@
 export const risksContentSection =
         `      
-        <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+        <div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
           <div class="flex flex-row">
             <div  style="flex-basis:90%; margin-right:30px;">
-              <img translate="no"      alt="risks" src="http://localhost:8080/img/Risks.png" style="height:80px; width:100%"/>
+              <img translate="no" alt="risks" src="http://localhost:8080/img/Risks.png" style="height:80px; width:100%"/>
             </div>
 
             <div>
@@ -446,6 +446,8 @@ export const risksContentSection =
       `
 
 export const risksAudioSection = `
+Most of the potential side effects are common with cancer treatment.
+1 serious side effect has been reported with T-DXd: lung problems (pneumonitis/interstitial lung disease (ILD). These lung problems may be life-threatening or fatal. Symptoms may be similar to other lung or heart diseases. Your doctor will check for these signs and symptoms while you receive treatment with T-DXd and may treat you with corticosteroid medications. If you develop serious lung problems during the study, they may also delay or stop your treatment.
 What are the potential side effects and risks?
 Most of the potential side effects are common with cancer treatment.
 

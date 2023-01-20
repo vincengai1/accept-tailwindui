@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         astraGray: {
+          400: "#e9eef0",
           100: "#c0ced1",
           200: "#949D9F",
           300: "#565d5e"

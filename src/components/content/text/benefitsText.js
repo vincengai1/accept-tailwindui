@@ -3,7 +3,7 @@ export const benefitsContentSection = `
       <div class="mb-14  text-md font-bold ">
         What are the possible benefits of taking part?
       </div>
-      <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+      <div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
         <div class="flex flex-row">
           <div class="basis-1/2">
             <img translate="no"      alt="benefits" src="http://localhost:8080/img/Benefits.png" class="h-80px mr-20" />
@@ -59,5 +59,12 @@ export const benefitsContentSection = `
 `
 
 export const benefitsAudioSection = `
+What are the possible benefits of taking part?
+The main potential benefit is improving outcomes for future patients.
+
+Initial research suggests trastuzumab deruxtecan, or T-DXd, could help slow the progress of HER2-positive MBC.
+There is no certainty that you will have any benefit from any of the study treatments. However, it is possible that the study treatment could delay your MBC from getting worse. The information the study sponsor receives from this study may help to improve treatments for patients with HER2-positive MBC. It is not certain that you will directly benefit from the participation in the study. Your participation may, however, help other patients in the future by improving the knowledge of diseases and improving medical care.
+
+
 
 `

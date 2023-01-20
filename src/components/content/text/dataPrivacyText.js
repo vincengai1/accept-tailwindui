@@ -5,7 +5,7 @@ export const dataPrivacyContentSection =
       What will happen to my data and biosamples gathered in the study?
     </div>
 
-    <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+    <div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="flex-basis: 60%; margin-right:20px;">
           <img translate="no"       alt="now" src="http://localhost:8080/img/Now.png" style="height:80px; margin-right:30px;" />
@@ -257,7 +257,7 @@ export const dataPrivacyContentSection =
 
 
 
-  <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+  <div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
     <div class="flex flex-row">
       <div class="basis-1/2">
         <img translate="no"   alt="future" src="http://localhost:8080/img/Future.png" style="height:80px" />

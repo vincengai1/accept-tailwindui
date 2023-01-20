@@ -20,7 +20,7 @@ export default function LanguageDropDown({targetLanguageChange}) {
 
   useEffect( () => {
     grabLanguageList();
-    // grabVoiceList();
+
     
   }, [])
 
@@ -32,7 +32,7 @@ export default function LanguageDropDown({targetLanguageChange}) {
         mode: 'cors',
     });
      const json = await response.json();
-    //  console.log(json, 'language list')
+
      setLanguageList(json);
   }
 

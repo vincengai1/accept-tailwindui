@@ -9,13 +9,11 @@ export const formSlice = createSlice({
   initialState,
   reducers: {
     addQuestion: (state, action) => {
-        console.log(action.payload, 'action payload')
         
         let oldState = state.questions;
         oldState.push(action.payload)
 
         state.questions = oldState;
-        console.log(state.questions, 'did it get added')
     },
     removeQuestion: (state, action) => {
         let targetIndex = state.questions.indexOf(action.payload )

@@ -32,7 +32,6 @@ export default function Episode({ episode }) {
     const router = useRouter()
     let id = router.asPath.slice(1,2)
 
-    console.log(episode, 'episode ')
 
     if (router.asPath.slice(1,3) == "10") id = "10"
     let [data, setData] = useState('');
@@ -93,7 +92,8 @@ export default function Episode({ episode }) {
     )
 
     let player = useAudioPlayer(audioPlayerData)
-  
+
+    
     const renderPage = () => {
       if (id == '1') return <Introduction data={episode}/>    
       if (id == '2') return <Purpose data={episode}/>    
@@ -107,7 +107,6 @@ export default function Episode({ episode }) {
       if (id == '10') return <Summary data={episode}/>
     }
   
-
     return (
       <article className="py-0 lg:">
         <Container>

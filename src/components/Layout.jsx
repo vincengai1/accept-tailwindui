@@ -104,7 +104,7 @@ export function Layout({ children }) {
 
             <ul role="list" className="lg:mt-8 hidden lg:block flex text-base font-medium leading-7 text-slate-700 sm:gap-8 lg:flex-col lg:gap-4 lg:w-1/2" >
               {translatedTabs.map( (tab, i) => (
-                <div style={{dislpay: 'flex', alignItems: 'center'}} >
+                <div style={{dislpay: 'flex', alignItems: 'center'}} key={i}>
                   <div style={{borderLeft: '3px solid #DA5697', height:'22px', position: 'absolute' }} className={curPage == i ? "" : "hidden"}></div>
                   <div key={i} className={curPage == i ? "text-black font-black text-lg ml-4" : "text-lg font-normal text-[#949D9F] hover:text-[#c0ced1] active:text-astraGray-300 mt-2 mb-2 ml-4"} style={{ cursor: 'pointer'}}>
 
@@ -126,7 +126,7 @@ export function Layout({ children }) {
         <>
           <div className="text-lg font-normal text-[#949D9F] mt-4 mb-8">Review with Clinical Team</div>
 
-          <button style={{borderRadius: '30px', background: '#E0DEDE', padding: "15px 30px 15px 30px", color: 'white', fontWeight: '800'}}>Schedule Appointment</button>
+          <button disabled style={{borderRadius: '30px', background: '#E0DEDE', padding: "15px 30px 15px 30px", color: 'white', fontWeight: '800'}}>Schedule Appointment</button>
         </>
       
       </div>

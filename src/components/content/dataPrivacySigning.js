@@ -100,8 +100,7 @@ function DataPrivacySigning() {
 
   return (
     <>
-    <div className="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14"
-    style={{backgroundColor: "#FAECF3"}}>
+    <div className="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14" >
     <div className="flex flex-row">
         <div className="basis-1/2">
             <img translate="no" src="http://localhost:8080/img/consent.png" alt="Consent" className="h-80px mr-20" />

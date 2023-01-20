@@ -22,13 +22,11 @@ export default function Introduction({data}) {
   let [description, setDescription] = useState(data.description);
   let [timeFrame, setTimeFrame] = useState(data.timeFrame);
   let router = useRouter();
-  console.log(data, 'data hoiya')
   
   useEffect( () => {
     let targetLanguage = router.asPath.slice(12)
     
     if (!targetLanguage) {
-
       setIntroContent(introductionContentSection);
       setAudioContent(introductionAudioSection);
       fetchAudio(introductionAudioSection);
@@ -73,29 +71,29 @@ export default function Introduction({data}) {
       link: `/${data.id}`,
     }),
     [data]
-    )
+  )
 
   let player =  useAudioPlayer(audioPlayerData, blob)
   
 
   async function translateAudio(sourceLanguage, targetLanguage) {
-  let url= `http://localhost:8080/translate/text?sourceLanguageCode=en&targetLanguageCode=${targetLanguage}`;
+    let url= `http://localhost:8080/translate/text?sourceLanguageCode=en&targetLanguageCode=${targetLanguage}`;
 
 
-  const response = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        "Accept" : "text/plain"
-    },
-      method: 'POST',
-      mode: 'cors',
-      body: introductionAudioSection
-  });
-      const res = await response;
-      res.text().then(body => {
-        setAudioContent(body)
-        fetchAudio(body)
-      })  
+    const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept" : "text/plain"
+      },
+        method: 'POST',
+        mode: 'cors',
+        body: introductionAudioSection
+    });
+    const res = await response;
+    res.text().then(body => {
+      setAudioContent(body)
+      fetchAudio(body)
+    })  
   }
 
   async function translateHeader(sourceLanguage, targetLanguage) {

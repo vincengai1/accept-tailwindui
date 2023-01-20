@@ -17,6 +17,7 @@ export default function Risks({data}) {
 
   let [title, setTitle] = useState(data.title.slice(2));
   let [description, setDescription] = useState(data.description);
+  let [timeFrame, setTimeFrame] = useState(data.timeFrame);
   let router = useRouter();
   
  
@@ -26,6 +27,8 @@ export default function Risks({data}) {
     if (!targetLanguage) {
       setRisksContent(risksContentSection);
       setAudioContent(risksAudioSection);
+      fetchAudio(risksAudioSection);
+      
     }
 
     if (targetLanguage) {
@@ -34,12 +37,14 @@ export default function Risks({data}) {
       translateAudio('en', targetLanguage);
     }
 
-    fetchAudio();
   }, [])
 
 
-  async function fetchAudio() {
-    let url= "http://localhost:8080/speech/synthesize?languageCode=en&voiceId=Joanna";
+  async function fetchAudio(audioText) {
+    let targetLanguage = router.asPath.slice(12)
+    if (!targetLanguage) targetLanguage = 'en';
+
+    let url= `http://localhost:8080/speech/synthesize?languageCode=${targetLanguage}&preferredVoiceId=x`;
 
     const response = await fetch(url, {
         headers: {
@@ -48,7 +53,7 @@ export default function Risks({data}) {
         responseType: 'blob',
         method: 'POST',
         mode: 'cors',
-        body: audioContent
+        body: audioText
     });
  
     let blob = new Blob([await response.blob()], {type: 'audio/mpeg', responseType: 'blob'})
@@ -132,27 +137,31 @@ export default function Risks({data}) {
         <title>{`${title} - Their Side`}</title>
         <meta name="description" content={description} />
       </Head>
-      <article >
+      <article style={{paddingTop: '0rem'}}>
         <Container>
-          <header className="flex flex-col">
-            <div className="flex items-center gap-6">
-              <PlayButton player={player} size="large" />
-              <div className="flex flex-col">
-                <h1 className="mt-2 text-4xl font-bold text-slate-900">
-                  {title} 
-                </h1>
-                <div
-                  className="order-first font-mono text-sm leading-7 text-slate-500"
-                >
+          <header className="flex flex-col mb-12">
+            <div style={{display:'flex', justifyContent: 'space-between'}}>
+              <div className="flex items-center gap-6">
+                <div className="flex flex-col">
+                  <h1 className="mt-2 text-4xl font-bold text-darkGray-100" style={{marginBottom:'0'}}>
+                    {title} 
+                  </h1>
+                  <div
+                    className="l:text-sm text-darkGray-100"
+                    style={{fontSize:'14px !important'}}
+                  >
+                    {timeFrame}
+                  </div>
                 </div>
               </div>
+              <div className="flex flex-row items-center" style={{gap:'7px'}}>
+                  <PlayButton player={player} size="medium" />
+                  <img translate="no" src="http://localhost:8080/img/text.png" alt="Consent" className="h-80px" />
+                  <img translate="no" src="http://localhost:8080/img/print.png" alt="Consent" className="h-80px" />
+
+              </div>
             </div>
-            <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
-              {description}
-            </p>
           </header>
-          <hr className="my-12 border-gray-200" />
-        
         </Container>
       </article>
 

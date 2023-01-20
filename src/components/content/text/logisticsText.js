@@ -5,10 +5,10 @@ export const logisticsContentSection =
       What will happen if I join the study?
     </div>
 
-    <div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+    <div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
       <div class="flex flex-row">
         <div style="margin-right:30px;">
-          <img translate="no"       src="http://localhost:8080/img/Schedule.png" alt="Schedule" class="h-80px mr-20" />
+          <img translate="no" src="http://localhost:8080/img/Schedule.png" alt="Schedule" class="h-80px mr-20" />
         </div>
 
         <div>
@@ -29,7 +29,7 @@ export const logisticsContentSection =
   Screening (0-28 days prior to starting the study treatment)
 </div>
 
-<img translate="no"       src="http://localhost:8080/img/graphic.png" alt="graphic" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
+<img translate="no" src="http://localhost:8080/img/graphic.png" alt="graphic" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" />
 
 <p className="pageText" style="margin-bottom: 3rem;">
   You may be in the study for approximately 36 months, and may continue depending on the
@@ -68,7 +68,7 @@ export const logisticsContentSection =
   Participants will be randomly assigned to one module.
 </p>
 
-<table style="border-right: 1px solid #c7c7c7" style="margin-bottom: 3rem;">
+<table style="border-right: 1px solid #c7c7c7; margin-bottom: 3rem;">
   <tr style="border-top: 1px solid #c7c7c7">
     <td style="padding-left: 10px; background-color: #244150; color:white; font-family: 'Noto Sans', sans-serif; font-weight: 800; ">
       <span>Module 0</span> <br />
@@ -160,7 +160,7 @@ export const logisticsContentSection =
 </div>
 
 
-<div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-7">
+<div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-7">
   <div class="flex flex-row">
     <div class="basis-1/5">
       <img translate="no"    src="http://localhost:8080/img/requiredProcedures.png" alt="requiredprocedures" class="h-80px mr-20" style="padding-right: 10px;"/>
@@ -388,7 +388,7 @@ export const logisticsContentSection =
   </div>
 </div>
 
-<div class="font-san bg-astraGray-100 text-fontGray-100 flex flex-row rounded-xl">
+<div class="font-san bg-astraGray-400 text-fontGray-100 flex flex-row rounded-xl">
   <div class="flex flex-row">
     <div style="flex-basis:20%">
       <img translate="no"       src="http://localhost:8080/img/info.png" alt="info" style="height:40px; padding-left: 20px;" />
@@ -413,7 +413,7 @@ export const logisticsContentSection =
   What are the optional tests and procedures?
 </div>
 
-<div class="font-san bg-astraGray-100 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
+<div class="font-san bg-astraGray-400 text-fontGray-100 p-8 flex flex-row rounded-xl mb-14">
   <div class="flex flex-row">
     <div style="flex-basis:30%; margin-right: 30px;">
       <img translate="no"       src="http://localhost:8080/img/optionalprocedures.png" alt="optinalprocedure" style="height:80px" />
@@ -481,7 +481,7 @@ export const logisticsContentSection =
 </p>
 
 <div style="display: flex; align-items: center;">
-  <img translate="no"       src="http://localhost:8080/img/Lab.png" alt="lab2" style="margin-right:10px;" />
+  <img translate="no" src="http://localhost:8080/img/Lab.png" alt="lab2" style="margin-right:10px;" />
   <p className="pageText">
     <b>Optional blood samples</b>
   </p>
